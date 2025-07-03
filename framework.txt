@@ -1,0 +1,5 @@
+framework frontend: three.js, tailwind.css, react.js
+
+database: xampp, MariaDB/MySQL 11.8
+
+framework backend: Django 5.2
