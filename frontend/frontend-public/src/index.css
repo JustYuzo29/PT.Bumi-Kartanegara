@@ -1,0 +1,117 @@
+@import 'tailwindcss';
+
+/* 🎨 Tema + Global Styling */
+:root {
+  /* === Custom Theme === */
+  --color-mint-500: oklch(0.72 0.11 178); /* Light */
+
+  /* Warna tambahan */
+  --color-navy: #1E3E62;
+  --color-midnight: #00022C;
+  --color-ocean: #0B192C;
+  --color-sky: #B7D6F9;
+  --color-cloud: #82A9DF;
+  --color-tahiti: #3ab7bf;
+  --color-bermuda: #78dcca;
+  --color-warning: #FCA311;
+  --color-error: #E10000;
+  --color-snow: #EEF6FF;
+  --color-carbon: #191919;
+
+  /* Font */
+  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+
+  /* Radius & Shadow */
+  --radius-default: 0.75rem;
+  --shadow-elevated: 0 4px 10px rgba(0,0,0,0.15);
+
+  /* Global Styling */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  background-color: #ffffff;
+  color: #000000;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 🧩 Utility Kustom */
+@layer utilities {
+  .bg-navy {
+    background-color: var(--color-navy);
+  }
+
+  .text-carbon {
+    color: var(--color-carbon);
+  }
+
+  .rounded-default {
+    border-radius: var(--radius-default);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .bg-mint-500 {
+    background-color: var(--color-mint-500);
+  }
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* 🌞 LIGHT MODE */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-text: #213547;
+    --color-background: #ffffff;
+
+    /* Tambahan untuk komponen seperti dropdown */
+    --dropdown-bg: #ffffff;
+    --dropdown-text: #213547;
+    --dropdown-hover: var(--color-cloud);
+  }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+}
+
+/* 🌚 DARK MODE */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #ffffff;
+    --color-background: var(--color-navy);
+
+    /* Tambahan untuk komponen seperti dropdown */
+    --dropdown-bg: var(--color-midnight);
+    --dropdown-text: #ffffff;
+    --dropdown-hover: var(--color-ocean);
+  }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+}
