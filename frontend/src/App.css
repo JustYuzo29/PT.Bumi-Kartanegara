@@ -27,6 +27,7 @@
   --color-light-left-icon-text: #FFFFFF; /* Text/emoji color for the left icon in header */
 }
 
+/* Dark Mode Overrides */
 body.dark {
   /* Warna Mode Gelap (berdasarkan image_de0d83.png) */
   --color-dark-sidebar-bg: #211C84; /* Sidebar */
@@ -59,7 +60,8 @@ html, body, #root {
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow: hidden; /* Mencegah scroll di level root */
+  /* Transisi warna untuk tema */
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -78,6 +80,7 @@ html, body, #root {
 /* Aturan body yang disesuaikan untuk layout React */
 body {
   min-width: 320px;
+  /* Warna background dan teks default dari variabel CSS */
   background-color: var(--color-light-content-bg);
   color: var(--color-light-text-primary);
 }
@@ -109,8 +112,8 @@ body.dark .nav-link.active {
 /* Gaya untuk elemen a (link) */
 a {
   font-weight: 500;
-  color: inherit;
-  text-decoration: inherit;
+  color: inherit; /* Akan mewarisi warna teks dari parent atau tema */
+  text-decoration: none; /* Default tidak ada underline */
 }
 a:hover {
   filter: brightness(1.2); /* Sedikit cerah saat hover */
@@ -120,7 +123,7 @@ a:hover {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
-  color: inherit;
+  color: inherit; /* Akan mewarisi warna teks dari parent atau tema */
 }
 
 /* Gaya untuk elemen button */
@@ -131,6 +134,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
+  /* Menggunakan variabel CSS untuk warna background dan teks */
   background-color: var(--color-light-button-bg);
   color: var(--color-light-button-text);
   cursor: pointer;
@@ -142,4 +146,50 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Custom Checkbox Styling (form-checkbox) */
+.form-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline-block;
+  vertical-align: middle;
+  height: 1.25rem; /* h-5 */
+  width: 1.25rem;  /* w-5 */
+  border-width: 1px;
+  border-color: var(--color-light-text-secondary); /* Warna border default */
+  border-radius: 0.25rem; /* rounded */
+  background-color: var(--color-light-card-bg); /* Background default */
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.form-checkbox:checked {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 00-1.414 0L7 8.586 5.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4a1 1 0 000-1.414z'/%3e%3c/svg%3e");
+  background-size: 100% 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-color: transparent; /* Border transparan saat checked */
+  background-color: var(--color-light-button-bg); /* Warna checked */
+}
+
+.form-checkbox:focus {
+  outline: 2px solid var(--color-light-button-bg); /* Outline warna tombol */
+  outline-offset: 2px;
+}
+
+/* Dark mode overrides for checkbox */
+body.dark .form-checkbox {
+    background-color: var(--color-dark-input-bg); /* Background di dark mode (unchecked) */
+    border-color: var(--color-dark-text-secondary); /* Border di dark mode */
+}
+
+body.dark .form-checkbox:checked {
+    background-color: var(--color-dark-button-bg); /* Warna checked di dark mode */
+    border-color: transparent;
+}
+
+body.dark .form-checkbox:focus {
+  outline: 2px solid var(--color-dark-button-bg);
 }

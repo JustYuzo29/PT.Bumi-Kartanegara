@@ -7,41 +7,53 @@ import Dashboard from './pages/admin/Dashboard';
 import Monitoring from './pages/admin/Monitoring';
 import User from './pages/admin/User';
 import Code from './pages/admin/Code';
-import Configuration from './pages/admin/Configuration';
+import Configuration from './pages/admin/Configuration'; // Pastikan ini diimpor dengan benar
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  // Tambahkan state baru untuk mengontrol visibilitas sidebar
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Default true agar sidebar terlihat saat awal
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   useEffect(() => {
+    // Tambahkan atau hapus kelas 'dark' pada elemen HTML
     if (isDarkMode) {
-      document.body.classList.add('dark');
+      document.documentElement.classList.add('dark'); // Gunakan document.documentElement untuk TailwindCSS dark mode
     } else {
-      document.body.classList.remove('dark');
+      document.documentElement.classList.remove('dark');
     }
+    // Opsional: Simpan preferensi mode gelap ke localStorage
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
   }, [isDarkMode]);
+
+  // Efek untuk memuat preferensi tema dari localStorage saat aplikasi pertama kali dimuat
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      setIsDarkMode(true);
+    } else {
+      setIsDarkMode(false);
+    }
+  }, []); // Berjalan hanya sekali saat mount
 
   const toggleTheme = () => {
     setIsDarkMode(prevMode => !prevMode);
   };
 
-  // Fungsi untuk mengubah status sidebar
   const toggleSidebar = () => {
     setIsSidebarOpen(prev => !prev);
   };
 
   return (
     <Router>
-      <div className={`flex h-screen transition-colors duration-300
-        ${isDarkMode ? 'bg-[var(--color-dark-content-bg)] text-[var(--color-dark-text-primary)]' : 'bg-[var(--color-light-content-bg)] text-[var(--color-light-text-primary)]'}`}>
-        {/* Teruskan isSidebarOpen ke Sidebar */}
+      <div className={`flex h-screen transition-colors duration-300`}>
+        {/* Sidebar menerima isSidebarOpen dan isDarkMode */}
         <Sidebar isDarkMode={isDarkMode} isSidebarOpen={isSidebarOpen} />
-        <div className="flex-1 flex flex-col overflow-hidden">
-          {/* Teruskan toggleSidebar ke Header */}
+        <div className={`flex-1 flex flex-col overflow-hidden transition-all duration-300
+                        ${isSidebarOpen ? 'ml-0' : 'ml-[-256px] md:ml-0' /* Sesuaikan jika sidebar tersembunyi bergeser */}
+        `}>
+          {/* Header menerima toggleTheme dan toggleSidebar */}
           <Header isDarkMode={isDarkMode} toggleTheme={toggleTheme} toggleSidebar={toggleSidebar} />
           <main id="main-content" className={`p-6 flex-1 overflow-y-auto transition-colors duration-300
-            ${isDarkMode ? 'bg-[var(--color-dark-content-bg)]' : 'bg-[var(--color-light-content-bg)]'}`}>
+            ${isDarkMode ? 'bg-gray-900 text-gray-100' : 'bg-gray-50 text-gray-900' /* Menggunakan warna Tailwind langsung atau pastikan variabel CSS ada */}`}>
             <Routes>
               <Route path="/" element={<Navigate to="/dashboard" replace />} />
               <Route path="/dashboard" element={<Dashboard isDarkMode={isDarkMode} />} />

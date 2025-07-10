@@ -42,12 +42,12 @@ const Sidebar = ({ isDarkMode, isSidebarOpen }) => {
                   `flex items-center p-3 rounded-md transition duration-200
                   ${isActive
                     ? (isDarkMode ? 'bg-[var(--color-dark-sidebar-active)]' : 'bg-[var(--color-light-sidebar-active)]')
-                    : (isDarkMode ? 'hover:bg-[var(--color-dark-sidebar-active)]' : 'hover:bg-[var(--color-light-sidebar-active)]')
+                    : '' // Removed hover effect
                   }`
                 }
               >
                 <HomeIcon className="w-6 h-6 mr-3" /> {/* Ikon Home */}
-                <span>SITE</span>
+                <span>DASHBOARD</span>
               </NavLink>
             </li>
             <li className="mb-2">
@@ -57,7 +57,7 @@ const Sidebar = ({ isDarkMode, isSidebarOpen }) => {
                   `flex items-center p-3 rounded-md transition duration-200
                   ${isActive
                     ? (isDarkMode ? 'bg-[var(--color-dark-sidebar-active)]' : 'bg-[var(--color-light-sidebar-active)]')
-                    : (isDarkMode ? 'hover:bg-[var(--color-dark-sidebar-active)]' : 'hover:bg-[var(--color-light-sidebar-active)]')
+                    : '' // Removed hover effect
                   }`
                 }
               >
@@ -72,7 +72,7 @@ const Sidebar = ({ isDarkMode, isSidebarOpen }) => {
                   `flex items-center p-3 rounded-md transition duration-200
                   ${isActive
                     ? (isDarkMode ? 'bg-[var(--color-dark-sidebar-active)]' : 'bg-[var(--color-light-sidebar-active)]')
-                    : (isDarkMode ? 'hover:bg-[var(--color-dark-sidebar-active)]' : 'hover:bg-[var(--color-light-sidebar-active)]')
+                    : '' // Removed hover effect
                   }`
                 }
               >
@@ -87,7 +87,7 @@ const Sidebar = ({ isDarkMode, isSidebarOpen }) => {
                   `flex items-center p-3 rounded-md transition duration-200
                   ${isActive
                     ? (isDarkMode ? 'bg-[var(--color-dark-sidebar-active)]' : 'bg-[var(--color-light-sidebar-active)]')
-                    : (isDarkMode ? 'hover:bg-[var(--color-dark-sidebar-active)]' : 'hover:bg-[var(--color-light-sidebar-active)]')
+                    : '' // Removed hover effect
                   }`
                 }
               >
@@ -102,7 +102,7 @@ const Sidebar = ({ isDarkMode, isSidebarOpen }) => {
                   `flex items-center p-3 rounded-md transition duration-200
                   ${isActive
                     ? (isDarkMode ? 'bg-[var(--color-dark-sidebar-active)]' : 'bg-[var(--color-light-sidebar-active)]')
-                    : (isDarkMode ? 'hover:bg-[var(--color-dark-sidebar-active)]' : 'hover:bg-[var(--color-light-sidebar-active)]')
+                    : '' // Removed hover effect
                   }`
                 }
               >
@@ -118,7 +118,7 @@ const Sidebar = ({ isDarkMode, isSidebarOpen }) => {
       {isSidebarOpen && (
         <div className="mt-auto p-4">
           <button className={`py-2 px-6 rounded-md w-full transition duration-200 flex items-center justify-center
-            ${isDarkMode ? 'bg-[var(--color-dark-logout-button)] hover:filter hover:brightness(1.1) text-[var(--color-dark-button-text)]' : 'bg-[var(--color-light-logout-button)] hover:filter hover:brightness(1.1) text-[var(--color-light-button-text)]'}`}>
+            ${isDarkMode ? 'bg-[var(--color-dark-logout-button)] text-[var(--color-dark-button-text)]' : 'bg-[var(--color-light-logout-button)] text-[var(--color-light-button-text)]'}`}> {/* Removed hover effect */}
             <ArrowRightOnRectangleIcon className="w-6 h-6 mr-3" /> {/* Ikon Logout */}
             <span>LOGOUT</span>
           </button>
