@@ -2,9 +2,6 @@
 
 /* 🎨 Tema + Global Styling */
 :root {
-  /* === Custom Theme === */
-  --color-mint-500: oklch(0.72 0.11 178); /* Light */
-
   /* Warna tambahan */
   --color-navy: #1E3E62;
   --color-midnight: #00022C;
