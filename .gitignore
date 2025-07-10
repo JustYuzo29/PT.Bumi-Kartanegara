@@ -34,3 +34,19 @@ Thumbs.db
 # === Django Static & Media (jika tidak disimpan manual) ===
 staticfiles/
 media/
+
+# === Node Modules ===
+frontend/**/node_modules/
+frontend/**/.vite/
+
+# === Vite Build Output ===
+frontend/**/dist/
+
+# === Tailwind JIT Cache (opsional) ===
+frontend/**/.tailwind/
+
+# === Lock File (opsional jika tidak ingin commit yarn.lock/package-lock.json) ===
+package-lock.json
+package.json
+yarn.lock
+README.md
