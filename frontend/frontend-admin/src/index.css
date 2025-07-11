@@ -14,6 +14,9 @@
   --color-error: #E10000;
   --color-snow: #EEF6FF;
   --color-carbon: #191919;
+  
+  /* NEW: Define active state background color here */
+  --color-active-state-bg: #324a67; /* Color from your image */
 
   /* Font */
   --font-body: 'Poppins', sans-serif;
@@ -64,6 +67,10 @@
 
   .bg-mint-500 {
     background-color: var(--color-mint-500);
+  }
+  /* NEW: Utility for the active state background */
+  .bg-active-state-bg {
+    background-color: var(--color-active-state-bg);
   }
 }
 
