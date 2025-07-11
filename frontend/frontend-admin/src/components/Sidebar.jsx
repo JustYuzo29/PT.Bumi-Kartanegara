@@ -2,14 +2,14 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const menuItems = [
-  { label: "Site", path: "/" },             // nanti ke Dashboard misalnya
+  { label: "Site", path: "/" },
   { label: "Monitoring", path: "/monitoring" },
   { label: "User", path: "/user" },
   { label: "Code", path: "/code" },
   { label: "Configuration", path: "/config" },
 ];
 
-const Sidebar = ({ isMobileOpen = false, onClose = () => {} }{ isMobileOpen = false, onClose = () => {} }) => {
+const Sidebar = ({ isMobileOpen = false, onClose = () => {} }) => {
   const location = useLocation();
 
   return (
@@ -44,32 +44,33 @@ const Sidebar = ({ isMobileOpen = false, onClose = () => {} }{ isMobileOpen = fa
       {/* Navigation */}
       <nav className="flex-1 mt-10 space-y-2">
         {menuItems.map((item) => {
-          const isActive = active === item;
+          const isActive = location.pathname === item.path;
           return (
-            <div
-              key={item}
-              onClick={() => setActive(item)}
+            <Link
+              key={item.label}
+              to={item.path}
               className={`cursor-pointer text-sm font-semibold h-10 flex items-center ml-4 pr-4 rounded-l-full transition-all duration-300 ${
-                isActive ? "bg-[var(--color-snow)] text-black" : "text-[var(--color-text)]"
+                isActive 
+                  ? "bg-[var(--color-snow)] text-[var(--color-navy)]" // Use var(--color-navy) for active text color in light mode
+                  : "text-white" // Inactive text is white for the current dark blue background
               }`}
             >
-              <span className="pl-8">{item.toUpperCase()}</span>
-            </div>
+              <span className="pl-8">{item.label.toUpperCase()}</span>
+            </Link>
           );
         })}
       </nav>
 
-        {/* Logout */}
-        <div className="px-2 mt-20 mb-8">
-          <button
-            className="w-full py-3 rounded-full 
-                             bg-[var(--color-midnight)] 
-                             hover:bg-[var(--color-navy)] 
-                             transition text-white text-sm font-semibold"
-          >
-            LOGOUT
-          </button>
-        </div>
+      {/* Logout */}
+      <div className="px-4 mt-20 mb-8">
+        <button
+          className="w-full py-3 rounded-full 
+                     bg-[var(--color-midnight)] 
+                     hover:bg-[var(--color-navy)] 
+                     transition text-white text-sm font-semibold"
+        >
+          LOGOUT
+        </button>
       </div>
     </aside>
   );

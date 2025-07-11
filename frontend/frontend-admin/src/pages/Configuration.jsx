@@ -23,12 +23,17 @@ const Configuration = () => {
   };
 
   const renderTable = (sectionKey) => (
-    <div className="bg-[var(--color-snow)] rounded-xl shadow p-4 text-black border-l-8 border-[var(--color-midnight)]">
-      <h3 className="text-md font-bold mb-2">Hak Akses</h3>
+    // Background, text, and border for the inner table container
+    <div className="bg-[var(--color-snow)] dark:bg-[var(--color-ocean)] rounded-xl shadow p-4 
+                    text-[var(--color-carbon)] dark:text-white 
+                    border-l-8 border-[var(--color-midnight)]">
+      {/* Table title text color */}
+      <h3 className="text-md font-bold mb-2 text-[var(--color-navy)] dark:text-white">Hak Akses</h3>
       <div className="overflow-x-auto">
         <table className="min-w-full text-left border-separate border-spacing-y-2">
           <thead>
-            <tr className="font-semibold border-b border-white">
+            {/* Table header text and border color */}
+            <tr className="font-semibold border-b border-[var(--color-carbon)] dark:border-white">
               <th className="py-2 px-4">nama</th>
               <th className="py-2 px-4">Akses</th>
               <th className="py-2 px-4">action</th>
@@ -36,7 +41,11 @@ const Configuration = () => {
           </thead>
           <tbody>
             {data[sectionKey].map((item, idx) => (
-              <tr key={idx} className="rounded shadow">
+              <tr 
+                key={idx} 
+                // Table row background
+                className="rounded shadow bg-white dark:bg-[var(--color-midnight)]" // Explicit white for light mode rows
+              >
                 <td className="py-2 px-4">{item.name}</td>
                 <td className="py-2 px-4">{item.akses}</td>
                 <td className="py-2 px-4">
@@ -44,7 +53,8 @@ const Configuration = () => {
                     type="checkbox"
                     checked={item.checked}
                     onChange={() => handleToggle(sectionKey, idx)}
-                    className="w-5 h-5 accent-[var(--color-snow)] cursor-pointer"
+                    // Accent color for checkbox
+                    className="w-5 h-5 accent-[var(--color-navy)] dark:accent-[var(--color-snow)] cursor-pointer" 
                   />
                 </td>
               </tr>
@@ -56,31 +66,34 @@ const Configuration = () => {
   );
 
   return (
-    <div className="text-white space-y-10">
-      <h1 className="text-2xl font-extrabold">HAK AKSES ADMIN & STAFF</h1>
+    // Main container text color (removed explicit text-black, rely on global)
+    <div className="space-y-10 min-h-screen py-10 px-4">
+      {/* Header text color */}
+      <h1 className="text-2xl font-extrabold text-[var(--color-navy)] dark:text-white text-center">
+        HAK AKSES ADMIN & STAFF
+      </h1>
 
-      {/* Admin Section */}
-      <div className="bg-[var(--color-snow)] w-full max-w-screen-xl mx-auto px-6 rounded-xl shadow-lg">
-        <h2 className="text-xl font-bold text-black pt-4">ADMIN</h2>
-        <p className="text-sm mb-4 text-black">lorem ipsum wkwkwkwkkw</p>
+      {/* ADMIN Section */}
+      <div className="bg-white dark:bg-[var(--color-ocean)] rounded-2xl shadow-md p-6 max-w-5xl mx-auto">
+        {/* Section title and paragraph text colors */}
+        <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white">ADMIN</h2>
+        <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">lorem ipsum wkwkwkwkkw</p>
         {renderTable("admin")}
       </div>
 
-      {/* Staff Induk Section */}
-      <div className="bg-[var(--color-snow)] w-full max-w-screen-xl mx-auto px-6 rounded-xl shadow-lg">
-        <h2 className="text-xl font-bold text-black pt-4">
-          STAFF INDUK PERUSAHAAN
-        </h2>
-        <p className="text-sm mb-4 text-black">lorem ipsum wkwkwkwkkw</p>
+      {/* STAFF INDUK Section */}
+      <div className="bg-white dark:bg-[var(--color-ocean)] rounded-2xl shadow-md p-6 max-w-5xl mx-auto">
+        {/* Section title and paragraph text colors */}
+        <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white">STAFF INDUK PERUSAHAAN</h2>
+        <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">lorem ipsum wkwkwkwkkw</p>
         {renderTable("induk")}
       </div>
 
-      {/* Staff Anak Section */}
-      <div className="bg-[var(--color-snow)] w-full max-w-screen-xl mx-auto px-6 rounded-xl shadow-lg">
-        <h2 className="text-xl font-bold text-black pt-4">
-          STAFF ANAK PERUSAHAAN
-        </h2>
-        <p className="text-sm mb-4 text-black">lorem ipsum wkwkwkwkkw</p>
+      {/* STAFF ANAK Section */}
+      <div className="bg-white dark:bg-[var(--color-ocean)] rounded-2xl shadow-md p-6 max-w-5xl mx-auto">
+        {/* Section title and paragraph text colors */}
+        <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white">STAFF ANAK PERUSAHAAN</h2>
+        <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">lorem ipsum wkwkwkwkkw</p>
         {renderTable("anak")}
       </div>
     </div>
