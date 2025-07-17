@@ -41,7 +41,7 @@ const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
       <div className="w-full md:w-auto flex justify-between md:justify-end items-center gap-4">
         <input
           type="text"
-          placeholder="SEARCH"
+          placeholder="Cari..."
           className="
             w-full md:w-[300px]
             px-4 py-1 rounded-full border border-black dark:border-transparent

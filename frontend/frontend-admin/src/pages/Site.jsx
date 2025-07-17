@@ -22,16 +22,15 @@ const Site = () => {
         <h1 className="text-2xl font-extrabold mb-4 text-[var(--color-navy)] dark:text-white">
           KUNJUNGI SITUS
         </h1>
-
         <div className="w-full max-w-screen-xl mx-auto">
           <a
             href="https://blog.site.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="block text-center bg-[var(--color-midnight)] text-white 
-                       hover:bg-[var(--color-snow)] hover:text-[var(--color-navy)] // Updated hover text color for light mode
-                       font-semibold text-sm py-4 rounded-xl shadow transition
-                       dark:hover:text-black" // Keep original hover text for dark mode if needed
+            className="block text-center 
+                      bg-[var(--color-midnight)] hover:bg-[var(--color-navy)]
+                      dark:bg-[var(--color-midnight)] dark:hover:bg-[var(--color-navy)]
+                      text-white font-semibold text-sm py-4 rounded-xl shadow transition-colors duration-200"
           >
             KUNJUNGI SITUS BLOG
           </a>

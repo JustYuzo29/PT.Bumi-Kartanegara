@@ -38,7 +38,7 @@ const Sidebar = ({ isMobileOpen = false, onClose = () => {} }) => {
           Selamat Datang
         </p>
         <p className="text-base font-bold">ADMIN JEKI</p>
-        <p className="text-sm text-[var(--color-cloud)]">admin@gmail.com</p>
+        <p className="text-sm">admin@gmail.com</p>
       </div>
 
       {/* Menu & Logout */}
