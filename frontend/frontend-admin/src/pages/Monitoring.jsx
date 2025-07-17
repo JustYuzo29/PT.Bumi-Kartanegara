@@ -19,30 +19,37 @@ const Monitoring = () => {
   return (
     <div className="space-y-10">
       {/* WEB BLOG MONITORING */}
-      <div className="mb-2">
-        <h1 className="text-2xl font-extrabold tracking-wide mb-4 text-[var(--color-navy)] dark:text-white">
+      <div>
+        <h1 className="text-2xl font-extrabold mb-4 text-[var(--color-navy)] dark:text-white">
           WEB BLOG MONITORING
         </h1>
-        <div className="bg-[var(--color-white)] dark:bg-[var(--color-ocean)] w-full max-w-screen-xl mx-auto px-6 pt-4 pb-6 rounded-xl shadow-lg">
-          <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white mb-1">
-            Daily Monitoring
+
+        <div className="bg-[var(--color-white)] dark:bg-[var(--color-ocean)] w-full max-w-screen-xl mx-auto px-6 pb-8 rounded-xl shadow-lg">
+          <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white pt-4">
+            Monitoring Harian
           </h2>
-          <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">
-            lorem ipsum wkwkwkkwkwk
+          <p className="text-sm mb-6 text-[var(--color-carbon)] dark:text-white">
+            Berikut adalah beberapa riwayat monitoring terbaru yang telah dilakukan pada situs ini.
           </p>
+
           <div className="overflow-x-auto">
-            <table className="min-w-full text-left border-collapse">
+            <table className="min-w-full text-left border-separate border-spacing-y-2">
               <thead>
                 <tr className="text-[var(--color-navy)] dark:text-white font-semibold border-b border-[var(--color-carbon)] dark:border-white">
-                  <th className="py-2 px-4">nama</th>
-                  <th className="py-2 px-4">date/time</th>
-                  <th className="py-2 px-4">country</th>
+                  <th className="py-2 px-4">No.</th>
+                  <th className="py-2 px-4">Nama</th>
+                  <th className="py-2 px-4">Tanggal/Waktu</th>
+                  <th className="py-2 px-4">Negara</th>
                 </tr>
               </thead>
               <tbody className="text-[var(--color-carbon)] dark:text-white">
                 {blogData.map((item, idx) => (
-                  <tr key={idx} className="border-b border-gray-200 dark:border-gray-600">
-                    <td className="py-2 px-4">{`${idx + 1}. ${item.name}`}</td>
+                  <tr
+                    key={idx}
+                    className="bg-[var(--color-snow)] dark:bg-[var(--color-midnight)] rounded-lg shadow"
+                  >
+                    <td className="py-2 px-4">{idx + 1}.</td>
+                    <td className="py-2 px-4">{item.name}</td>
                     <td className="py-2 px-4">{item.datetime}</td>
                     <td className="py-2 px-4">{item.country}</td>
                   </tr>
@@ -82,26 +89,32 @@ const Monitoring = () => {
           </div>
         </div>
 
-        <div className="bg-[var(--color-white)] dark:bg-[var(--color-ocean)] w-full max-w-screen-xl mx-auto px-6 pt-4 pb-6 rounded-xl shadow-lg">
-          <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white mb-1">
-            Daily Monitoring
+        <div className="bg-[var(--color-white)] dark:bg-[var(--color-ocean)] w-full max-w-screen-xl mx-auto px-6 pb-8 rounded-xl shadow-lg">
+          <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white pt-4">
+            Monitoring Harian
           </h2>
-          <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">
-            lorem ipsum wkwkwkwkwk
+          <p className="text-sm mb-6 text-[var(--color-carbon)] dark:text-white">
+            Berikut adalah beberapa riwayat monitoring terbaru yang telah dilakukan pada situs ini.
           </p>
+
           <div className="overflow-x-auto">
-            <table className="min-w-full text-left border-collapse">
+            <table className="min-w-full text-left border-separate border-spacing-y-2">
               <thead>
                 <tr className="text-[var(--color-navy)] dark:text-white font-semibold border-b border-[var(--color-carbon)] dark:border-white">
-                  <th className="py-2 px-4">nama</th>
-                  <th className="py-2 px-4">date/time</th>
-                  <th className="py-2 px-4">country</th>
+                  <th className="py-2 px-4">No.</th>
+                  <th className="py-2 px-4">Nama</th>
+                  <th className="py-2 px-4">Tanggal/Waktu</th>
+                  <th className="py-2 px-4">Negara</th>
                 </tr>
               </thead>
               <tbody className="text-[var(--color-carbon)] dark:text-white">
                 {staffData.map((item, idx) => (
-                  <tr key={idx} className="border-b border-gray-200 dark:border-gray-600">
-                    <td className="py-2 px-4">{`${idx + 1}. ${item.name}`}</td>
+                  <tr
+                    key={idx}
+                    className="bg-[var(--color-snow)] dark:bg-[var(--color-midnight)] rounded-lg shadow"
+                  >
+                    <td className="py-2 px-4">{idx + 1}.</td>
+                    <td className="py-2 px-4">{item.name}</td>
                     <td className="py-2 px-4">{item.datetime}</td>
                     <td className="py-2 px-4">{item.country}</td>
                   </tr>

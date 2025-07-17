@@ -24,7 +24,7 @@ const Code = () => {
       <div className="w-full max-w-screen-xl mx-auto">
         {/* Header text color for light mode */}
         <h1 className="text-xl font-extrabold mb-4 text-[var(--color-navy)] dark:text-white">
-          ANAK PERUSAHAAN SITE
+          ADMIN SITE
         </h1>
         <a
           href="#"
@@ -33,7 +33,7 @@ const Code = () => {
                      font-semibold text-sm py-4 rounded-xl shadow transition-colors duration-200 ease-in-out
                      dark:hover:text-black" // Keep original hover text for dark mode if needed
         >
-          CODE ANAK PERUSAHAAN
+          CODE ADMIN
         </a>
       </div>
 
@@ -41,7 +41,7 @@ const Code = () => {
       <div className="w-full max-w-screen-xl mx-auto">
         {/* Header text color for light mode */}
         <h1 className="text-xl font-extrabold mb-4 text-[var(--color-navy)] dark:text-white">
-          STAFF
+          STAFF SITE
         </h1>
         <a
           href="#"
@@ -54,11 +54,11 @@ const Code = () => {
         </a>
       </div>
 
-      {/* ADMIN */}
+            {/* ADMIN */}
       <div className="w-full max-w-screen-xl mx-auto">
         {/* Header text color for light mode */}
         <h1 className="text-xl font-extrabold mb-4 text-[var(--color-navy)] dark:text-white">
-          ADMIN
+          INDUK PERUSAHAAN SITE
         </h1>
         <a
           href="#"
@@ -67,7 +67,24 @@ const Code = () => {
                      font-semibold text-sm py-4 rounded-xl shadow transition-colors duration-200 ease-in-out
                      dark:hover:text-black" // Keep original hover text for dark mode if needed
         >
-          CODE ADMIN
+          CODE INDUK PERUSAHAAN
+        </a>
+      </div>
+
+      {/* ADMIN */}
+      <div className="w-full max-w-screen-xl mx-auto">
+        {/* Header text color for light mode */}
+        <h1 className="text-xl font-extrabold mb-4 text-[var(--color-navy)] dark:text-white">
+          ANAK PERUSAHAAN SITE
+        </h1>
+        <a
+          href="#"
+          className="block text-center bg-[var(--color-midnight)] text-white 
+                     hover:bg-[var(--color-snow)] hover:text-[var(--color-navy)] // Updated hover text color for light mode
+                     font-semibold text-sm py-4 rounded-xl shadow transition-colors duration-200 ease-in-out
+                     dark:hover:text-black" // Keep original hover text for dark mode if needed
+        >
+          CODE ANAK PERUSAHAAN
         </a>
       </div>
     </div>

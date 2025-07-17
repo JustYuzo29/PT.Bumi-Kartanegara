@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const menuItems = [
-  { label: "Site", path: "/" },             // nanti ke Dashboard misalnya
+  { label: "Situs", path: "/" }, // nanti ke Dashboard misalnya
   { label: "Monitoring", path: "/monitoring" },
   { label: "User", path: "/user" },
   { label: "Code", path: "/code" },
@@ -35,10 +35,10 @@ const Sidebar = ({ isMobileOpen = false, onClose = () => {} }) => {
       <div className="text-center mt-10 px-4">
         <div className="w-24 h-24 rounded-full bg-[var(--color-midnight)] mx-auto" />
         <p className="mt-4 text-xs font-semibold uppercase tracking-wider">
-          Welcome
+          Selamat Datang
         </p>
-        <p className="text-base font-bold">NAMA ADMIN</p>
-        <p className="text-sm text-[var(--color-cloud)]">skajaksj@gmail.com</p>
+        <p className="text-base font-bold">ADMIN JEKI</p>
+        <p className="text-sm text-[var(--color-cloud)]">admin@gmail.com</p>
       </div>
 
       {/* Menu & Logout */}
@@ -65,9 +65,7 @@ const Sidebar = ({ isMobileOpen = false, onClose = () => {} }) => {
                     backgroundColor: isActive
                       ? "var(--color-snow)"
                       : "transparent",
-                    boxShadow: isActive
-                      ? "0 0 10px 5px rgba(255, 255, 255, 0.15)"
-                      : "none",
+                    // Removed box-shadow here
                   }}
                 />
                 <style>
@@ -75,7 +73,7 @@ const Sidebar = ({ isMobileOpen = false, onClose = () => {} }) => {
                     @media (prefers-color-scheme: dark) {
                       div[style*="background-color: var(--color-snow)"] {
                         background-color: var(--color-navy) !important;
-                        box-shadow: 0 0 10px 5px rgba(11, 25, 44, 0.7) !important;
+                        /* Removed box-shadow here as well */
                       }
                     }
                   `}
@@ -96,9 +94,9 @@ const Sidebar = ({ isMobileOpen = false, onClose = () => {} }) => {
         <div className="px-2 mt-20 mb-8">
           <button
             className="w-full py-3 rounded-full 
-                             bg-[var(--color-midnight)] 
-                             hover:bg-[var(--color-navy)] 
-                             transition text-white text-sm font-semibold"
+                            bg-[var(--color-midnight)] 
+                            hover:bg-[var(--color-navy)] 
+                            transition text-white text-sm font-semibold"
           >
             LOGOUT
           </button>

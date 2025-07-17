@@ -7,9 +7,9 @@ import {
 
 const User = () => {
   const users = [
-    { name: "lorem ipsum", email: "jkcajakc@gmail.com" },
-    { name: "lorem ipsum", email: "jkcajakc@gmail.com" },
-    { name: "lorem ipsum", email: "jkcajakc@gmail.com" },
+    { name: "lorem ipsum", email: "loremipsum@gmail.com" },
+    { name: "lorem ipsum", email: "loremipsum@gmail.com" },
+    { name: "lorem ipsum", email: "loremipsum@gmail.com" },
   ];
 
   return (
@@ -25,10 +25,10 @@ const User = () => {
         <div className="bg-[var(--color-white)] dark:bg-[var(--color-ocean)] w-full max-w-screen-xl mx-auto px-6 pb-8 rounded-xl shadow-lg">
           {/* Text colors for light mode */}
           <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white pt-4">
-            Admin Settings
+            Pengaturan Admin
           </h2>
           <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">
-            lorem ipsum wkwkwkwkkw
+            Berikut adalah beberapa pengaturan yang dapat dilakukan oleh admin untuk mengelola situs ini.
           </p>
 
           {/* Table */}
@@ -37,9 +37,10 @@ const User = () => {
               <thead>
                 {/* Table header text and border colors for light mode */}
                 <tr className="text-[var(--color-navy)] dark:text-white font-semibold border-b border-[var(--color-carbon)] dark:border-white">
-                  <th className="py-2 px-4">nama</th>
-                  <th className="py-2 px-4">email</th>
-                  <th className="py-2 px-4">action</th>
+                  <th className="py-2 px-4">No.</th>
+                  <th className="py-2 px-4">Nama</th>
+                  <th className="py-2 px-4">Email</th>
+                  <th className="py-2 px-4">Aksi</th>
                 </tr>
               </thead>
               {/* Table body text color for light mode */}
@@ -50,7 +51,8 @@ const User = () => {
                     // Table row background for light mode
                     className="bg-[var(--color-snow)] dark:bg-[var(--color-midnight)] rounded-lg shadow"
                   >
-                    <td className="py-2 px-4">{`${idx + 1}. ${user.name}`}</td>
+                    <td className="py-2 px-4">{idx + 1}.</td>
+                    <td className="py-2 px-4">{user.name}</td>
                     <td className="py-2 px-4">{user.email}</td>
                     <td className="py-2 px-4 space-x-2">
                       <PencilSquareIcon className="h-5 w-5 inline-block text-yellow-400 hover:text-yellow-500 cursor-pointer" />
@@ -101,10 +103,10 @@ const User = () => {
         <div className="bg-[var(--color-white)] dark:bg-[var(--color-ocean)] w-full max-w-screen-xl mx-auto px-6 pb-8 rounded-xl shadow-lg">
           {/* Text colors for light mode */}
           <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white pt-4">
-            Staff Settings
+            Pengaturan Staff
           </h2>
           <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">
-            lorem ipsum wkwkwkkwkw
+            Berikut adalah beberapa pengaturan yang dapat dilakukan oleh admin untuk mengelola staff.
           </p>
 
           {/* Table */}
@@ -113,9 +115,10 @@ const User = () => {
               <thead>
                 {/* Table header text and border colors for light mode */}
                 <tr className="text-[var(--color-navy)] dark:text-white font-semibold border-b border-[var(--color-carbon)] dark:border-white">
-                  <th className="py-2 px-4">nama</th>
-                  <th className="py-2 px-4">email</th>
-                  <th className="py-2 px-4">action</th>
+                  <th className="py-2 px-4">No.</th>
+                  <th className="py-2 px-4">Nama</th>
+                  <th className="py-2 px-4">Email</th>
+                  <th className="py-2 px-4">Aksi</th>
                 </tr>
               </thead>
               {/* Table body text color for light mode */}
@@ -126,7 +129,8 @@ const User = () => {
                     // Table row background for light mode
                     className="bg-[var(--color-snow)] dark:bg-[var(--color-midnight)] rounded-lg shadow"
                   >
-                    <td className="py-2 px-4">{`${idx + 1}. ${user.name}`}</td>
+                    <td className="py-2 px-4">{idx + 1}.</td>
+                    <td className="py-2 px-4">{user.name}</td>
                     <td className="py-2 px-4">{user.email}</td>
                     <td className="py-2 px-4 space-x-2">
                       <PencilSquareIcon className="h-5 w-5 inline-block text-yellow-400 hover:text-yellow-500 cursor-pointer" />

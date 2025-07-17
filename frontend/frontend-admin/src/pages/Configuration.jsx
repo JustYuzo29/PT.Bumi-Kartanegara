@@ -3,16 +3,16 @@ import React, { useState } from "react";
 const Configuration = () => {
   const [data, setData] = useState({
     admin: [
-      { name: "awang", akses: "wkwkwkwkwkwkwkwkwkk", checked: false },
-      { name: "arham", akses: "wkwkwkwkwkwkwkwkwkk", checked: true },
+      { name: "Jeki", akses: "Akses itu", checked: false },
+      { name: "Icong", akses: "Akses ini", checked: true },
     ],
     induk: [
-      { name: "aksal", akses: "wkwkwkwkwkwkwkwkwkk", checked: false },
-      { name: "bang jack", akses: "wkwkwkwkwkwkwkwkwkk", checked: true },
+      { name: "Arham", akses: "Akses itu", checked: false },
+      { name: "Awang", akses: "Akses ini", checked: true },
     ],
     anak: [
-      { name: "awang", akses: "wkwkwkwkwkwkwkwkwkk", checked: false },
-      { name: "arham", akses: "wkwkwkwkwkwkwkwkwkk", checked: true },
+      { name: "Aksal", akses: "Akses itu", checked: false },
+      { name: "Rifki", akses: "Akses ini", checked: true },
     ],
   });
 
@@ -34,9 +34,10 @@ const Configuration = () => {
           <thead>
             {/* Table header text and border color */}
             <tr className="font-semibold border-b border-[var(--color-carbon)] dark:border-white">
-              <th className="py-2 px-4">nama</th>
+              <th className="py-2 px-4">No.</th>
+              <th className="py-2 px-4">Nama</th>
               <th className="py-2 px-4">Akses</th>
-              <th className="py-2 px-4">action</th>
+              <th className="py-2 px-4">Aksi</th>
             </tr>
           </thead>
           <tbody>
@@ -46,6 +47,7 @@ const Configuration = () => {
                 // Table row background
                 className="rounded shadow bg-white dark:bg-[var(--color-midnight)]" // Explicit white for light mode rows
               >
+                <td className="py-2 px-4">{idx + 1}.</td>
                 <td className="py-2 px-4">{item.name}</td>
                 <td className="py-2 px-4">{item.akses}</td>
                 <td className="py-2 px-4">
@@ -77,7 +79,7 @@ const Configuration = () => {
       <div className="bg-white dark:bg-[var(--color-ocean)] rounded-2xl shadow-md p-6 max-w-5xl mx-auto">
         {/* Section title and paragraph text colors */}
         <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white">ADMIN</h2>
-        <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">lorem ipsum wkwkwkwkkw</p>
+        <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">Ini adalah deskripsi untuk ADMIN</p>
         {renderTable("admin")}
       </div>
 
@@ -85,7 +87,7 @@ const Configuration = () => {
       <div className="bg-white dark:bg-[var(--color-ocean)] rounded-2xl shadow-md p-6 max-w-5xl mx-auto">
         {/* Section title and paragraph text colors */}
         <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white">STAFF INDUK PERUSAHAAN</h2>
-        <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">lorem ipsum wkwkwkwkkw</p>
+        <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">Ini adalah deskripsi untuk STAFF INDUK PERUSAHAAN</p>
         {renderTable("induk")}
       </div>
 
@@ -93,7 +95,7 @@ const Configuration = () => {
       <div className="bg-white dark:bg-[var(--color-ocean)] rounded-2xl shadow-md p-6 max-w-5xl mx-auto">
         {/* Section title and paragraph text colors */}
         <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white">STAFF ANAK PERUSAHAAN</h2>
-        <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">lorem ipsum wkwkwkwkkw</p>
+        <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">Ini adalah deskripsi untuk STAFF ANAK PERUSAHAAN</p>
         {renderTable("anak")}
       </div>
     </div>
