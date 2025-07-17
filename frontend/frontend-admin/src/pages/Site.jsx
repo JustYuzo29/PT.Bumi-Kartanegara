@@ -45,7 +45,7 @@ const Site = () => {
         </h1>
 
         {/* The overall background for the Updates section should be light in light mode */}
-        <div className="bg-[var(--color-snow)] dark:bg-[var(--color-ocean)] w-full max-w-screen-xl mx-auto px-6 rounded-xl shadow-lg">
+        <div className="bg-[var(--color-white)] dark:bg-[var(--color-ocean)] w-full max-w-screen-xl mx-auto px-6 pb-8 rounded-xl shadow-lg">
           <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white pt-4">
             Recent Updates
           </h2>

@@ -22,7 +22,7 @@ const User = () => {
         </h1>
 
         {/* Card Box background for light mode */}
-        <div className="bg-[var(--color-snow)] dark:bg-[var(--color-ocean)] w-full max-w-screen-xl mx-auto px-6 rounded-xl shadow-lg">
+        <div className="bg-[var(--color-white)] dark:bg-[var(--color-ocean)] w-full max-w-screen-xl mx-auto px-6 pb-8 rounded-xl shadow-lg">
           {/* Text colors for light mode */}
           <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white pt-4">
             Admin Settings
@@ -73,18 +73,32 @@ const User = () => {
 
         {/* Icon + Dropdown */}
         <div className="flex items-center gap-3 mb-4">
-          {/* Icon color for light mode */}
           <BuildingOffice2Icon className="h-6 w-6 text-[var(--color-navy)] dark:text-white" />
-          {/* Select styling for light mode */}
-          <select className="bg-[var(--color-snow)] text-[var(--color-carbon)] dark:bg-[var(--color-midnight)] dark:text-white text-sm px-4 py-2 rounded-lg shadow focus:outline-none">
-            <option>Induk Perusahaan</option>
-            <option>Anak Perusahaan</option>
-          </select>
+          <div className="relative inline-block">
+            <select className="dropdown-select">
+              <option>Perusahaan Induk</option>
+              <option>Perusahaan Anak</option>
+            </select>
+            <div className="dropdown-arrow">
+              <svg
+                className="w-4 h-4 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.25 8.29a.75.75 0 01-.02-1.08z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
         </div>
 
         {/* Card Box */}
         {/* Card Box background for light mode */}
-        <div className="bg-[var(--color-snow)] dark:bg-[var(--color-ocean)] w-full max-w-screen-xl mx-auto px-6 rounded-xl shadow-lg">
+        <div className="bg-[var(--color-white)] dark:bg-[var(--color-ocean)] w-full max-w-screen-xl mx-auto px-6 pb-8 rounded-xl shadow-lg">
           {/* Text colors for light mode */}
           <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white pt-4">
             Staff Settings

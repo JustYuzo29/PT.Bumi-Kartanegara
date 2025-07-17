@@ -9,7 +9,8 @@ const menuItems = [
   { label: "Configuration", path: "/config" },
 ];
 
-const Sidebar = ({ isMobileOpen = false, onClose = () => {} }) => {
+// Asumsikan isDarkMode diteruskan sebagai prop atau diambil dari context
+const Sidebar = ({ isMobileOpen = false, onClose = () => {}, isDarkMode = false }) => {
   const location = useLocation();
 
   return (
@@ -51,8 +52,12 @@ const Sidebar = ({ isMobileOpen = false, onClose = () => {} }) => {
               to={item.path}
               className={`cursor-pointer text-sm font-semibold h-10 flex items-center ml-4 pr-4 rounded-l-full transition-all duration-300 ${
                 isActive 
-                  ? "bg-[var(--color-snow)] text-[var(--color-navy)]" // Use var(--color-navy) for active text color in light mode
-                  : "text-white" // Inactive text is white for the current dark blue background
+                  ? isDarkMode 
+                    ? "bg-[var(--color-ocean)] text-white" // Active in Dark Mode: bg ocean, text white (or a lighter accent)
+                    : "bg-[var(--color-snow)] text-[var(--color-navy)]" // Active in Light Mode: bg snow, text navy
+                  : isDarkMode 
+                    ? "text-[var(--color-cloud)]" // Inactive in Dark Mode: text cloud
+                    : "text-white" // Inactive in Light Mode: text white (against the navy sidebar)
               }`}
             >
               <span className="pl-8">{item.label.toUpperCase()}</span>
