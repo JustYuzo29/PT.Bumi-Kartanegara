@@ -1,16 +1,14 @@
 // src/App.jsx
 import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import Topbar from "./components/Topbar";
 import Sidebar from "./components/Sidebar";
 
-import Site from './pages/Site';
+import Site from "./pages/Site";
 import Monitoring from "./pages/Monitoring";
 import User from "./pages/User";
-import Code from './pages/Code';
+import Code from "./pages/Code";
 import Configuration from "./pages/Configuration";
-// import halaman lain jika ada
 
 function App() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
@@ -19,30 +17,26 @@ function App() {
 
   return (
     <Router>
-      <div className="flex h-screen w-full bg-[var(--color-snow)] dark:bg-[var(--color-navy)] overflow-hidden relative">
-        {/* Sidebar responsif */}
+      <div className="flex h-screen overflow-hidden bg-[var(--color-snow)] dark:bg-[var(--color-navy)]">
         <Sidebar isMobileOpen={isSidebarOpen} onClose={closeSidebar} />
 
-        {/* Backdrop untuk mobile drawer */}
         {isSidebarOpen && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-40 z-40 md:hidden"
-            onClick={closeSidebar}
-          />
+          <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={closeSidebar}></div>
         )}
 
-        {/* Konten kanan */}
-        <div className="flex flex-col flex-grow md:pl-64">
+        <div className="flex flex-col flex-grow min-w-0 md:pl-64">
           <Topbar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
 
-          <main className="flex-grow p-6 overflow-y-auto">
-            <Routes>
-              <Route path="/" element={<Site />} />
-              <Route path="/monitoring" element={<Monitoring />} />
-              <Route path="/user" element={<User />} />
-              <Route path="/code" element={<Code />} />
-              <Route path="/config" element={<Configuration />} />
-            </Routes>
+          <main className="flex-grow overflow-auto min-w-0">
+            <div className="container mx-auto px-4 py-6 min-w-0">
+              <Routes>
+                <Route path="/" element={<Site />} />
+                <Route path="/monitoring" element={<Monitoring />} />
+                <Route path="/user" element={<User />} />
+                <Route path="/code" element={<Code />} />
+                <Route path="/config" element={<Configuration />} />
+              </Routes>
+            </div>
           </main>
         </div>
       </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const menuItems = [
-  { label: "Situs", path: "/" }, // nanti ke Dashboard misalnya
+  { label: "Situs", path: "/" },
   { label: "Monitoring", path: "/monitoring" },
   { label: "User", path: "/user" },
   { label: "Code", path: "/code" },
@@ -39,10 +39,20 @@ const Sidebar = ({ isMobileOpen = false, onClose = () => {} }) => {
         </p>
         <p className="text-base font-bold">ADMIN JEKI</p>
         <p className="text-sm">admin@gmail.com</p>
+
+        {/* Dropdown Admin hanya muncul di mobile */}
+        <div className="mt-4 md:hidden">
+          <select
+            className="w-full bg-white dark:bg-[var(--color-snow)] text-black dark:text-[var(--color-navy)] text-sm px-3 py-1 rounded-md border border-gray-300 dark:border-transparent focus:outline-none"
+          >
+            <option>Admin</option>
+            <option>Superadmin</option>
+          </select>
+        </div>
       </div>
 
       {/* Menu & Logout */}
-      <div className="flex flex-col flex-1 justify-between px-4 pt-12">
+      <div className="flex flex-col flex-1 justify-between px-4 pt-8">
         <div className="flex flex-col gap-8">
           {menuItems.map((item) => {
             const isActive = location.pathname === item.path;
@@ -65,19 +75,8 @@ const Sidebar = ({ isMobileOpen = false, onClose = () => {} }) => {
                     backgroundColor: isActive
                       ? "var(--color-snow)"
                       : "transparent",
-                    // Removed box-shadow here
                   }}
                 />
-                <style>
-                  {`
-                    @media (prefers-color-scheme: dark) {
-                      div[style*="background-color: var(--color-snow)"] {
-                        background-color: var(--color-navy) !important;
-                        /* Removed box-shadow here as well */
-                      }
-                    }
-                  `}
-                </style>
                 <span
                   className={`relative z-10 pl-6 font-semibold text-base ${
                     isActive ? "text-black" : "text-white"
