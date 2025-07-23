@@ -70,19 +70,18 @@ const Site = () => {
     <div className="space-y-10">
       {/* VISIT SITE */}
       <section>
-        <h1 className="text-2xl font-extrabold text-[var(--color-navy)] dark:text-white mb-4">
+        <h1 className="text-2xl font-extrabold text-[var(--color-navy)] dark:text-white mb-3">
           KUNJUNGI SITUS
         </h1>
-        <div className="flex justify-center">
-          <a
-            href="https://blog.site.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-[var(--color-midnight)] hover:bg-[var(--color-navy)] text-white font-semibold text-sm py-3 px-6 rounded-xl shadow transition-colors duration-200"
-          >
-            KUNJUNGI SITUS BLOG
-          </a>
-        </div>
+        {/* pindah ke kiri, bawah title */}
+        <a
+          href="https://blog.site.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-[var(--color-midnight)] hover:bg-[var(--color-navy)] text-white font-semibold text-sm py-3 px-6 rounded-xl shadow transition-colors duration-200"
+        >
+          KUNJUNGI SITUS BLOG
+        </a>
       </section>
 
       {/* METRICS */}
