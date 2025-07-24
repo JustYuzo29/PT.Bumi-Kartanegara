@@ -33,7 +33,7 @@ Thumbs.db
 
 # === Django Static & Media (jika tidak disimpan manual) ===
 staticfiles/
-media/
+mediafiles/
 
 # === Node Modules ===
 frontend/**/node_modules/
