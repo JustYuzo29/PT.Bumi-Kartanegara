@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Line, Doughnut } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,8 +10,12 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+
+import MonitoringTitle from "../components/monitoring/MonitoringTitle";
+import MonitoringStatsCard from "../components/monitoring/MonitoringStatsCard";
+import MonitoringChart from "../components/monitoring/MonitoringChart";
+import MonitoringTrafficChart from "../components/monitoring/MonitoringTrafficChart";
+import MonitoringTable from "../components/monitoring/MonitoringTable";
 
 ChartJS.register(
   CategoryScale,
@@ -26,7 +29,6 @@ ChartJS.register(
 );
 
 const Monitoring = () => {
-  // === logic asli, tidak diubah ===
   const [chartType] = useState("line");
   const [startDate, setStartDate] = useState(
     new Date(new Date().setMonth(new Date().getMonth() - 1))
@@ -121,8 +123,7 @@ const Monitoring = () => {
   const avgBounceRate =
     visitorData.length > 0
       ? (
-          (visitorData.reduce((s, i) => s + i.bounceRate, 0) /
-            visitorData.length) *
+          (visitorData.reduce((s, i) => s + i.bounceRate, 0) / visitorData.length) *
           100
         ).toFixed(0)
       : 0;
@@ -141,140 +142,46 @@ const Monitoring = () => {
     { name: "lorem ipsum", datetime: "15-08-2025/14.00", country: "Indonesia" },
   ];
 
-  // ====== UI ======
   return (
     <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 md:px-10 py-6 space-y-10">
-      {/* ===== STATISTIK PENGUNJUNG ===== */}
       <h1 className="text-2xl font-extrabold text-[var(--color-navy)] dark:text-white">
         Statistik Pengunjung
       </h1>
+
+      <MonitoringStatsCard
+        startDate={startDate}
+        endDate={endDate}
+        setStartDate={setStartDate}
+        setEndDate={setEndDate}
+        totalVisitors={totalVisitors}
+        totalPageViews={totalPageViews}
+        avgBounceRate={avgBounceRate}
+      />
+
+      <MonitoringChart
+        data={visitorsChartData}
+        options={visitorsChartOptions}
+      />
+
+      <MonitoringTitle title="Sumber Lalu Lintas" />
       <div className="rounded-xl shadow-lg p-4 sm:p-6 md:p-10 bg-[var(--color-white)] dark:bg-[var(--color-ocean)]">
-        <div className="flex flex-wrap gap-8 mb-4">
-          <div className="text-sm text-[var(--color-carbon)] dark:text-white flex items-center">
-            Dari:
-            <DatePicker
-              selected={startDate}
-              onChange={(date) => setStartDate(date)}
-              className="ml-2 p-1 rounded border border-gray-300"
-            />
-          </div>
-          <div className="text-sm text-[var(--color-carbon)] dark:text-white flex items-center">
-            Sampai:
-            <DatePicker
-              selected={endDate}
-              onChange={(date) => setEndDate(date)}
-              className="ml-2 p-1 rounded border border-gray-300"
-            />
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-          <div>
-            <p>Total Pengunjung</p>
-            <h2 className="text-2xl font-bold text-[var(--color-navy)] dark:text-white">
-              {totalVisitors}
-            </h2>
-          </div>
-          <div>
-            <p>Total Halaman</p>
-            <h2 className="text-2xl font-bold text-[var(--color-navy)] dark:text-white">
-              {totalPageViews}
-            </h2>
-          </div>
-          <div>
-            <p>Bounce Rate Rata-rata</p>
-            <h2 className="text-2xl font-bold text-[var(--color-navy)] dark:text-white">
-              {avgBounceRate}%
-            </h2>
-          </div>
-        </div>
-
-        <div className="w-full max-w-2xl md:max-w-3xl mx-auto h-60 sm:h-72 md:h-96">
-          <Line data={visitorsChartData} options={visitorsChartOptions} />
-        </div>
+        <MonitoringTrafficChart
+          data={trafficSourceData}
+          options={trafficSourceOptions}
+        />
       </div>
 
-      {/* ===== SUMBER LALU LINTAS ===== */}
-      <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white">
-        Sumber Lalu Lintas
-      </h2>
-      <div className="rounded-xl shadow-lg p-4 sm:p-6 md:p-10 bg-[var(--color-white)] dark:bg-[var(--color-ocean)]">
-        <div className="w-full max-w-lg mx-auto h-60 sm:h-72 md:h-80 flex items-center">
-          <Doughnut data={trafficSourceData} options={trafficSourceOptions} />
-        </div>
-      </div>
+      <MonitoringTable
+        title="WEB BLOG MONITORING"
+        subtitle="Berikut adalah beberapa riwayat monitoring terbaru yang telah dilakukan pada situs ini."
+        data={blogData}
+      />
 
-      {/* ===== MONITORING BLOG ===== */}
-      <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white">
-        WEB BLOG MONITORING
-      </h2>
-      <div className="rounded-xl shadow-lg p-4 sm:p-6 md:p-10 bg-[var(--color-white)] dark:bg-[var(--color-ocean)]">
-        <p className="text-sm mb-6 text-[var(--color-carbon)] dark:text-white">
-          Berikut adalah beberapa riwayat monitoring terbaru yang telah
-          dilakukan pada situs ini.
-        </p>
-        <div className="overflow-x-auto">
-          <table className="min-w-full table-auto border-separate border-spacing-y-2">
-            <thead>
-              <tr className="text-[var(--color-navy)] dark:text-white font-semibold border-b border-[var(--color-carbon)] dark:border-white">
-                <th className="py-2 px-4">No.</th>
-                <th className="py-2 px-4">Nama</th>
-                <th className="py-2 px-4">Tanggal/Waktu</th>
-                <th className="py-2 px-4">Negara</th>
-              </tr>
-            </thead>
-            <tbody className="text-[var(--color-carbon)] dark:text-white">
-              {blogData.map((item, i) => (
-                <tr
-                  key={i}
-                  className="bg-[var(--color-snow)] dark:bg-[var(--color-midnight)] rounded-lg shadow"
-                >
-                  <td className="py-2 px-4">{i + 1}.</td>
-                  <td className="py-2 px-4">{item.name}</td>
-                  <td className="py-2 px-4">{item.datetime}</td>
-                  <td className="py-2 px-4">{item.country}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      {/* ===== MONITORING STAFF ===== */}
-      <h2 className="text-xl font-bold text-[var(--color-navy)] dark:text-white">
-        STAFF MONITORING
-      </h2>
-      <div className="rounded-xl shadow-lg p-4 sm:p-6 md:p-10 bg-[var(--color-white)] dark:bg-[var(--color-ocean)]">
-        <p className="text-sm mb-6 text-[var(--color-carbon)] dark:text-white">
-          Berikut adalah beberapa riwayat monitoring terbaru yang telah
-          dilakukan pada situs ini.
-        </p>
-        <div className="overflow-x-auto">
-          <table className="min-w-full table-auto border-separate border-spacing-y-2">
-            <thead>
-              <tr className="text-[var(--color-navy)] dark:text-white font-semibold border-b border-[var(--color-carbon)] dark:border-white">
-                <th className="py-2 px-4">No.</th>
-                <th className="py-2 px-4">Nama</th>
-                <th className="py-2 px-4">Tanggal/Waktu</th>
-                <th className="py-2 px-4">Negara</th>
-              </tr>
-            </thead>
-            <tbody className="text-[var(--color-carbon)] dark:text-white">
-              {staffData.map((item, i) => (
-                <tr
-                  key={i}
-                  className="bg-[var(--color-snow)] dark:bg-[var(--color-midnight)] rounded-lg shadow"
-                >
-                  <td className="py-2 px-4">{i + 1}.</td>
-                  <td className="py-2 px-4">{item.name}</td>
-                  <td className="py-2 px-4">{item.datetime}</td>
-                  <td className="py-2 px-4">{item.country}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <MonitoringTable
+        title="STAFF MONITORING"
+        subtitle="Berikut adalah beberapa riwayat monitoring terbaru yang telah dilakukan pada situs ini."
+        data={staffData}
+      />
     </div>
   );
 };
