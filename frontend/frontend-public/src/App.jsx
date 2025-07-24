@@ -2,6 +2,14 @@ import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Media from "./pages/Media";
+import Service from "./pages/Service";
+import Contact from "./pages/Contact";
+
+import Footer from "./components/Footer";
+
 function App() {
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
@@ -25,12 +33,14 @@ function App() {
       <Navbar />
 
       <Routes>
-        {/* <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/media" element={<Media />} />
         <Route path="/service" element={<Service />} />
-        <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/contact" element={<Contact />} />
       </Routes>
+
+      <Footer />
     </Router>
   );
 }
