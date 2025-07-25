@@ -15,20 +15,21 @@ import UserFormModal from "../components/user/UserFormModal";
 const User = () => {
   const [users, setUsers] = useState([]);
   const [staffUsers, setStaffUsers] = useState([]);
-  const [selectedCompanyType, setSelectedCompanyType] = useState("Perusahaan Induk");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
   const [visiblePasswords, setVisiblePasswords] = useState({});
 
   const fetchUsers = async () => {
-    try {
-      const res = await api.get("dummy-users/");
-      const allUsers = res.data;
-      setUsers(allUsers.filter(u => u.tipe === 'admin'));
-      setStaffUsers(allUsers.filter(u => u.tipe === 'staff_induk'));
-    } catch (err) {
-      console.error(err);
-    }
+    const res = await api.get("users/");
+    // HANYA ambil field aman
+    const cleanedUsers = res.data.map(({ id, name, email, tipe }) => ({
+      id,
+      name,
+      email,
+      tipe,
+    }));
+    setUsers(cleanedUsers.filter(u => u.tipe === "admin"));
+    setStaffUsers(cleanedUsers.filter(u => u.tipe === "staff"));
   };
 
   useEffect(() => {
@@ -36,14 +37,21 @@ const User = () => {
   }, []);
 
   const handleEdit = (user) => {
-    setCurrentUser(user);
+    // Tidak sertakan password
+    setCurrentUser({
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      tipe: user.tipe,
+      password: "",
+    });
     setIsModalOpen(true);
   };
 
   const handleDelete = async (userId) => {
     if (!window.confirm("Yakin ingin menghapus?")) return;
     try {
-      await api.delete(`dummy-users/${userId}/`);
+      await api.delete(`users/${userId}/`);
       await fetchUsers();
       alert("Berhasil dihapus!");
     } catch (err) {
@@ -53,21 +61,33 @@ const User = () => {
   };
 
   const handleAddUser = () => {
-    setCurrentUser({ tipe: "admin" });
+    setCurrentUser({
+      id: null,
+      name: "",
+      email: "",
+      tipe: "admin",
+      password: "",
+    });
     setIsModalOpen(true);
   };
 
   const handleAddStaff = () => {
-    setCurrentUser({ tipe: "staff_induk" });
+    setCurrentUser({
+      id: null,
+      name: "",
+      email: "",
+      tipe: "staff",
+      password: "",
+    });
     setIsModalOpen(true);
   };
 
   const handleSaveUser = async (userData) => {
     try {
       if (userData.id) {
-        await api.put(`dummy-users/${userData.id}/`, userData);
+        await api.put(`users/${userData.id}/`, userData);
       } else {
-        await api.post("dummy-users/", userData);
+        await api.post("users/", userData);
       }
       await fetchUsers();
       alert("Berhasil disimpan!");
@@ -78,7 +98,10 @@ const User = () => {
   };
 
   const togglePasswordVisibility = (id) => {
-    setVisiblePasswords(prev => ({ ...prev, [id]: !prev[id] }));
+    setVisiblePasswords((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
   };
 
   return (

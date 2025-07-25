@@ -34,7 +34,7 @@ const UserTable = ({ title, users, onEdit, onDelete, visiblePasswords, togglePas
               <td className="py-2 px-4">{user.email}</td>
               <td className="py-2 px-4">
                 <div className="flex items-center space-x-2">
-                  <span>{visiblePasswords[user.id] ? user.password : "********"}</span>
+                  <span>{visiblePasswords[user.id] ? "••••••••" : "********"}</span>
                   <button onClick={() => togglePasswordVisibility(user.id)} title="Toggle Password">
                     {visiblePasswords[user.id] ? (
                       <EyeSlashIcon className="h-4 w-4 text-[var(--color-carbon)] dark:text-white" />
@@ -47,7 +47,15 @@ const UserTable = ({ title, users, onEdit, onDelete, visiblePasswords, togglePas
               <td className="py-2 px-4 space-x-2">
                 <PencilSquareIcon
                   className="h-5 w-5 inline-block text-yellow-400 hover:text-yellow-500 cursor-pointer"
-                  onClick={() => onEdit(user)}
+                  onClick={() =>
+                    onEdit({
+                      id: user.id,
+                      name: user.name,
+                      email: user.email,
+                      tipe: user.tipe,
+                      // ⛔️ password tidak diteruskan
+                    })
+                  }
                 />
                 <TrashIcon
                   className="h-5 w-5 inline-block text-red-500 hover:text-red-600 cursor-pointer"
