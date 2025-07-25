@@ -7,7 +7,7 @@ const SiteHeader = () => (
       KUNJUNGI SITUS
     </h1>
     <a
-      href="https://blog.site.com"
+      href="https://agen88a.net/"
       target="_blank"
       rel="noopener noreferrer"
       className="inline-block bg-[var(--color-midnight)] hover:bg-[var(--color-navy)] text-white font-semibold text-sm py-3 px-6 rounded-xl shadow transition-colors duration-200"

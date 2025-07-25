@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BellIcon,
   DocumentTextIcon,
@@ -7,6 +7,20 @@ import {
 } from "@heroicons/react/24/outline";
 
 const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
+  const [search, setSearch] = useState("");
+  const [notifOpen, setNotifOpen] = useState(false);
+  // Dummy notifikasi
+  const notifications = [
+    { id: 1, text: "User baru mendaftar" },
+    { id: 2, text: "Konfigurasi berhasil diupdate" },
+  ];
+
+  const handleSearchChange = (e) => {
+    setSearch(e.target.value);
+    // TODO: trigger pencarian global/filter data
+    // Bisa gunakan props.onSearch jika ingin lempar ke parent
+  };
+
   return (
     <header
       className="
@@ -55,6 +69,8 @@ const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
         <input
           type="text"
           placeholder="Cari..."
+          value={search}
+          onChange={handleSearchChange}
           className="
             h-10 w-full md:w-64 flex-shrink px-4
             rounded-full border border-black dark:border-transparent
@@ -63,12 +79,29 @@ const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
             min-w-0
           "
         />
-        <button
-          className="h-10 w-10 rounded-full bg-white/90 dark:bg-[var(--color-snow)] grid place-items-center"
-          aria-label="Notifikasi"
-        >
-          <BellIcon className="h-5 w-5 text-black" />
-        </button>
+        <div className="relative">
+          <button
+            className="h-10 w-10 rounded-full bg-white/90 dark:bg-[var(--color-snow)] grid place-items-center"
+            aria-label="Notifikasi"
+            onClick={() => setNotifOpen((v) => !v)}
+          >
+            <BellIcon className="h-5 w-5 text-black" />
+          </button>
+          {notifOpen && (
+            <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-[var(--color-ocean)] rounded-lg shadow-lg z-50 border border-gray-200 dark:border-gray-700">
+              <div className="p-3 font-semibold border-b border-gray-200 dark:border-gray-700">Notifikasi</div>
+              {notifications.length === 0 ? (
+                <div className="p-3 text-sm text-gray-500">Tidak ada notifikasi</div>
+              ) : (
+                notifications.map((notif) => (
+                  <div key={notif.id} className="p-3 text-sm border-b last:border-b-0 border-gray-100 dark:border-gray-700">
+                    {notif.text}
+                  </div>
+                ))
+              )}
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );

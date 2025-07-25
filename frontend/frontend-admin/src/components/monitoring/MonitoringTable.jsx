@@ -12,10 +12,10 @@ const MonitoringTable = ({ data, title, subtitle }) => {
           <table className="min-w-full table-auto border-separate border-spacing-y-2">
             <thead>
               <tr className="text-[var(--color-navy)] dark:text-white font-semibold border-b border-[var(--color-carbon)] dark:border-white">
-                <th className="py-2 px-4">No.</th>
-                <th className="py-2 px-4">Nama</th>
-                <th className="py-2 px-4">Tanggal/Waktu</th>
-                <th className="py-2 px-4">Negara</th>
+                <th className="py-2 px-4 text-left">No.</th>
+                <th className="py-2 px-4 text-left">Nama</th>
+                <th className="py-2 px-4 text-left">Tanggal/Waktu</th>
+                <th className="py-2 px-4 text-left">Negara</th>
               </tr>
             </thead>
             <tbody className="text-[var(--color-carbon)] dark:text-white">

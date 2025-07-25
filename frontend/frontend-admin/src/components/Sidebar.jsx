@@ -1,6 +1,7 @@
 // src/Sidebar.jsx
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import SidebarProfile from "./SidebarProfile";
 
 const menuItems = [
   { label: "Situs", path: "/" },
@@ -36,29 +37,7 @@ const Sidebar = ({ isMobileOpen = false, onClose = () => {} }) => {
       </div>
 
       {/* Profile + Dropdown (mobile only) */}
-      <div className="text-center mt-10 px-4">
-        <div className="w-24 h-24 rounded-full bg-[var(--color-midnight)] mx-auto" />
-        <p className="mt-4 text-xs font-semibold uppercase tracking-wider">
-          Selamat Datang
-        </p>
-        <p className="text-base font-bold">ADMIN JEKI</p>
-        <p className="text-sm">admin@gmail.com</p>
-
-        {/* Dropdown Admin hanya mobile */}
-        <div className="mt-4 md:hidden">
-          <select
-            className="
-              w-full h-10 px-3 rounded-md text-sm outline-none
-              bg-white text-black border border-gray-300
-              dark:bg-[var(--color-ocean)] dark:text-white dark:border-transparent
-            "
-            defaultValue="Admin"
-          >
-            <option>Admin</option>
-            <option>Superadmin</option>
-          </select>
-        </div>
-      </div>
+      <SidebarProfile />
 
       {/* Menu & Logout */}
       <div className="flex flex-col flex-1 justify-between px-4 pt-8">

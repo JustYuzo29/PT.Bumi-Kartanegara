@@ -14,11 +14,11 @@ const UpdatesTable = ({ updates, onEdit }) => (
         <table className="min-w-full table-auto border-separate border-spacing-y-2">
           <thead>
             <tr className="text-[var(--color-navy)] dark:text-white font-semibold border-b border-[var(--color-carbon)] dark:border-white">
-              <th className="py-2 px-4">No.</th>
-              <th className="py-2 px-4">Pembaruan</th>
-              <th className="py-2 px-4">Tanggal/Waktu</th>
-              <th className="py-2 px-4">Diedit Oleh</th>
-              <th className="py-2 px-4">Aksi</th>
+              <th className="py-2 px-4 text-left">No.</th>
+              <th className="py-2 px-4 text-left">Pembaruan</th>
+              <th className="py-2 px-4 text-left">Tanggal/Waktu</th>
+              <th className="py-2 px-4 text-left">Diedit Oleh</th>
+              <th className="py-2 px-4 text-left">Aksi</th>
             </tr>
           </thead>
           <tbody className="text-[var(--color-carbon)] dark:text-white">

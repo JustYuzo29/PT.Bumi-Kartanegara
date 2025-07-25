@@ -7,7 +7,7 @@ import {
   TrashIcon,
 } from "@heroicons/react/24/solid";
 
-const UserTable = ({ title, users, onEdit, onDelete, visiblePasswords, togglePasswordVisibility }) => (
+const UserTable = ({ title, users, onEdit, onDelete }) => (
   <div className="space-y-4">
     <p className="text-sm mb-4 text-[var(--color-carbon)] dark:text-white">
       Berikut adalah beberapa pengaturan yang dapat dilakukan oleh admin untuk mengelola {title.toLowerCase()}.
@@ -19,7 +19,7 @@ const UserTable = ({ title, users, onEdit, onDelete, visiblePasswords, togglePas
             <th className="py-2 px-4">No.</th>
             <th className="py-2 px-4">Nama</th>
             <th className="py-2 px-4">Email</th>
-            <th className="py-2 px-4">Password</th>
+            {/* <th className="py-2 px-4">Password</th> */}
             <th className="py-2 px-4">Aksi</th>
           </tr>
         </thead>
@@ -32,18 +32,6 @@ const UserTable = ({ title, users, onEdit, onDelete, visiblePasswords, togglePas
               <td className="py-2 px-4">{idx + 1}.</td>
               <td className="py-2 px-4">{user.name}</td>
               <td className="py-2 px-4">{user.email}</td>
-              <td className="py-2 px-4">
-                <div className="flex items-center space-x-2">
-                  <span>{visiblePasswords[user.id] ? "••••••••" : "********"}</span>
-                  <button onClick={() => togglePasswordVisibility(user.id)} title="Toggle Password">
-                    {visiblePasswords[user.id] ? (
-                      <EyeSlashIcon className="h-4 w-4 text-[var(--color-carbon)] dark:text-white" />
-                    ) : (
-                      <EyeIcon className="h-4 w-4 text-[var(--color-carbon)] dark:text-white" />
-                    )}
-                  </button>
-                </div>
-              </td>
               <td className="py-2 px-4 space-x-2">
                 <PencilSquareIcon
                   className="h-5 w-5 inline-block text-yellow-400 hover:text-yellow-500 cursor-pointer"

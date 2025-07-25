@@ -51,14 +51,21 @@ const UserFormModal = ({ isOpen, onClose, user, onSave }) => {
       newErrors.email = "Format email tidak valid.";
     }
     if (!formData.id) {
-      // Tambah user: new_password wajib
-      if (!formData.new_password.trim())
+      // Tambah user: password wajib dan minimal 6 karakter
+      if (!formData.new_password.trim()) {
         newErrors.new_password = "Password tidak boleh kosong.";
+      } else if (formData.new_password.length < 6) {
+        newErrors.new_password = "Password minimal 6 karakter.";
+      }
     } else {
-      // Edit user: jika new_password mau diubah, current_password wajib
-      if (formData.new_password.trim() && !formData.current_password.trim()) {
-        newErrors.current_password =
-          "Password lama harus diisi untuk mengubah password.";
+      // Edit user: jika ingin ganti password, password lama wajib dan password baru minimal 6 karakter
+      if (formData.new_password.trim()) {
+        if (!formData.current_password.trim()) {
+          newErrors.current_password = "Password lama harus diisi untuk mengubah password.";
+        }
+        if (formData.new_password.length < 6) {
+          newErrors.new_password = "Password minimal 6 karakter.";
+        }
       }
     }
     setErrors(newErrors);
@@ -77,7 +84,7 @@ const UserFormModal = ({ isOpen, onClose, user, onSave }) => {
 
       if (!formData.id) {
         // Only include new_password if creating a new user
-        finalData.password = formData.new_password;
+        finalData.new_password = formData.new_password;
       } else if (formData.new_password.trim()) {
         // Only include passwords if new_password is being set for an existing user
         finalData.current_password = formData.current_password;

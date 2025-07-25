@@ -1,10 +1,7 @@
+from django.contrib import admin
 from django.urls import path, include
-from django.http import JsonResponse
-
-def root(request):
-    return JsonResponse({"message": "API is running", "docs": "/api/"})
 
 urlpatterns = [
-    path("", root),              # <- optional
-    path("api/", include("api.urls")),
+    path('admin/', admin.site.urls),
+    path('api/', include('apps.adminpanel.urls')),  # Tambahkan ini
 ]

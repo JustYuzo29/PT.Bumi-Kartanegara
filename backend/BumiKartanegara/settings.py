@@ -28,11 +28,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     # third-party
+    'apps.adminpanel',
     "rest_framework",
     "corsheaders",
-
-    # local
-    "api",
 ]
 
 # --- MIDDLEWARE ---
@@ -66,26 +64,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "BumiKartanegara.wsgi.application"
 
-# --- DATABASE ---
-# default: sqlite for dev
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'bumikartanegara',
+        'USER': 'root',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '3306',
     }
 }
-# Kalau mau MySQL nanti:
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.mysql",
-#         "NAME": os.getenv("DB_NAME", "dbname"),
-#         "USER": os.getenv("DB_USER", "root"),
-#         "PASSWORD": os.getenv("DB_PASS", ""),
-#         "HOST": os.getenv("DB_HOST", "127.0.0.1"),
-#         "PORT": os.getenv("DB_PORT", "3306"),
-#         "OPTIONS": {"charset": "utf8mb4"},
-#     }
-# }
 
 # --- AUTH / PASSWORD ---
 AUTH_PASSWORD_VALIDATORS = [
@@ -116,7 +104,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5174",  # frontend public (kalau beda)
 ]
 # Dev cepat (opsional):
-# CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 # --- DRF ---
 REST_FRAMEWORK = {
