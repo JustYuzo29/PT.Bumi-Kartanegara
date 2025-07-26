@@ -1,7 +1,7 @@
-// components/site/MetricsGrid.jsx
+// components/site/SiteMetrics.jsx
 import React from "react";
 
-const MetricsGrid = ({ metrics }) => (
+const SiteMetrics = ({ metrics }) => (
   <section>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {metrics.map((metric, index) => (
@@ -17,4 +17,4 @@ const MetricsGrid = ({ metrics }) => (
   </section>
 );
 
-export default MetricsGrid;
+export default SiteMetrics;

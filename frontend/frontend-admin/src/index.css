@@ -79,6 +79,12 @@
     font-family: var(--font-body);
   }
 
+  body, #root {
+    background: var(--color-background) !important;
+    color: var(--color-text) !important;
+    transition: background 0.3s, color 0.3s;
+  }
+
   h1, h2, h3, h4, h5 {
     font-family: var(--font-heading);
   }
@@ -103,13 +109,27 @@
   }
 }
 
-/* 🌚 DARK MODE */
+
+/* 🌚 DARK MODE (manual override via .dark class) */
+.dark :root, .dark:root {
+  --color-text: #ffffff;
+  --color-background: var(--color-navy);
+  --dropdown-bg: var(--color-midnight);
+  --dropdown-text: #ffffff;
+  --dropdown-hover: var(--color-ocean);
+}
+
+
+/* Override background & color jika .dark di <html> agar realtime */
+.dark html, .dark body {
+  background-color: var(--color-background) !important;
+  color: var(--color-text) !important;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color-text: #ffffff;
     --color-background: var(--color-navy);
-
-    /* Tambahan untuk komponen seperti dropdown */
     --dropdown-bg: var(--color-midnight);
     --dropdown-text: #ffffff;
     --dropdown-hover: var(--color-ocean);
