@@ -1,5 +1,6 @@
 // components/configuration/AccessTable.jsx
 import React from "react";
+import PropTypes from "prop-types";
 
 const AccessTable = ({ data, sectionKey, onToggle }) => (
   <div className="bg-[var(--color-snow)] dark:bg-[var(--color-ocean)] rounded-xl shadow-lg p-6 text-[var(--color-carbon)] dark:text-white">
@@ -17,28 +18,41 @@ const AccessTable = ({ data, sectionKey, onToggle }) => (
           </tr>
         </thead>
         <tbody>
-          {data[sectionKey].map((item, idx) => (
-            <tr
-              key={idx}
-              className="rounded-lg shadow-sm bg-white dark:bg-[var(--color-midnight)]"
-            >
-              <td className="py-3 px-4">{idx + 1}.</td>
-              <td className="py-3 px-4">{item.name}</td>
-              <td className="py-3 px-4">{item.akses}</td>
-              <td className="py-3 px-4">
-                <input
-                  type="checkbox"
-                  checked={item.checked}
-                  onChange={() => onToggle(sectionKey, idx)}
-                  className="w-5 h-5 accent-[var(--color-navy)] dark:accent-[var(--color-snow)] cursor-pointer"
-                />
-              </td>
+          {data[sectionKey].length === 0 ? (
+            <tr>
+              <td colSpan={4} className="text-center py-4">Data tidak tersedia</td>
             </tr>
-          ))}
+          ) : (
+            data[sectionKey].map((item, idx) => (
+              <tr
+                key={idx}
+                className="rounded-lg shadow-sm bg-white dark:bg-[var(--color-midnight)]"
+              >
+                <td className="py-3 px-4">{idx + 1}.</td>
+                <td className="py-3 px-4">{item.name}</td>
+                <td className="py-3 px-4">{item.akses}</td>
+                <td className="py-3 px-4">
+                  <input
+                    type="checkbox"
+                    checked={item.checked}
+                    onChange={() => onToggle(sectionKey, idx)}
+                    className="w-5 h-5 accent-[var(--color-navy)] dark:accent-[var(--color-snow)] cursor-pointer"
+                    aria-label={`Toggle akses untuk ${item.name}`}
+                  />
+                </td>
+              </tr>
+            ))
+          )}
         </tbody>
       </table>
     </div>
   </div>
 );
+
+AccessTable.propTypes = {
+  data: PropTypes.object.isRequired,
+  sectionKey: PropTypes.string.isRequired,
+  onToggle: PropTypes.func.isRequired,
+};
 
 export default AccessTable;

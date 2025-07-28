@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User
+from .models import User, Update, Metric, BlogMonitoring, StaffMonitoring, VisitorStat, TrafficSource
 
 class UserSerializer(serializers.ModelSerializer):
     new_password = serializers.CharField(write_only=True, required=False)
@@ -40,3 +40,34 @@ class UserSerializer(serializers.ModelSerializer):
 
         instance.save()
         return instance
+
+# Tambahan serializer untuk Update dan Metric
+class UpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Update
+        fields = '__all__'
+
+class MetricSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Metric
+        fields = '__all__'
+
+class BlogMonitoringSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BlogMonitoring
+        fields = '__all__'
+
+class StaffMonitoringSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = StaffMonitoring
+        fields = '__all__'
+
+class VisitorStatSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VisitorStat
+        fields = '__all__'
+
+class TrafficSourceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = TrafficSource
+        fields = '__all__'

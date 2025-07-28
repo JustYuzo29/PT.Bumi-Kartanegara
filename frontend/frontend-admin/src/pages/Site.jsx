@@ -1,54 +1,27 @@
 // src/pages/Site.jsx
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SiteVisitButton from "../components/site/SiteVisitButton";
 import SiteMetrics from "../components/site/SiteMetrics";
 import SiteUpdateTable from "../components/site/SiteUpdateTable";
 import SiteUpdateModal from "../components/site/SiteUpdateModal";
 
 const Site = () => {
-  const [updates, setUpdates] = useState([
-    {
-      text: "Jika Kau Bertemu aku begini",
-      datetime: "15-08-2025/14.00",
-      editedBy: "Jeki",
-    },
-    {
-      text: "Aku tak kau anggap pada cerita",
-      datetime: "15-08-2025/14.00",
-      editedBy: "Rehan",
-    },
-  ]);
+  const [updates, setUpdates] = useState([]);
+  const [keyMetrics, setKeyMetrics] = useState([]);
 
-  const keyMetrics = [
-    {
-      title: "Pengunjung Hari Ini",
-      value: "1.250",
-      trend: "+15%",
-      trendColor: "text-green-500",
-      description: "dari kemarin",
-    },
-    {
-      title: "Postingan Aktif",
-      value: "85",
-      trend: "Stabil",
-      trendColor: "text-gray-500",
-      description: "minggu ini",
-    },
-    {
-      title: "Komentar Baru",
-      value: "12",
-      trend: "-5%",
-      trendColor: "text-red-500",
-      description: "dari kemarin",
-    },
-    {
-      title: "Postingan Terpopuler",
-      value: "Judul Postingan Teratas Ini",
-      trend: "5.2K views",
-      trendColor: "text-blue-500",
-      description: "",
-    },
-  ];
+  useEffect(() => {
+    // Fetch updates
+    fetch("http://localhost:8000/api/updates/")
+      .then((res) => res.json())
+      .then((data) => setUpdates(data))
+      .catch(() => setUpdates([]));
+
+    // Fetch metrics
+    fetch("http://localhost:8000/api/metrics/")
+      .then((res) => res.json())
+      .then((data) => setKeyMetrics(data))
+      .catch(() => setKeyMetrics([]));
+  }, []);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingIndex, setEditingIndex] = useState(null);
@@ -61,12 +34,21 @@ const Site = () => {
   };
 
   const handleSaveEdit = () => {
-    const updated = [...updates];
-    updated[editingIndex].text = editedText;
-    setUpdates(updated);
-    setIsModalOpen(false);
-    setEditingIndex(null);
-    setEditedText("");
+    // Update ke backend
+    const updateId = updates[editingIndex]?.id;
+    fetch(`http://localhost:8000/api/updates/${updateId}/`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ text: editedText }),
+    })
+      .then(() => {
+        const updated = [...updates];
+        updated[editingIndex].text = editedText;
+        setUpdates(updated);
+        setIsModalOpen(false);
+        setEditingIndex(null);
+        setEditedText("");
+      });
   };
 
   return (

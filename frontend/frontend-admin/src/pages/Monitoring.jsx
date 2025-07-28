@@ -35,26 +35,16 @@ const Monitoring = () => {
   );
   const [endDate, setEndDate] = useState(new Date());
 
-  const generateVisitorData = (start, end) => {
-    const data = [];
-    let currentDate = new Date(start);
-    while (currentDate <= end) {
-      data.push({
-        date: new Date(currentDate).toISOString().split("T")[0],
-        visitors: Math.floor(Math.random() * 200) + 50,
-        pageViews: Math.floor(Math.random() * 500) + 100,
-        bounceRate: parseFloat(
-          (Math.random() * (0.8 - 0.2) + 0.2).toFixed(2)
-        ),
-      });
-      currentDate.setDate(currentDate.getDate() + 1);
-    }
-    return data;
-  };
+  function formatDate(date) {
+    return date.toISOString().split("T")[0];
+  }
 
   const [visitorData, setVisitorData] = useState([]);
   useEffect(() => {
-    setVisitorData(generateVisitorData(startDate, endDate));
+    fetch(`http://localhost:8000/api/visitor-stats/?start=${formatDate(startDate)}&end=${formatDate(endDate)}`)
+      .then((res) => res.json())
+      .then((data) => setVisitorData(data))
+      .catch(() => setVisitorData([]));
   }, [startDate, endDate]);
 
   const visitorsChartData = {
@@ -84,30 +74,41 @@ const Monitoring = () => {
     },
   };
 
-  const trafficSourceData = {
-    labels: ["Organic Search", "Direct", "Referral", "Social Media", "Email"],
-    datasets: [
-      {
-        label: "Sumber Lalu Lintas",
-        data: [300, 150, 100, 200, 50],
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.6)",
-          "rgba(54, 162, 235, 0.6)",
-          "rgba(255, 206, 86, 0.6)",
-          "rgba(75, 192, 192, 0.6)",
-          "rgba(153, 102, 255, 0.6)",
-        ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-        ],
-        borderWidth: 1,
-      },
-    ],
-  };
+  const [trafficSourceData, setTrafficSourceData] = useState({ labels: [], datasets: [] });
+  useEffect(() => {
+    fetch(`http://localhost:8000/api/traffic-source/?start=${formatDate(startDate)}&end=${formatDate(endDate)}`)
+      .then((res) => res.json())
+      .then((data) => {
+        // data: [{source, count}]
+        const labels = data.map((d) => d.source);
+        const counts = data.map((d) => d.count);
+        setTrafficSourceData({
+          labels,
+          datasets: [
+            {
+              label: "Sumber Lalu Lintas",
+              data: counts,
+              backgroundColor: [
+                "rgba(255, 99, 132, 0.6)",
+                "rgba(54, 162, 235, 0.6)",
+                "rgba(255, 206, 86, 0.6)",
+                "rgba(75, 192, 192, 0.6)",
+                "rgba(153, 102, 255, 0.6)",
+              ],
+              borderColor: [
+                "rgba(255, 99, 132, 1)",
+                "rgba(54, 162, 235, 1)",
+                "rgba(255, 206, 86, 1)",
+                "rgba(75, 192, 192, 1)",
+                "rgba(153, 102, 255, 1)",
+              ],
+              borderWidth: 1,
+            },
+          ],
+        });
+      })
+      .catch(() => setTrafficSourceData({ labels: [], datasets: [] }));
+  }, [startDate, endDate]);
 
   const trafficSourceOptions = {
     responsive: true,
@@ -119,28 +120,29 @@ const Monitoring = () => {
   };
 
   const totalVisitors = visitorData.reduce((s, i) => s + i.visitors, 0);
-  const totalPageViews = visitorData.reduce((s, i) => s + i.pageViews, 0);
+  const totalPageViews = visitorData.reduce((s, i) => s + i.page_views, 0);
   const avgBounceRate =
     visitorData.length > 0
       ? (
-          (visitorData.reduce((s, i) => s + i.bounceRate, 0) / visitorData.length) *
+          (visitorData.reduce((s, i) => s + i.bounce_rate, 0) / visitorData.length) *
           100
         ).toFixed(0)
       : 0;
 
-  const blogData = [
-    { name: "lorem ipsum", datetime: "15-08-2025/14.00", country: "Indonesia" },
-    { name: "lorem ipsum", datetime: "15-08-2025/14.00", country: "Indonesia" },
-    { name: "lorem ipsum", datetime: "15-08-2025/14.00", country: "Indonesia" },
-    { name: "lorem ipsum", datetime: "15-08-2025/14.00", country: "Indonesia" },
-    { name: "lorem ipsum", datetime: "15-08-2025/14.00", country: "Indonesia" },
-  ];
+  const [blogData, setBlogData] = useState([]);
+  const [staffData, setStaffData] = useState([]);
 
-  const staffData = [
-    { name: "lorem ipsum", datetime: "15-08-2025/14.00", country: "Indonesia" },
-    { name: "lorem ipsum", datetime: "15-08-2025/14.00", country: "Indonesia" },
-    { name: "lorem ipsum", datetime: "15-08-2025/14.00", country: "Indonesia" },
-  ];
+  useEffect(() => {
+    fetch("http://localhost:8000/api/blog-monitoring/")
+      .then((res) => res.json())
+      .then((data) => setBlogData(data))
+      .catch(() => setBlogData([]));
+
+    fetch("http://localhost:8000/api/staff-monitoring/")
+      .then((res) => res.json())
+      .then((data) => setStaffData(data))
+      .catch(() => setStaffData([]));
+  }, []);
 
   return (
     <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 md:px-10 py-6 space-y-10">

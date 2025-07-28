@@ -11,7 +11,6 @@ import {
 const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
   const [search, setSearch] = useState("");
   const [notifOpen, setNotifOpen] = useState(false);
-  // Dummy notifikasi
   const notifications = [
     { id: 1, text: "User baru mendaftar" },
     { id: 2, text: "Konfigurasi berhasil diupdate" },
@@ -36,26 +35,22 @@ const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
     return false;
   });
 
-  // Sync isDark and apply theme in real-time
   useEffect(() => {
     let dark = false;
     if (themeMode === "dark") dark = true;
     else if (themeMode === "light") dark = false;
     else dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     setIsDark(dark);
-    // Force Tailwind to update theme by toggling class on <html>
     const root = document.documentElement;
     if (dark) {
       root.classList.add("dark");
     } else {
       root.classList.remove("dark");
     }
-    // Force reflow for Tailwind JIT (fixes some cases)
     root.style.colorScheme = dark ? "dark" : "light";
     localStorage.setItem("theme", themeMode);
   }, [themeMode]);
 
-  // Listen to system theme changes if mode is 'system'
   useEffect(() => {
     if (themeMode !== "system") return;
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
@@ -73,16 +68,14 @@ const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
 
   const handleSearchChange = (e) => {
     setSearch(e.target.value);
-    // TODO: trigger pencarian global/filter data
-    // Bisa gunakan props.onSearch jika ingin lempar ke parent
   };
 
   return (
     <header
-      className="w-full h-20 flex-none shrink-0 bg-[var(--color-warning)] dark:bg-[var(--color-midnight)] px-4 md:px-6 shadow-elevated flex items-center justify-between gap-4 z-50"
+      className="w-full h-20 flex-none shrink-0 bg-[var(--color-warning)] dark:bg-[var(--color-midnight)] px-2 sm:px-4 md:px-6 shadow-elevated flex items-center justify-between gap-2 sm:gap-4 z-50"
     >
       {/* Kiri: Burger, Icon Dokumen, Dropdown */}
-      <div className="flex items-center gap-3 min-w-0">
+      <div className="flex items-center gap-2 sm:gap-3 min-w-0">
         {/* Burger hanya mobile */}
         <button
           onClick={toggleSidebar}
@@ -98,7 +91,7 @@ const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
         <DocumentTextIcon className="h-6 w-6 text-white" />
         {/* Dropdown hanya desktop */}
         <select
-          className="hidden md:block h-10 w-40 px-3 rounded-md border border-gray-300 dark:border-transparent bg-white dark:bg-[var(--color-snow)] text-black text-sm outline-none"
+          className="hidden md:block h-10 w-32 sm:w-40 px-2 sm:px-3 rounded-md border border-gray-300 dark:border-transparent bg-white dark:bg-[var(--color-snow)] text-black text-sm outline-none"
           defaultValue="Admin"
         >
           <option>Admin</option>
@@ -106,13 +99,13 @@ const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
         </select>
       </div>
       {/* Kanan: Search + Bell + ThemeMode */}
-      <div className="flex items-center gap-3 min-w-0">
+      <div className="flex items-center gap-2 sm:gap-3 min-w-0">
         <input
           type="text"
           placeholder="Cari..."
           value={search}
           onChange={handleSearchChange}
-          className="h-10 w-full md:w-64 flex-shrink px-4 rounded-full border border-black dark:border-transparent bg-white dark:bg-[var(--color-snow)] text-black placeholder-black text-sm outline-none shadow min-w-0"
+          className="h-10 w-24 xs:w-32 sm:w-40 md:w-64 flex-shrink px-2 sm:px-4 rounded-full border border-black dark:border-transparent bg-white dark:bg-[var(--color-snow)] text-black placeholder-black text-sm outline-none shadow min-w-0"
         />
         <div className="relative">
           <button
@@ -123,7 +116,7 @@ const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
             <BellIcon className="h-5 w-5 text-black" />
           </button>
           {notifOpen && (
-            <div className="absolute right-0 mt-2 w-64 bg-white dark:bg-[var(--color-ocean)] rounded-lg shadow-lg z-50 border border-gray-200 dark:border-gray-700">
+            <div className="absolute right-0 mt-2 w-56 sm:w-64 bg-white dark:bg-[var(--color-ocean)] rounded-lg shadow-lg z-50 border border-gray-200 dark:border-gray-700">
               <div className="p-3 font-semibold border-b border-gray-200 dark:border-gray-700">Notifikasi</div>
               {notifications.length === 0 ? (
                 <div className="p-3 text-sm text-gray-500">Tidak ada notifikasi</div>
@@ -139,7 +132,7 @@ const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
         </div>
         {/* Toggle modern dark/light mode */}
         <button
-          className={`relative w-14 h-8 flex items-center bg-gray-200 dark:bg-gray-700 rounded-full p-1 transition-colors duration-300 focus:outline-none`}
+          className={`relative w-12 sm:w-14 h-8 flex items-center bg-gray-200 dark:bg-gray-700 rounded-full p-1 transition-colors duration-300 focus:outline-none`}
           aria-label="Toggle dark mode"
           onClick={() => {
             if (themeMode === 'system') {
@@ -162,12 +155,11 @@ const Topbar = ({ isSidebarOpen, toggleSidebar }) => {
         </button>
         {/* Tombol mode desktop/system */}
         <button
-          className={`h-10 w-10 rounded-full ml-2 flex items-center justify-center border border-gray-200 dark:border-gray-600 bg-white/90 dark:bg-[var(--color-snow)] transition-colors duration-300 ${themeMode === 'system' ? 'ring-2 ring-blue-400' : ''}`}
+          className={`h-10 w-10 rounded-full ml-1 sm:ml-2 flex items-center justify-center border border-gray-200 dark:border-gray-600 bg-white/90 dark:bg-[var(--color-snow)] transition-colors duration-300 ${themeMode === 'system' ? 'ring-2 ring-blue-400' : ''}`}
           aria-label="Ikuti tema desktop"
           title="Ikuti tema desktop"
           onClick={() => setThemeMode('system')}
         >
-          {/* Desktop/monitor icon SVG */}
           <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
             <rect x="3" y="4" width="18" height="12" rx="2" stroke="currentColor" strokeWidth="1.5" />
             <path d="M8 20h8M12 16v4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />

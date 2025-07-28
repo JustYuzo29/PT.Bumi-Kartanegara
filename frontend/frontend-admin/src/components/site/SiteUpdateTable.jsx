@@ -18,7 +18,7 @@ const UpdatesTable = ({ updates, onEdit }) => (
               <th className="py-2 px-4 text-left">Pembaruan</th>
               <th className="py-2 px-4 text-left">Tanggal/Waktu</th>
               <th className="py-2 px-4 text-left">Diedit Oleh</th>
-              <th className="py-2 px-4 text-left">Aksi</th>
+              {/* <th className="py-2 px-4 text-left">Aksi</th> */}
             </tr>
           </thead>
           <tbody className="text-[var(--color-carbon)] dark:text-white">
@@ -27,8 +27,8 @@ const UpdatesTable = ({ updates, onEdit }) => (
                 <td className="py-2 px-4">{idx + 1}.</td>
                 <td className="py-2 px-4">{item.text}</td>
                 <td className="py-2 px-4">{item.datetime}</td>
-                <td className="py-2 px-4">{item.editedBy}</td>
-                <td className="py-2 px-4">
+                <td className="py-2 px-4">{item.edited_by}</td>
+                {/* <td className="py-2 px-4">
                   <button
                     onClick={() => onEdit(idx)}
                     title="Edit Update"
@@ -36,7 +36,7 @@ const UpdatesTable = ({ updates, onEdit }) => (
                   >
                     <PencilSquareIcon className="h-5 w-5 inline-block" />
                   </button>
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>
