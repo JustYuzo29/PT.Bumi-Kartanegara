@@ -4,9 +4,9 @@ import CodeCard from "../components/code/CodeCard";
 
 const Code = () => {
   const codeSections = [
-    { title: "ADMIN SITE", buttonText: "CODE ADMIN" },
-    { title: "STAFF SITE", buttonText: "CODE STAFF" },
-    { title: "BLOG SITE", buttonText: "CODE BLOG SITE" },
+    { title: "ADMIN SITE", buttonText: "CODE ADMIN", fileKey: "admin" },
+    { title: "STAFF SITE", buttonText: "CODE STAFF", fileKey: "staff" },
+    { title: "BLOG SITE", buttonText: "CODE BLOG SITE", fileKey: "blog" },
   ];
 
   return (

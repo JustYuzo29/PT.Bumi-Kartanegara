@@ -1,3 +1,4 @@
+
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views.UsersView import UserViewSet
@@ -7,6 +8,7 @@ from .views.BlogMonitoringView import BlogMonitoringViewSet
 from .views.StaffMonitoringView import StaffMonitoringViewSet
 from .views.VisitorStatView import VisitorStatViewSet
 from .views.TrafficSourceView import TrafficSourceViewSet
+from .views.CodeEditView import CodeEditView
 
 router = DefaultRouter()
 router.register(r'users', UserViewSet, basename='users')
@@ -18,5 +20,6 @@ router.register(r'visitor-stats', VisitorStatViewSet, basename='visitor-stats')
 router.register(r'traffic-source', TrafficSourceViewSet, basename='traffic-source')
 
 urlpatterns = [
+    path('edit-code/', CodeEditView.as_view()),
     path('', include(router.urls)),
 ]

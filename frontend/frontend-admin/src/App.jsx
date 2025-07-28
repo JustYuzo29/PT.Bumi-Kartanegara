@@ -8,6 +8,7 @@ import Site from "./pages/Site";
 import Monitoring from "./pages/Monitoring";
 import User from "./pages/User";
 import Code from "./pages/Code";
+import CodeEditor from "./pages/CodeEditor";
 import Configuration from "./pages/Configuration";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/user" element={<User />} />
                 <Route path="/code" element={<Code />} />
                 <Route path="/config" element={<Configuration />} />
+                <Route path="/edit-code/:fileKey" element={<CodeEditor />} />
               </Routes>
             </div>
           </main>
