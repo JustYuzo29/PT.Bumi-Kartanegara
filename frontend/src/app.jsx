@@ -1,13 +1,27 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LoginPage from "./components/LoginPage";
+import AdminPage from "./components/AdminPage";
+
+function Dashboard() {
+  return (
+    <div className="h-screen flex items-center justify-center text-xl font-bold">
+      Selamat Datang di Dashboard!
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="text-center p-8 bg-blue-100 min-h-screen">
-      <h1 className="text-3xl font-bold text-blue-600">
-        Hello from Tailwind + React!
-      </h1>
-    </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="*" element={<LoginPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

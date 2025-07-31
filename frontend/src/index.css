@@ -1,3 +1,155 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+/* 🎨 Tema + Global Styling */
+:root {
+  /* Warna tambahan */
+  --color-navy: #1E3E62;
+  --color-midnight: #00022C;
+  --color-ocean: #0B192C;
+  --color-sky: #B7D6F9;
+  --color-cloud: #82A9DF;
+  --color-tahiti: #3ab7bf;
+  --color-bermuda: #78dcca;
+  --color-warning: #FCA311;
+  --color-error: #E10000;
+  --color-snow: #EEF6FF;
+  --color-carbon: #191919;
+  
+  /* NEW: Define active state background color here */
+  --color-active-state-bg: #324a67; /* Color from your image */
+
+  /* Font */
+  --font-body: 'Poppins', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+
+  /* Radius & Shadow */
+  --radius-default: 0.75rem;
+  --shadow-elevated: 0 4px 10px rgba(0,0,0,0.15);
+
+  /* Global Styling */
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  background-color: #ffffff;
+  color: #000000;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 🧩 Utility Kustom */
+@layer utilities {
+  .bg-navy {
+    background-color: var(--color-navy);
+  }
+
+  .text-carbon {
+    color: var(--color-carbon);
+  }
+
+  .rounded-default {
+    border-radius: var(--radius-default);
+  }
+
+  .shadow-elevated {
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .bg-mint-500 {
+    background-color: var(--color-mint-500);
+  }
+  /* NEW: Utility for the active state background */
+  .bg-active-state-bg {
+    background-color: var(--color-active-state-bg);
+  }
+}
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+  }
+
+  body, #root {
+    background: var(--color-background) !important;
+    color: var(--color-text) !important;
+    transition: background 0.3s, color 0.3s;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-heading);
+  }
+}
+
+/* 🌞 LIGHT MODE */
+@media (prefers-color-scheme: light) {
+  :root {
+    --color-text: #213547;
+    --color-background: #ffffff;
+    
+    /* ☀️ Warna sidebar terang */
+    --color-ocean: #E7F0F9;
+
+    /* Komponen terang */
+    --dropdown-bg: #ffffff;
+    --dropdown-text: #213547;
+    --dropdown-hover: #c8def7;
+
+    /* Aktif menu lebih lembut dari putih */
+    --color-snow: #DDEEFF;
+  }
+}
+
+
+/* 🌚 DARK MODE (manual override via .dark class) */
+.dark :root, .dark:root {
+  --color-text: #ffffff;
+  --color-background: var(--color-navy);
+  --dropdown-bg: var(--color-midnight);
+  --dropdown-text: #ffffff;
+  --dropdown-hover: var(--color-ocean);
+}
+
+
+/* Override background & color jika .dark di <html> agar realtime */
+.dark html, .dark body {
+  background-color: var(--color-background) !important;
+  color: var(--color-text) !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text: #ffffff;
+    --color-background: var(--color-navy);
+    --dropdown-bg: var(--color-midnight);
+    --dropdown-text: #ffffff;
+    --dropdown-hover: var(--color-ocean);
+  }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+  }
+}
+
+@layer utilities {
+  /* Existing */
+
+  .dropdown-select {
+    @apply appearance-none bg-[var(--color-navy)] dark:bg-[var(--color-midnight)]
+           text-white text-sm px-4 py-2 pr-8 rounded-full shadow focus:outline-none;
+  }
+
+  .dropdown-arrow {
+    @apply pointer-events-none absolute inset-y-0 right-3 flex items-center;
+  }
+}
