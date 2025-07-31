@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import businessTeamImage from "../assets/business-team.gif"; // Gambar GIF lokal
+import businessTeamImage from "../../assets/business-team.gif";
 
 export default function App() {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const navigate = useNavigate();
@@ -19,8 +19,8 @@ export default function App() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: email, // JWT expects 'username' not 'email'
-          password: password
+          username,
+          password,
         }),
       });
 
@@ -28,9 +28,9 @@ export default function App() {
       if (response.ok && data.access) {
         localStorage.setItem("access_token", data.access);
         localStorage.setItem("refresh_token", data.refresh);
-        window.location.href = "http://localhost:5173"; // Ganti jika port frontend-admin berbeda
+        window.location.href = "/"; // Redirect ke dashboard
       } else {
-        setErrorMessage(data.detail || "Email atau password salah.");
+        setErrorMessage(data.detail || "Username atau password salah.");
       }
     } catch (error) {
       setErrorMessage("Terjadi kesalahan pada server.");
@@ -48,26 +48,26 @@ export default function App() {
 
             <form className="space-y-5" onSubmit={handleSubmit}>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Username</label>
                 <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                placeholder="you@example.com"
-                required
+                  type="text"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  placeholder="username"
+                  required
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
                 <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                placeholder="••••••••"
-                required
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-600"
+                  placeholder="••••••••"
+                  required
                 />
               </div>
 
@@ -85,7 +85,6 @@ export default function App() {
               </button>
 
               <div className="text-right text-xs text-gray-500 hover:text-blue-600 mt-2">
-                <a href="#">Lupa password?</a>
               </div>
             </form>
           </div>

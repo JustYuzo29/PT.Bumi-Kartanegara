@@ -97,9 +97,16 @@ const Sidebar = ({ isMobileOpen = false, onClose = () => {} }) => {
         {/* Logout */}
         <div className="px-2 mt-20 mb-8">
           <button
+            onClick={() => {
+              const confirmLogout = window.confirm("Apakah Anda yakin ingin logout?");
+              if (confirmLogout) {
+                localStorage.clear();
+                window.location.href = "/login";
+              }
+            }}
             className="w-full py-3 rounded-full text-sm font-semibold text-white
-                       bg-[var(--color-midnight)] hover:bg-[var(--color-navy)]
-                       transition-colors"
+                      bg-[var(--color-midnight)] hover:bg-[var(--color-navy)]
+                      transition-colors"
           >
             LOGOUT
           </button>

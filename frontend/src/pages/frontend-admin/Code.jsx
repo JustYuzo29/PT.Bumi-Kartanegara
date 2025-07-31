@@ -1,7 +1,6 @@
 // src/pages/Code.jsx
 import React from "react";
-import CodeCard from "../components/code/CodeCard";
-
+import CodeCard from "../../components/frontend-admin/code/CodeCard";
 const Code = () => {
   const codeSections = [
     { title: "ADMIN SITE", buttonText: "CODE ADMIN", fileKey: "admin" },

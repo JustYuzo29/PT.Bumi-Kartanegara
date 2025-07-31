@@ -1,13 +1,13 @@
 // src/pages/User.jsx
 import React, { useState, useEffect } from "react";
-import { api } from "../lib/api";
+import { api } from "../../lib/api";
 import { PlusCircleIcon, BuildingOffice2Icon } from "@heroicons/react/24/solid";
 
-import SectionTitle from "../components/user/SectionTitle";
-import AddButton from "../components/user/AddButton";
-import SectionCard from "../components/user/SectionCard";
-import UserTable from "../components/user/UserTable";
-import UserFormModal from "../components/user/UserFormModal";
+import SectionTitle from "../../components/frontend-admin/user/SectionTitle";
+import AddButton from "../../components/frontend-admin/user/AddButton";
+import SectionCard from "../../components/frontend-admin/user/SectionCard";
+import UserTable from "../../components/frontend-admin/user/UserTable";
+import UserFormModal from "../../components/frontend-admin/user/UserFormModal";
 
 const User = () => {
   const [users, setUsers] = useState([]);

@@ -11,11 +11,11 @@ import {
   Legend,
 } from "chart.js";
 
-import MonitoringTitle from "../components/monitoring/MonitoringTitle";
-import MonitoringStatsCard from "../components/monitoring/MonitoringStatsCard";
-import MonitoringChart from "../components/monitoring/MonitoringChart";
-import MonitoringTrafficChart from "../components/monitoring/MonitoringTrafficChart";
-import MonitoringTable from "../components/monitoring/MonitoringTable";
+import MonitoringTitle from "../../components/frontend-admin/monitoring/MonitoringTitle";
+import MonitoringStatsCard from "../../components/frontend-admin/monitoring/MonitoringStatsCard";
+import MonitoringChart from "../../components/frontend-admin/monitoring/MonitoringChart";
+import MonitoringTrafficChart from "../../components/frontend-admin/monitoring/MonitoringTrafficChart";
+import MonitoringTable from "../../components/frontend-admin/monitoring/MonitoringTable";
 
 ChartJS.register(
   CategoryScale,

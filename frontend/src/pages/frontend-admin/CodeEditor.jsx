@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { api } from "../lib/api";
+import { api } from "../../lib/api";
 
 const FILE_LABELS = {
   admin: "Admin Site",

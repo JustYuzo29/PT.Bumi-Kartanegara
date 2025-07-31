@@ -1,9 +1,9 @@
 // src/pages/Site.jsx
 import React, { useState, useEffect } from "react";
-import SiteVisitButton from "../components/site/SiteVisitButton";
-import SiteMetrics from "../components/site/SiteMetrics";
-import SiteUpdateTable from "../components/site/SiteUpdateTable";
-import SiteUpdateModal from "../components/site/SiteUpdateModal";
+import SiteVisitButton from "../../components/frontend-admin//site/SiteVisitButton";
+import SiteMetrics from "../../components/frontend-admin/site/SiteMetrics";
+import SiteUpdateTable from "../../components/frontend-admin/site/SiteUpdateTable";
+import SiteUpdateModal from "../../components/frontend-admin/site/SiteUpdateModal";
 
 const Site = () => {
   const [updates, setUpdates] = useState([]);

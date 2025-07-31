@@ -1,6 +1,6 @@
 // src/pages/Configuration.jsx
 import React, { useState } from "react";
-import AccessTable from "../components/configuration/AccessTable";
+import AccessTable from "../../components/frontend-admin/configuration/AccessTable";
 
 const Configuration = () => {
   const [data, setData] = useState({
