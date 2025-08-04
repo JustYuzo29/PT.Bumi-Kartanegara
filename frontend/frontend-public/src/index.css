@@ -132,6 +132,13 @@ html {
   :root {
     --color-text: #213547;
     --color-background: #ffffff;
+    --color-footer: var(--color-ocean);
+    --color-icon-bg: #ffffff;
+    --color-card-bg: var(--color-ocean);
+    --color-card-ser: var(--color-warning);
+    --color-card-text: #ffffff;
+    --color-marquee-bg: var(--color-ocean);
+    --color-marquee-text: #ffffff;
 
     /* Tambahan untuk komponen seperti dropdown */
     --dropdown-bg: #ffffff;
@@ -151,6 +158,14 @@ html {
   :root {
     --color-text: #ffffff;
     --color-background: var(--color-navy);
+    --color-pages: var(--color-ocean);
+    --color-icon-bg: #ffffff;
+    --color-icon: var(--color-midnight);
+    --color-card-bg: var(--color-navy);
+    --color-card-text: var(--color-text);
+    --color-marquee-bg: var(--color-midnight);
+    --color-marquee-text: #ffffff;
+    --color-footer: var(--color-midnight);
 
     /* Tambahan untuk komponen seperti dropdown */
     --dropdown-bg: var(--color-midnight);

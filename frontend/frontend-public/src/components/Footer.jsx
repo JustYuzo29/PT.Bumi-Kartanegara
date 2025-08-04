@@ -1,45 +1,56 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import { LanguageContext } from "../locales/language";
+import { footerTranslations } from "../locales/footer";
 
 export default function Footer() {
+  const { language } = useContext(LanguageContext);
+  const t = footerTranslations[language];
+
   return (
-    <footer className="bg-ocean text-white py-10">
-      {/* Upper: Company Info & Site Map */}
+    <footer
+      className="py-10 transition-colors duration-300"
+      style={{
+        backgroundColor: "var(--color-footer)",
+        color: "#ffffff", // selalu putih
+      }}
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-8">
-        {/* Company Info */}
+        {/* Kolom Kiri - Informasi Perusahaan */}
         <div>
-          <h3 className="text-xl font-heading mb-2">
-            PT. BUMI KARTANEGARA
-          </h3>
+          <h3 className="text-xl font-heading mb-2">{t.companyName}</h3>
           <p className="text-sm leading-relaxed mb-4">
-            lorem ipsum DOLOR SIT AMET wkwkwkwkwkkw lorem, <br />
-            wwwwww 1234, Indonesia
+            {t.addressLine1}, <br />
+            {t.addressLine2}, <br />
+            {t.addressLine3}, <br />
+            {t.addressLine4}
           </p>
-          <p className="text-sm mb-1">123456789123</p>
-          <p className="text-sm mb-1">123456789123</p>
+          <p className="text-sm mb-1">+6282226677207</p>
+          <p className="text-sm mb-1">pt.bumikartanegaranew@gmail.com</p>
         </div>
 
-        {/* Site Map */}
+        {/* Kolom Kanan - Sitemap */}
         <div>
-          <h3 className="text-xl font-heading mb-2">Site Map</h3>
+          <h3 className="text-xl font-heading mb-2">{t.siteMap}</h3>
           <ul className="space-y-2 text-sm">
-            {['ABOUT US', 'MEDIA', 'SERVICE', 'CONTACT'].map(link => (
-              <li key={link}>
-                <a
-                  href={`/${link.toLowerCase().replace(/ /g, '-')}`}
+            {["about", "media", "service", "contact"].map((item) => (
+              <li key={item}>
+                <Link
+                  to={`/${item}`}
                   className="text-snow hover:text-tahiti transition"
                 >
-                  {link}
-                </a>
+                  {t[item]}
+                </Link>
               </li>
             ))}
           </ul>
         </div>
       </div>
 
-      {/* Divider & Copyright */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 border-t border-cloud mt-8 pt-4">
-        <p className="text-sm">
-          © {new Date().getFullYear()} PT. BUMI KARTANEGARA. All rights reserved.
+      {/* Copyright */}
+      <div className="max-w-7xl mx-auto px-6 md:px-12 border-t mt-8 pt-4 border-[var(--dropdown-hover)]">
+        <p className="text-sm text-white">
+          {t.copyright.replace("{year}", new Date().getFullYear())}
         </p>
       </div>
     </footer>

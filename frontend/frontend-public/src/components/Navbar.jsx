@@ -1,27 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { Link, useLocation } from "react-router-dom";
+import { LanguageContext } from "../locales/language.jsx";
+import { navbarTranslations } from "../locales/navbar.js";
 import logo from "../assets/navbar/logo.png";
 
 const Navbar = () => {
   const location = useLocation();
   const currentPath = location.pathname;
-  const [language, setLanguage] = useState("ENGLISH");
+
+  // ✅ Pakai Context untuk bahasa
+  const { language, setLanguage } = useContext(LanguageContext);
+
+  // ✅ Ambil menu berdasarkan bahasa
+  const menuItems = navbarTranslations[language].menu;
+
   const [openDropdown, setOpenDropdown] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
-  const [showNavbar, setShowNavbar] = useState(false); // animasi muncul
+  const [showNavbar, setShowNavbar] = useState(false);
 
-  const menuItems = [
-    { name: "HOME", path: "/" },
-    { name: "ABOUT", path: "/about" },
-    { name: "MEDIA", path: "/media" },
-    { name: "SERVICE", path: "/service" },
-    { name: "CONTACT", path: "/contact" },
-  ];
+  // 🔥 State untuk animasi scroll
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleDropdown = () => setOpenDropdown(!openDropdown);
   const toggleMobileMenu = () => setShowMobileMenu(!showMobileMenu);
 
+  // ✅ Fungsi ubah bahasa
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
     setOpenDropdown(false);
@@ -29,13 +34,33 @@ const Navbar = () => {
 
   const hasActiveMenu = menuItems.some((m) => currentPath === m.path);
 
+  // ✅ Animasi muncul pertama kali
   useEffect(() => {
     const timer = setTimeout(() => setShowNavbar(true), 100);
     return () => clearTimeout(timer);
   }, []);
 
+  // ✅ Deteksi scroll arah
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 50) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
-    <div className="fixed top-6 w-full flex justify-center z-50">
+    <div
+      className={`fixed top-6 w-full flex justify-center z-50 transition-transform duration-1000 ${
+        isVisible ? "translate-y-0" : "-translate-y-28"
+      }`}
+    >
       <div
         className={`shadow-lg rounded-full px-6 py-1.5 flex items-center justify-between gap-6 w-[90%] max-w-[900px] bg-white dark:bg-[#0a0a23] transition-all duration-700 ease-out transform ${
           showNavbar ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
@@ -131,6 +156,7 @@ const Navbar = () => {
                 </Link>
               );
             })}
+
             {/* Language Dropdown Mobile */}
             <div className="pt-2 border-t border-gray-300 dark:border-gray-700">
               <button

@@ -10,29 +10,7 @@ import Oj1 from "../../assets/company/Oj1.jpg";
 import Oj2 from "../../assets/company/Oj2.png";
 import Oj3 from "../../assets/company/Oj3.png";
 
-const journeyItems = [
-  {
-    img: Oj1,
-    num: "2008",
-    title: "Fondasi dan Visi Awal",
-    desc: "Perusahaan didirikan dengan komitmen membangun fondasi layanan konstruksi dan alat berat yang andal.",
-    aos: "fade-right",
-  },
-  {
-    img: Oj2,
-    num: "2015",
-    title: "Adaptasi dan Ekspansi Layanan",
-    desc: "PT. Bumi Kartanegara memperluas layanan ke sektor penyewaan alat berat dan proyek infrastruktur regional.",
-    aos: "zoom-in",
-  },
-  {
-    img: Oj3,
-    num: "2024",
-    title: "Transformasi Ke Masa Depan",
-    desc: "Bertransformasi menuju digitalisasi layanan dan kesiapan mendukung pembangunan berkelanjutan.",
-    aos: "fade-left",
-  },
-];
+const imageMap = { Oj1, Oj2, Oj3 };
 
 const JourneyCard = ({ item, index }) => {
   const { ref, inView } = useInView({ triggerOnce: false });
@@ -45,12 +23,13 @@ const JourneyCard = ({ item, index }) => {
           ? "scale-[1.25] lg:scale-[1.3] z-30 -translate-y-2"
           : "scale-95 z-10"
       }`}
-      data-aos={item.aos}
+      data-aos={item.aos} // ✅ animasi diambil dari translate.js
+      data-aos-anchor-placement="top-bottom" // ✅ agar AOS tetap mendeteksi meski ada transform/scale
     >
       <div className="rounded-[2rem] overflow-hidden shadow-xl bg-white text-black relative group hover:shadow-2xl">
         <div className="w-full h-52 md:h-60 relative overflow-hidden">
           <img
-            src={item.img}
+            src={imageMap[item.img]}
             alt={item.title}
             className="absolute inset-0 w-full h-full object-cover object-center rounded-t-[2rem]"
           />
@@ -77,9 +56,10 @@ const JourneyCard = ({ item, index }) => {
   );
 };
 
-const OurJourney = () => {
+const OurJourney = ({ t }) => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: false });
+    AOS.refresh(); // ✅ memastikan AOS refresh ulang setelah render
   }, []);
 
   return (
@@ -88,7 +68,6 @@ const OurJourney = () => {
       className="relative min-h-screen flex flex-col justify-between text-white pt-36 pb-24 bg-cover bg-center scroll-mt-36"
       style={{ backgroundImage: `url(${BgJourney})` }}
     >
-      {/* Background shimmer + blur */}
       <div className="absolute inset-0 bg-black/30 z-0 backdrop-blur-sm" />
       <div className="absolute top-[-50px] left-[10%] w-72 h-72 bg-[#B7D6F2]/20 rounded-full animate-pulse-slow blur-3xl z-0" />
       <div className="absolute bottom-[-40px] right-[10%] w-60 h-60 bg-[#82A9DF]/20 rounded-full animate-pulse-slow blur-2xl z-0" />
@@ -100,13 +79,13 @@ const OurJourney = () => {
           data-aos="fade-up"
         >
           <h2 className="text-3xl md:text-4xl font-bold text-left">
-            OUR JOURNEY
+            {t.journeyTitle}
           </h2>
         </div>
 
         {/* Cards */}
         <div className="max-w-6xl mx-auto px-4 lg:px-6 grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-x-12 items-start">
-          {journeyItems.map((item, i) => (
+          {t.journeyItems.map((item, i) => (
             <JourneyCard key={i} item={item} index={i} />
           ))}
         </div>
@@ -119,9 +98,7 @@ const OurJourney = () => {
           data-aos-duration="1000"
         >
           <p className="text-sm md:text-base leading-relaxed text-white">
-            PT. Bumi Kartanegara telah melalui perjalanan panjang sejak awal
-            berdiri hingga kini, membawa perubahan dan kontribusi nyata dalam
-            dunia konstruksi dan infrastruktur.
+            {t.journeyDesc}
           </p>
         </div>
 
@@ -134,7 +111,7 @@ const OurJourney = () => {
         >
           <Link to="/service" className="inline-block">
             <button className="bg-navy text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-warning transition duration-300 cursor-pointer">
-              SELENGKAPNYA →
+              {t.journeyButton}
             </button>
           </Link>
         </div>

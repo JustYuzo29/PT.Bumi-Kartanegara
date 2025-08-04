@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import AboutImage from "../../assets/company/About3.png";
 
-const Tentang = () => {
+const Tentang = ({ t }) => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
     AOS.init({
@@ -18,7 +18,6 @@ const Tentang = () => {
       {/* Background kuning bawah */}
       <div className="absolute bottom-0 left-0 w-full h-[450px] bg-[var(--color-warning)] z-0 rounded-t-[40px]" />
 
-      {/* Konten utama */}
       <div className="relative z-10 px-6 md:px-12 max-w-7xl mx-auto py-12 md:py-20 w-full">
         <div className="space-y-6 text-carbon dark:text-white text-center md:text-left">
           <h3
@@ -26,14 +25,14 @@ const Tentang = () => {
             data-aos="fade-up"
             data-aos-delay="50"
           >
-            ABOUT US
+            {t.tentangLabel}
           </h3>
           <h1
             className="text-2xl md:text-4xl font-bold leading-snug"
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            SEJARAH
+            {t.tentangTitle}
           </h1>
         </div>
 
@@ -55,21 +54,11 @@ const Tentang = () => {
               data-aos="fade-left"
             >
               <h3 className="font-semibold text-sm md:text-base mb-2 leading-tight">
-                History About <br />
-                PT.BUMI KARTANEGARA
+                {t.tentangTitle}
               </h3>
-              <p className="text-sm leading-relaxed">
-                PT. Bumi Kartanegara didirikan pada tanggal 20 Agustus 2008,
-                memulai perjalanannya dengan semangat untuk berkontribusi aktif
-                dalam pembangunan Indonesia. Sejak awal, kami telah
-                mengoptimalkan perusahaan sebagai ikon dalam usaha konstruksi.
-                Komitmen kami tercermin dalam konsistensi memberikan kualitas
-                tinggi pada setiap proyek dan memenuhi tenggat waktu.
-                Transformasi signifikan terjadi pada 31 Juli 2024, dengan
-                penyesuaian bidang usaha sesuai Klasifikasi Baku Lapangan Usaha
-                Indonesia (KBLI 2020) dan penguatan struktur organisasi untuk
-                menghadapi tantangan masa depan.
-              </p>
+              <p className="text-sm leading-relaxed">{t.tentangDesc1}</p>
+              <p className="text-sm leading-relaxed mt-2">{t.tentangDesc2}</p>
+              <p className="text-sm leading-relaxed mt-2">{t.tentangDesc3}</p>
             </div>
           </div>
         </div>

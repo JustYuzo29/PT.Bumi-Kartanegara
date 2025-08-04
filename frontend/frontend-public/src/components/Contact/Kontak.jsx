@@ -4,7 +4,7 @@ import "aos/dist/aos.css";
 import Wa from "../../assets/company/Whatsapp.png";
 import Gmail from "../../assets/company/Gmail.png";
 
-const Kontak = () => {
+const Kontak = ({ t }) => {
   useEffect(() => {
     AOS.init({ duration: 800, once: false });
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -15,22 +15,17 @@ const Kontak = () => {
       {/* Marquee Header */}
       <div className="w-full bg-ocean marquee py-3">
         <div className="marquee-content text-white font-bold text-base md:text-lg tracking-wider">
-          {"CONTACT US | ".repeat(100)}
+          {(t.contactMarquee + " | ").repeat(100)}
         </div>
       </div>
 
       {/* Section Title */}
       <section className="text-center mt-20 md:mt-28 px-4" data-aos="fade-down">
-        <h2 className="text-sm font-medium">CONTACT US</h2>
+        <h2 className="text-sm font-medium">{t.contactHeading}</h2>
         <h1 className="text-3xl md:text-4xl font-heading font-bold mt-1">
-          GET IN TOUCH
+          {t.contactTitle}
         </h1>
-        <p className="text-sm md:text-base mt-2">
-          Kami siap menjadi mitra terpercaya Anda dalam mewujudkan proyek-proyek
-          penting. <br />
-          Silakan hubungi tim kami melalui saluran komunikasi yang nyaman bagi
-          Anda untuk pertanyaan atau kolaborasi.
-        </p>
+        <p className="text-sm md:text-base mt-2">{t.contactIntro}</p>
       </section>
 
       {/* Kontak Cards */}
@@ -49,14 +44,12 @@ const Kontak = () => {
 
           <div className="relative">
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-warning px-6 py-2 rounded-full shadow text-base font-bold text-carbon z-10">
-              WhatsApp
+              {t.whatsappLabel}
             </div>
 
             <div className="bg-warning pt-9 pb-6 text-center">
               <p className="text-sm leading-relaxed px-4 line-clamp-3 break-words h-[96px] overflow-hidden mt-6">
-                Layanan cepat WhatsApp
-                <br />
-                Hubungi kami langsung melalui pesan otomatis.
+                {t.whatsappDesc}
               </p>
             </div>
           </div>
@@ -74,14 +67,12 @@ const Kontak = () => {
 
           <div className="relative">
             <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-warning px-6 py-2 rounded-full shadow text-base font-bold text-carbon z-10">
-              Email
+              {t.emailLabel}
             </div>
 
             <div className="bg-warning pt-9 pb-6 text-center">
               <p className="text-sm leading-relaxed px-4 line-clamp-3 break-words h-[96px] overflow-hidden mt-6">
-                Informasi & Penawaran Via Email
-                <br />
-                Kirimkan pertanyaan, proposal, atau kebutuhan spesifik Anda.
+                {t.emailDesc}
               </p>
             </div>
           </div>
@@ -90,13 +81,12 @@ const Kontak = () => {
 
       {/* Our Service */}
       <section className="mt-16 px-4 text-center" data-aos="zoom-in">
-        <h2 className="text-lg font-bold font-heading mb-6">OUR SERVICE</h2>
+        <h2 className="text-lg font-bold font-heading mb-6">
+          {t.ourServiceHeading}
+        </h2>
         <div className="w-[630px] bg-ocean text-white px-6 py-4 rounded-default shadow-elevated mx-auto">
           <p className="text-sm leading-relaxed px-4 line-clamp-3 break-words h-[96px] overflow-hidden">
-            PT. Bumi Kartanegara adalah spesialis dalam Jasa Konstruksi,
-            Rekayasa Sipil, Suplai Material, Aktivitas Penyewaan alat berat dan
-            transportasi. Kami berkomitmen pada kualitas, efisiensi, dan
-            kepuasan pelanggan dengan slogan SQQ.
+            {t.ourServiceDesc}
           </p>
         </div>
       </section>

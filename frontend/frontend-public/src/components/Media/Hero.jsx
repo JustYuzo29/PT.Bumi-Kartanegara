@@ -3,7 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import BgImage from "../../assets/company/Bg-Journey.png";
 
-const Hero = () => {
+const Hero = ({ t }) => {
   useEffect(() => {
     AOS.init({ once: false });
   }, []);
@@ -28,13 +28,10 @@ const Hero = () => {
         data-aos-duration="1000"
         data-aos-delay="200"
       >
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 max-w-xl leading-tight">
-          Membangun Fondasi Kokoh untuk Kemajuan Infrastruktur Nasional
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 max-w-xl leading-tight min-h-[110px] md:min-h-[140px]">
+          {t.heroTitleLine1} <br /> {t.heroTitleLine2}
         </h1>
-        <p className="text-lg max-w-lg">
-          Menyediakan Solusi Komprehensif dalam Bidang Konstruksi, Rekayasa
-          Sipil, dan Pengadaan Material
-        </p>
+        <p className="text-lg max-w-lg">{t.heroSubtitle}</p>
       </div>
     </section>
   );

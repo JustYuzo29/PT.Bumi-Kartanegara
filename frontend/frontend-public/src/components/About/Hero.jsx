@@ -5,7 +5,7 @@ import HeroAbout from "../../assets/company/HeroAbout.png";
 import Hero1 from "../../assets/company/Oj1.jpg";
 import Hero2 from "../../assets/company/About1.jpg";
 
-const Hero = () => {
+const Hero = ({ t }) => {
   useEffect(() => {
     AOS.init({ once: false, duration: 1000 });
   }, []);
@@ -26,12 +26,10 @@ const Hero = () => {
             className="relative text-white text-right flex flex-col items-end gap-y-6"
           >
             <h1 className="text-2xl md:text-3xl font-bold leading-snug">
-              Membangun Fondasi Kemajuan Bangsa 
+              {t.heroAboutTitleLeft}
             </h1>
             <p className="text-base md:text-lg max-w-md">
-              Perusahaan terdepan dalam Konstruksi, Rekayasa Sipil, dan Suplai,
-              berdedikasi menciptakan nilai budaya dan peradaban Indonesia
-              melalui pembangunan infrastruktur berkualitas.
+              {t.heroAboutDescLeft}
             </p>
             <div className="mt-21">
               <img
@@ -47,7 +45,6 @@ const Hero = () => {
             data-aos="fade-left"
             className="flex flex-col justify-start gap-8 text-white"
           >
-            {/* Gambar kanan */}
             <div className="self-start">
               <img
                 src={Hero1}
@@ -56,15 +53,12 @@ const Hero = () => {
               />
             </div>
 
-            {/* Teks kanan */}
             <div className="space-y-3">
               <h1 className="text-2xl md:text-3xl font-bold leading-snug">
-                Bertumbuh Bersama Negeri, Berlandaskan Inovasi dan Integritas
-                <br />
+                {t.heroAboutTitleRight}
               </h1>
               <p className="text-base md:text-lg max-w-md">
-                Mewujudkan pembangunan berkelanjutan melalui kemitraan strategis
-                dan filosofi penyempurnaan terus-menerus.
+                {t.heroAboutDescRight}
               </p>
             </div>
           </div>

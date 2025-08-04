@@ -9,6 +9,7 @@ import Service from "./pages/Service";
 import Contact from "./pages/Contact";
 
 import Footer from "./components/Footer";
+import { LanguageProvider } from "./locales/language.jsx";
 
 function App() {
   useEffect(() => {
@@ -29,19 +30,21 @@ function App() {
   }, []);
 
   return (
-    <Router>
-      <Navbar />
+    <LanguageProvider>
+      <Router>
+        <Navbar />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/media" element={<Media />} />
-        <Route path="/service" element={<Service />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/media" element={<Media />} />
+          <Route path="/service" element={<Service />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
 
-      <Footer />
-    </Router>
+        <Footer />
+      </Router>
+    </LanguageProvider>
   );
 }
 

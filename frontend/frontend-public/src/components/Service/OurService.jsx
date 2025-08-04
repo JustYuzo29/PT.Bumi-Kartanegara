@@ -12,54 +12,52 @@ import Img1 from "../../assets/company/HeroAbout.png";
 import Img2 from "../../assets/company/Gallery.png";
 import Img3 from "../../assets/company/Oj2.png";
 
-const services = [
-  {
-    title: "Jasa Konstruksi Komprehensif",
-    image: Img1,
-    description:
-      "Meliputi pembangunan berbagai jenis gedung hunian, perkantoran, industri, serta infrastruktur sipil seperti jalan dan jembatan, didukung instalasi teknikal yang presisi. ",
-    icon: <WrenchScrewdriverIcon className="w-8 h-8 text-black" />,
-  },
-  {
-    title: "Pengadaan Material & Industri Pengolahan",
-    image: Img2,
-    description:
-      "Kami menyediakan suplai material konstruksi beragam, melakukan perdagangan besar berbagai produk, serta memproduksi mortar dan beton siap pakai berkualitas tinggi.",
-    icon: <TruckIcon className="w-8 h-8 text-black" />,
-  },
-  {
-    title: "Layanan Penunjang & Sewa Peralatan ",
-    image: Img3,
-    description:
-      "Menawarkan aktivitas penyewaan alat transportasi darat dan berat, penyediaan sumber daya manusia, serta berbagai jasa penunjang lainnya untuk optimalisasi proyek Anda",
-    icon: <BuildingOffice2Icon className="w-8 h-8 text-black" />,
-  },
-];
-
-const OurService = () => {
+const OurService = ({ t }) => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: false });
   }, []);
 
+  const services = [
+    {
+      title: t.serviceCard1Title,
+      image: Img1,
+      description: t.serviceCard1Desc,
+      icon: (
+        <WrenchScrewdriverIcon className="w-8 h-8 text-[var(--color-icon)]" />
+      ),
+    },
+    {
+      title: t.serviceCard2Title,
+      image: Img2,
+      description: t.serviceCard2Desc,
+      icon: <TruckIcon className="w-8 h-8 text-[var(--color-icon)]" />,
+    },
+    {
+      title: t.serviceCard3Title,
+      image: Img3,
+      description: t.serviceCard3Desc,
+      icon: (
+        <BuildingOffice2Icon className="w-8 h-8 text-[var(--color-icon)]" />
+      ),
+    },
+  ];
+
   return (
     <section
       id="our-service"
-      className="min-h-[115vh] w-full bg-white pt-40 pb-32 px-6 md:px-12 flex flex-col items-center"
+      className="min-h-[115vh] w-full pt-40 pb-32 px-6 md:px-12 flex flex-col items-center transition-colors duration-300"
+      style={{
+        backgroundColor: "var(--color-pages)",
+        color: "var(--color-text)",
+      }}
     >
       {/* TEKS SECTION */}
       <div className="text-center" data-aos="fade-down">
-        <h2 className="text-3xl md:text-4xl font-bold mb-2">OUR SERVICES</h2>
-        <p className="text-sm md:text-base text-gray-600 mb-2">
-          Solusi Konstruksi dan Pasokan Terintegrasi untuk Kebutuhan Pembangunan
-          Anda
-        </p>
-        <p className="text-sm text-gray-500 max-w-3xl mx-auto">
-          PT. Bumi Kartanegara menawarkan layanan ahli di bidang konstruksi,
-          rekayasa sipil, serta pengadaan material dan peralatan. <br />
-          Kami berkomitmen untuk memberikan kualitas terbaik dan inovasi dalam
-          setiap aspek pekerjaan kami, mendukung terwujudnya infrastruktur yang
-          kuat dan berkelanjutan di Indonesia.
-        </p>
+        <h2 className="text-3xl md:text-4xl font-bold mb-2">
+          {t.ourServiceTitle}
+        </h2>
+        <p className="text-sm md:text-base mb-2">{t.ourServiceSubtitle}</p>
+        <p className="text-sm max-w-3xl mx-auto">{t.ourServiceDescription}</p>
       </div>
 
       {/* CARD SECTION */}
@@ -67,27 +65,39 @@ const OurService = () => {
         {services.map((item, i) => (
           <div
             key={i}
-            className="w-[360px] rounded-xl shadow-md bg-white overflow-hidden flex flex-col"
+            className="w-[360px] rounded-xl shadow-md overflow-hidden flex flex-col transition-colors duration-300"
+            style={{
+              backgroundColor: "var(--color-card-bg)",
+            }}
             data-aos="zoom-in"
             data-aos-delay={i * 200}
           >
+            {/* Gambar + Icon */}
             <div className="relative">
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-52 object-cover"
+                className="w-full h-[200px] md:h-[240px] object-cover object-center"
               />
 
-              {/* ICON CENTER */}
               <div className="absolute left-1/2 bottom-[-32px] transform -translate-x-1/2 z-10">
-                <div className="w-16 h-16 bg-white rounded-full border-4 border-white flex items-center justify-center shadow-md">
-                  <div className="text-black text-2xl">{item.icon}</div>
+                <div
+                  className="w-16 h-16 rounded-full border-4 flex items-center justify-center shadow-md transition-colors duration-300"
+                  style={{
+                    backgroundColor: "var(--color-icon-bg)",
+                    borderColor: "var(--color-icon-bg)",
+                  }}
+                >
+                  {item.icon}
                 </div>
               </div>
             </div>
 
-            {/* ISI CARD */}
-            <div className="bg-[#0b192c] text-white px-6 pt-16 pb-10 text-center rounded-b-xl grow min-h-[190px] flex flex-col justify-center">
+            {/* Isi Kartu */}
+            <div
+              className="px-6 pt-16 pb-10 text-center rounded-b-xl grow min-h-[190px] flex flex-col justify-center transition-colors duration-300"
+              style={{ color: "var(--color-card-text)" }}
+            >
               <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
               <p className="text-sm">{item.description}</p>
             </div>

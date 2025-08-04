@@ -1,38 +1,55 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
 import Alat1 from "../../assets/company/Bg-Journey.png";
 import Alat2 from "../../assets/company/Oj2.png";
 
-const Tools = () => {
+const Tools = ({ t }) => {
+  const [isLightMode, setIsLightMode] = useState(
+    window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: light)").matches
+  );
+
   useEffect(() => {
-    AOS.init({
-      duration: 800,
-      once: false,
-    });
+    AOS.init({ duration: 800, once: false });
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
+    const handleThemeChange = (e) => setIsLightMode(e.matches);
+    mediaQuery.addEventListener("change", handleThemeChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleThemeChange);
+    };
   }, []);
 
+  const cardBackground = isLightMode
+    ? "var(--color-card-ser)" // light mode
+    : "var(--color-card-bg)"; // dark mode
+
   return (
-    <section className="w-full px-4 md:px-12 lg:px-16 min-h-screen pt-2 pb-12 flex flex-col items-center justify-center">
+    <section
+      className="w-full px-4 md:px-12 lg:px-16 min-h-screen pt-2 pb-12 flex flex-col items-center justify-center transition-colors duration-300"
+      style={{
+        backgroundColor: "var(--color-pages)",
+        color: "var(--color-text)",
+      }}
+    >
       {/* HEADER */}
       <div className="w-full max-w-[1100px] mb-10 -mt-6" data-aos="fade-up">
-        <h2 className="text-2xl md:text-3xl font-bold mb-2 text-[#0B192C]">
-          Solusi Terlengkap untuk Kebutuhan Alat Berat Proyek Anda
-        </h2>
-        <p className="text-base text-[#0B192C]">
-          PT. Bumi Kartanegara menyediakan berbagai dukungan komprehensif untuk
-          alat berat, meliputi penyewaan, perawatan, hingga penyediaan suku
-          cadang. <br />
-          Kami memastikan ketersediaan dan performa optimal peralatan untuk
-          efisiensi di setiap proyek konstruksi
-        </p>
+        <h2 className="text-2xl md:text-3xl font-bold mb-2">{t.toolsTitle}</h2>
+        <p className="text-base">{t.toolsDescription}</p>
       </div>
 
       {/* CARD CONTAINER */}
       <div className="w-full max-w-[1100px] space-y-6">
         {/* CARD 1 */}
         <div
-          className="bg-warning rounded-xl shadow-md p-4 md:p-6 flex flex-col md:flex-row items-start gap-6"
+          className="rounded-xl shadow-md p-4 md:p-6 flex flex-col md:flex-row items-start gap-6 transition-colors duration-300"
+          style={{
+            backgroundColor: cardBackground,
+            color: "var(--color-card-text)",
+          }}
           data-aos="fade-right"
         >
           <img
@@ -42,20 +59,21 @@ const Tools = () => {
           />
           <div className="md:w-1/2">
             <h3 className="text-lg font-extrabold mb-2 font-heading">
-              Industri Pengolahan & Suplai Material Konstruksi
+              {t.toolsCard1Title}
             </h3>
             <p className="text-sm font-semibold leading-tight break-words">
-              Kami mengoperasikan industri pengolahan mortar atau beton siap
-              pakai , <br />
-              serta berperan sebagai pemasok material bangunan, memastikan
-              kualitas dan ketersediaan pasokan penting untuk proyek Anda
+              {t.toolsCard1Desc}
             </p>
           </div>
         </div>
 
         {/* CARD 2 */}
         <div
-          className="bg-warning rounded-xl shadow-md p-4 md:p-6 flex flex-col md:flex-row-reverse items-start gap-6"
+          className="rounded-xl shadow-md p-4 md:p-6 flex flex-col md:flex-row-reverse items-start gap-6 transition-colors duration-300"
+          style={{
+            backgroundColor: cardBackground,
+            color: "var(--color-card-text)",
+          }}
           data-aos="fade-left"
         >
           <img
@@ -65,12 +83,10 @@ const Tools = () => {
           />
           <div className="md:w-1/2 text-right">
             <h3 className="text-lg font-extrabold mb-2 font-heading">
-              Penyewaan, Pemeliharaan, dan Suku Cadang Alat Berat
+              {t.toolsCard2Title}
             </h3>
             <p className="text-sm font-semibold leading-tight break-words">
-              Menawarkan layanan penyewaan berbagai jenis alat berat , didukung
-              oleh perawatan, pemeliharaan, dan perbaikan berkala , serta
-              penyediaan suku cadang alat-alat berat untuk kinerja optimal.
+              {t.toolsCard2Desc}
             </p>
           </div>
         </div>

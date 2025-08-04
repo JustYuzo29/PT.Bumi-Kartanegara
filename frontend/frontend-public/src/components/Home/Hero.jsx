@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import HeroImage from "../../assets/company/Hero.png";
 
-const Hero = () => (
+const Hero = ({ t }) => (
   <section className="relative w-full h-screen pt-20">
     <img
       src={HeroImage}
@@ -15,17 +15,13 @@ const Hero = () => (
       data-aos="fade-up"
     >
       <div className="max-w-xl text-white">
-        <h1 className="text-xl md:text-4xl font-bold mb-4 leading-tight">
-          PT. Bumi Kartanegara : <br />
-          Membangun Infrastruktur dan Fondasi Kemajuan Nasional
+        <h1 className="text-xl md:text-4xl font-bold mb-4 leading-tight min-h-[110px] md:min-h-[140px]">
+          {t.heroTitleLine1} <br /> {t.heroTitleLine2}
         </h1>
-        <p className="text-base md:text-lg mb-6">
-          Menyediakan Solusi Komprehensif dalam bidang Kontruksi, dan Rekayasa
-          Sipil
-        </p>
+        <p className="text-base md:text-lg mb-6">{t.heroSubtitle}</p>
         <Link to="/about">
           <button className="px-6 py-3 bg-navy hover:bg-warning rounded-full text-white font-semibold transition-all duration-300 cursor-pointer">
-            SELENGKAPNYA →
+            {t.heroButton} →
           </button>
         </Link>
       </div>

@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 import About1 from "../../assets/company/About1.jpg";
 import About2 from "../../assets/company/About2.png";
 
-const About = () => {
+const About = ({ t }) => {
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -25,18 +25,15 @@ const About = () => {
         >
           <div className="lg:w-1/4 mb-6 lg:mb-0">
             <p className="text-base font-semibold uppercase tracking-wider text-black">
-              ABOUT US
+              {t.aboutLabel}
             </p>
           </div>
           <div className="lg:w-3/4">
             <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-4 text-gray-900 leading-tight">
-              Membangun Negeri Dengan Dedikasi
+              {t.aboutTitle}
             </h2>
             <p className="text-s font-semibold text-gray-700 tracking-wide">
-              PT. Bumi Kartanegara adalah perusahaan yang berdedikasi tinggi
-              pada sektor Konstruksi, Civil Engineering, dan Suplier, berperan
-              aktif dalam mendukung pembangunan infrastruktur di seluruh
-              Indonesia.
+              {t.aboutDesc1}
             </p>
           </div>
         </div>
@@ -61,10 +58,7 @@ const About = () => {
             data-aos="fade-left"
           >
             <p className="text-base leading-relaxed text-gray-600">
-              Kami berkomitmen untuk senantiasa mewujudkan nilai-nilai
-              kebudayaan dan peradaban bangsa melalui setiap proyek yang kami
-              kerjakan. Dengan semangat kolaborasi dan inovasi, kami berupaya
-              meningkatkan kesejahteraan dan keselarasan bangsa
+              {t.aboutDesc2}
             </p>
           </div>
         </div>
@@ -77,11 +71,7 @@ const About = () => {
             data-aos="fade-right"
           >
             <p className="text-base leading-relaxed text-gray-600">
-              Fokus utama kami adalah penyempurnaan berkelanjutan dalam bidang
-              konstruksi, didukung oleh sumber daya manusia berkualitas dan
-              teknologi mutakhir. Kami selalu bergandengan tangan dengan
-              pemerintah dan mitra bisnis untuk mencapai kepuasan optimal bagi
-              pelanggan.
+              {t.aboutDesc3}
             </p>
           </div>
 
