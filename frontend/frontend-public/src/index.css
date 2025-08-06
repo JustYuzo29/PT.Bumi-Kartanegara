@@ -14,6 +14,7 @@
   --color-error: #E10000;
   --color-snow: #EEF6FF;
   --color-carbon: #191919;
+  --color-active: #1E3E62; /* Warna untuk menu aktif - biru terang */
 
   /* Font */
   --font-body: 'Poppins', sans-serif;
@@ -128,60 +129,133 @@ html {
 }
 
 /* 🌞 LIGHT MODE */
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-text: #213547;
-    --color-background: #ffffff;
-    --color-footer: var(--color-ocean);
-    --color-icon-bg: #ffffff;
-    --color-card-bg: var(--color-ocean);
-    --color-card-ser: var(--color-warning);
-    --color-card-text: #ffffff;
-    --color-marquee-bg: var(--color-ocean);
-    --color-marquee-text: #ffffff;
+:root {
+  --color-text: #213547;
+  --color-background: #ffffff;
+  --color-footer: var(--color-ocean);
+  --color-icon-bg: #ffffff;
+  --color-card-bg: var(--color-ocean);
+  --color-card-ser: var(--color-warning);
+  --color-card-text: #ffffff;
+  --color-marquee-bg: var(--color-ocean);
+  --color-marquee-text: #ffffff;
+  --color-about-bg: #ffffff;
+  --color-journey-card-bg: #ffffff;
+  --color-journey-card-text: #000000;
+  --color-journey-button-bg: var(--color-navy);
+  --color-tentang-bg: #ffffff;
+  --color-tentang-card-bg: var(--color-ocean);
+  --color-tentang-yellow-bg: var(--color-warning);
+  --color-vm-card-bg: rgba(255, 255, 255, 0.9);
+  --color-vm-card-text: var(--color-carbon);
+  --color-struktur-bg: #2f2f2f;
+  --color-struktur-text: #ffffff;
+  --color-partner-card: #ffffff;
+  --color-contact-bg: #ffffff;
+  --color-contact-marquee: var(--color-ocean);
+  --color-contact-card-top: var(--color-ocean);
+  --color-contact-card-bottom: var(--color-warning);
+  --color-contact-service: var(--color-ocean);
+  --color-background-contact: #ffffff;
+  --color-button-maps: #0B192C;
 
-    /* Tambahan untuk komponen seperti dropdown */
-    --dropdown-bg: #ffffff;
-    --dropdown-text: #213547;
-    --dropdown-hover: var(--color-cloud);
-  }
 
-  html,
-  body {
-    background-color: var(--color-background);
-    color: var(--color-text);
-  }
+
+  /* Tambahan untuk komponen seperti dropdown */
+  --dropdown-bg: #ffffff;
+  --dropdown-text: #213547;
+  --dropdown-hover: var(--color-cloud);
 }
 
 /* 🌚 DARK MODE */
+[data-theme="dark"] {
+  --color-text: #ffffff;
+  --color-background: #0B192C;
+  --color-pages: var(--color-ocean);
+  --color-icon-bg: #ffffff;
+  --color-icon: var(--color-midnight);
+  --color-card-bg: var(--color-midnight);
+  --color-card-text: #ffffff;
+  --color-card-ser: var(--color-navy);
+  --color-marquee-bg: var(--color-midnight);
+  --color-marquee-text: #ffffff;
+  --color-footer: var(--color-midnight);
+  --color-about-bg: var(--color-midnight);
+  --color-journey-card-bg: var(--color-navy);
+  --color-journey-card-text: #ffffff;
+  --color-journey-button-bg: var(--color-ocean);
+  --color-tentang-bg: var(--color-ocean);
+  --color-tentang-card-bg: var(--color-midnight);
+  --color-tentang-yellow-bg: var(--color-navy);
+  --color-vm-card-bg: var(--color-midnight);
+  --color-vm-card-text: #ffffff;
+  --color-struktur-bg: var(--color-carbon);
+  --color-struktur-text: #ffffff;
+  --color-partner-card: var(--color-navy);
+  --color-contact-bg: var(--color-ocean);           /* #0B192C */
+  --color-contact-marquee: var(--color-midnight);   /* #00022C */
+  --color-contact-card-top: var(--color-midnight);  /* #00022C */
+  --color-contact-card-bottom: var(--color-navy);   /* #1E3E62 */
+  --color-contact-service: var(--color-midnight);   /* #00022C */
+  --color-background-contact: var(--color-ocean);
+  --color-button-maps: #00022C;
+  
+
+
+
+  /* Tambahan untuk komponen seperti dropdown */
+  --dropdown-bg: var(--color-midnight);
+  --dropdown-text: #ffffff;
+  --dropdown-hover: var(--color-ocean);
+}
+
+/* Fallback untuk system preference jika tidak ada data-theme */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme]) {
+    /* Sama persis dengan [data-theme="dark"] */
+    --color-background: #0B192C;
     --color-text: #ffffff;
-    --color-background: var(--color-navy);
     --color-pages: var(--color-ocean);
     --color-icon-bg: #ffffff;
     --color-icon: var(--color-midnight);
-    --color-card-bg: var(--color-navy);
-    --color-card-text: var(--color-text);
+    --color-card-bg: var(--color-midnight);
+    --color-card-text: #ffffff;
     --color-marquee-bg: var(--color-midnight);
     --color-marquee-text: #ffffff;
     --color-footer: var(--color-midnight);
+    --color-about-bg: var(--color-midnight);
+    --color-journey-card-bg: var(--color-navy);
+    --color-journey-card-text: #ffffff;
+    --color-journey-button-bg: var(--color-ocean);
+    --color-tentang-bg: var(--color-ocean);
+    --color-tentang-card-bg: var(--color-midnight);
+    --color-tentang-yellow-bg: var(--color-navy);
+    --color-vm-card-bg: var(--color-midnight);
+    --color-vm-card-text: #ffffff;
+    --color-struktur-bg: var(--color-carbon);
+    --color-struktur-text: #ffffff;
+    --color-partner-card: var(--color-navy);
+    --color-contact-bg: var(--color-ocean);
+    --color-contact-marquee: var(--color-midnight);
+    --color-contact-card-top: var(--color-midnight);
+    --color-contact-card-bottom: var(--color-navy);
+    --color-contact-service: var(--color-midnight);
+    --color-background-contact: var(--color-ocean);
+    --color-button-maps: #00022C;
 
-    /* Tambahan untuk komponen seperti dropdown */
     --dropdown-bg: var(--color-midnight);
     --dropdown-text: #ffffff;
     --dropdown-hover: var(--color-ocean);
   }
+}
 
-  html,
-  body {
-    background-color: var(--color-background);
-    color: var(--color-text);
-  }
+html,
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 @keyframes pulse {
-
   0%,
   100% {
     opacity: 0.3;

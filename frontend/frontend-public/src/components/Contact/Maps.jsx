@@ -2,13 +2,18 @@ import React from "react";
 
 const Maps = ({ t }) => {
   return (
-    <div className="relative bg-white dark:bg-[var(--color-background)] px-4 md:px-20 pt-40 pb-20">
-      {/* Section Title */}
-      <div className="text-center mb-0" data-aos="fade-down">
-        <h2 className="text-lg font-semibold text-gray-600 dark:text-gray-300">
+    <div
+      className="relative px-4 md:px-20 pt-40 pb-20"
+      style={{
+        backgroundColor: "var(--color-background-contact)",
+        color: "var(--color-text)",
+      }}
+    >      {/* Section Title */}
+      <div className="text-center mb-0" data-aos="fade-down" style={{ color: "var(--color-text)" }}>
+        <h2 className="text-lg font-semibold text-gray-600 dark:text-gray-300" style={{ color: "var(--color-text)" }}>
           {t.mapsSubtitle}
         </h2>
-        <h1 className="text-3xl md:text-4xl font-bold text-ocean mb-4">
+        <h1 className="text-3xl md:text-4xl font-bold text-ocean mb-4" style={{ color: "var(--color-text)" }}>
           {t.mapsTitle}
         </h1>
       </div>
@@ -36,7 +41,7 @@ const Maps = ({ t }) => {
           href="https://maps.app.goo.gl/4idKYAXmBVVNP1K87"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-ocean text-white px-6 py-2 rounded-md transition duration-300 hover:bg-[var(--color-warning)]"
+          className="inline-block bg-[var(--color-button-maps)] text-white px-6 py-2 rounded-md transition duration-300 hover:bg-[var(--color-warning)]" 
         >
           {t.mapsButton}
         </a>

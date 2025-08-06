@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import ThemeToggle from "./components/ThemeToggle";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -12,26 +13,10 @@ import Footer from "./components/Footer";
 import { LanguageProvider } from "./locales/language.jsx";
 
 function App() {
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-
-    const updateTheme = (e) => {
-      if (e.matches) {
-        document.documentElement.classList.add("dark");
-      } else {
-        document.documentElement.classList.remove("dark");
-      }
-    };
-
-    updateTheme(mq);
-    mq.addEventListener("change", updateTheme);
-
-    return () => mq.removeEventListener("change", updateTheme);
-  }, []);
-
   return (
     <LanguageProvider>
       <Router>
+        <ThemeToggle />
         <Navbar />
 
         <Routes>

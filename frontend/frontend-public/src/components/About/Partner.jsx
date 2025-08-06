@@ -30,7 +30,11 @@ const Partner = ({ t }) => {
         {/* Card 1 */}
         <div
           data-aos="fade-up"
-          className="flex flex-col md:flex-row items-center bg-white/90 backdrop-blur-lg rounded-3xl overflow-hidden shadow-lg mb-8 max-w-6xl mx-auto"
+          className="flex flex-col md:flex-row items-center rounded-3xl overflow-hidden shadow-lg mb-8 max-w-6xl mx-auto"
+          style={{
+            backgroundColor: "var(--color-partner-card)",
+            color: "var(--color-text)",
+          }}
         >
           <div className="w-full md:w-1/2 h-[230px]">
             <img
@@ -39,7 +43,7 @@ const Partner = ({ t }) => {
               className="w-full h-full object-cover"
             />
           </div>
-          <div className="w-full md:w-1/2 p-6 text-carbon">
+          <div className="w-full md:w-1/2 p-6">
             <h3 className="text-lg md:text-xl font-bold mb-2">
               {t.partner1Name}
             </h3>

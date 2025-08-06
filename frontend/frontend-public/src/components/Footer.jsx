@@ -48,7 +48,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 border-t mt-8 pt-4 border-[var(--dropdown-hover)]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 border-t mt-8 pt-4 border:#ffff">
         <p className="text-sm text-white">
           {t.copyright.replace("{year}", new Date().getFullYear())}
         </p>

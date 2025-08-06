@@ -20,7 +20,13 @@ const Hero = ({ t }) => (
         </h1>
         <p className="text-base md:text-lg mb-6">{t.heroSubtitle}</p>
         <Link to="/about">
-          <button className="px-6 py-3 bg-navy hover:bg-warning rounded-full text-white font-semibold transition-all duration-300 cursor-pointer">
+          <button 
+            style={{
+              backgroundColor: "var(--color-ocean)",
+              transition: "all 0.3s"
+            }}
+            className="px-6 py-3 hover:bg-warning rounded-full text-white font-semibold cursor-pointer"
+          >
             {t.heroButton} →
           </button>
         </Link>

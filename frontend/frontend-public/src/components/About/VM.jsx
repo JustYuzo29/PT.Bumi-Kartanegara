@@ -21,7 +21,11 @@ const VM = ({ t }) => {
       <div className="flex flex-col justify-center gap-10 md:gap-16 max-w-7xl mx-auto h-full">
         {/* VISI */}
         <div
-          className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-10 flex flex-col md:flex-row gap-6 items-center"
+          style={{
+            backgroundColor: "var(--color-vm-card-bg)",
+            color: "var(--color-vm-card-text)"
+          }}
+          className="backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-10 flex flex-col md:flex-row gap-6 items-center"
           data-aos="fade-up"
         >
           <div className="w-full md:w-1/2">
@@ -31,7 +35,10 @@ const VM = ({ t }) => {
               className="rounded-2xl object-cover w-full h-[300px]"
             />
           </div>
-          <div className="w-full md:w-1/2 text-carbon dark:text-white">
+          <div 
+            style={{ color: "var(--color-vm-card-text)" }}
+            className="w-full md:w-1/2"
+          >
             <h3 className="text-lg md:text-xl font-bold mb-3">{t.visiTitle}</h3>
             <p className="text-sm md:text-base leading-relaxed">{t.visiDesc}</p>
           </div>
@@ -39,7 +46,11 @@ const VM = ({ t }) => {
 
         {/* MISI */}
         <div
-          className="bg-white/90 backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-10 flex flex-col md:flex-row-reverse gap-6 items-center"
+          style={{
+            backgroundColor: "var(--color-vm-card-bg)",
+            color: "var(--color-vm-card-text)"
+          }}
+          className="backdrop-blur-lg rounded-3xl shadow-2xl p-6 md:p-10 flex flex-col md:flex-row-reverse gap-6 items-center"
           data-aos="fade-up"
         >
           <div className="w-full md:w-1/2">
@@ -49,7 +60,10 @@ const VM = ({ t }) => {
               className="rounded-2xl object-cover w-full h-[300px]"
             />
           </div>
-          <div className="w-full md:w-1/2 text-carbon dark:text-white">
+          <div 
+            style={{ color: "var(--color-vm-card-text)" }}
+            className="w-full md:w-1/2"
+          >
             <h3 className="text-lg md:text-xl font-bold mb-3">{t.misiTitle}</h3>
             <p className="text-sm md:text-base leading-relaxed">{t.misiDesc}</p>
           </div>

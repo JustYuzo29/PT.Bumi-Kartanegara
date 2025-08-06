@@ -13,7 +13,7 @@ const Hero = ({ t }) => {
   return (
     <section
       className="relative w-full h-screen bg-cover bg-center overflow-hidden rounded-b-[200px]"
-      style={{ backgroundImage: `url(${HeroAbout})` }}
+      style={{ backgroundImage: `url(${HeroAbout})`, backgroundColor: "var(--color-about-bg)" }}
     >
       {/* Overlay hitam transparan */}
       <div className="absolute inset-0 bg-black/70 z-10" />

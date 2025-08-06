@@ -14,12 +14,26 @@ const Tentang = ({ t }) => {
   }, []);
 
   return (
-    <section className="relative z-10 bg-white dark:bg-[var(--color-background)] overflow-hidden min-h-screen flex items-center">
+    <section 
+      style={{
+        backgroundColor: "var(--color-tentang-bg)",
+        color: "var(--color-text)"
+      }}
+      className="relative z-10 overflow-hidden min-h-screen flex items-center"
+    >
       {/* Background kuning bawah */}
-      <div className="absolute bottom-0 left-0 w-full h-[450px] bg-[var(--color-warning)] z-0 rounded-t-[40px]" />
+      <div 
+        style={{
+          backgroundColor: "var(--color-tentang-yellow-bg)"
+        }}
+        className="absolute bottom-0 left-0 w-full h-[450px] z-0 rounded-t-[40px]" 
+      />
 
       <div className="relative z-10 px-6 md:px-12 max-w-7xl mx-auto py-12 md:py-20 w-full">
-        <div className="space-y-6 text-carbon dark:text-white text-center md:text-left">
+        <div 
+          style={{ color: "var(--color-text)" }}
+          className="space-y-6 text-center md:text-left"
+        >
           <h3
             className="font-semibold text-sm md:text-base tracking-wide"
             data-aos="fade-up"
@@ -49,16 +63,38 @@ const Tentang = ({ t }) => {
 
             {/* Card biru */}
             <div
-              className="bg-ocean text-white px-6 py-8 w-full md:w-[350px] h-[520px] 
+              style={{
+                backgroundColor: "var(--color-tentang-card-bg)",
+                color: "#ffffff"
+              }}
+              className="px-6 py-8 w-full md:w-[350px] h-[520px] 
               rounded-2xl shadow-lg overflow-hidden break-words text-wrap"
               data-aos="fade-left"
             >
-              <h3 className="font-semibold text-sm md:text-base mb-2 leading-tight">
+              <h3 
+                style={{ color: "#ffffff" }}
+                className="font-semibold text-sm md:text-base mb-2 leading-tight"
+              >
                 {t.tentangTitle}
               </h3>
-              <p className="text-sm leading-relaxed">{t.tentangDesc1}</p>
-              <p className="text-sm leading-relaxed mt-2">{t.tentangDesc2}</p>
-              <p className="text-sm leading-relaxed mt-2">{t.tentangDesc3}</p>
+              <p 
+                style={{ color: "#ffffff" }}
+                className="text-sm leading-relaxed"
+              >
+                {t.tentangDesc1}
+              </p>
+              <p 
+                style={{ color: "#ffffff" }}
+                className="text-sm leading-relaxed mt-2"
+              >
+                {t.tentangDesc2}
+              </p>
+              <p 
+                style={{ color: "#ffffff" }}
+                className="text-sm leading-relaxed mt-2"
+              >
+                {t.tentangDesc3}
+              </p>
             </div>
           </div>
         </div>

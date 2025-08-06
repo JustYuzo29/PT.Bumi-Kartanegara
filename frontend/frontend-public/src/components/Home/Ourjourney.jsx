@@ -26,7 +26,13 @@ const JourneyCard = ({ item, index }) => {
       data-aos={item.aos} // ✅ animasi diambil dari translate.js
       data-aos-anchor-placement="top-bottom" // ✅ agar AOS tetap mendeteksi meski ada transform/scale
     >
-      <div className="rounded-[2rem] overflow-hidden shadow-xl bg-white text-black relative group hover:shadow-2xl">
+      <div 
+        style={{
+          backgroundColor: "var(--color-journey-card-bg)",
+          color: "var(--color-journey-card-text)"
+        }}
+        className="rounded-[2rem] overflow-hidden shadow-xl relative group hover:shadow-2xl"
+      >
         <div className="w-full h-52 md:h-60 relative overflow-hidden">
           <img
             src={imageMap[item.img]}
@@ -36,7 +42,10 @@ const JourneyCard = ({ item, index }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60 group-hover:opacity-30 transition"></div>
         </div>
         <div className="p-6 text-center relative z-10">
-          <h3 className="text-3xl font-bold text-[#0B192C]">
+          <h3 
+            style={{ color: "var(--color-journey-card-text)" }}
+            className="text-3xl font-bold"
+          >
             {inView ? (
               <CountUp
                 key={inView}
@@ -48,8 +57,18 @@ const JourneyCard = ({ item, index }) => {
               "0"
             )}
           </h3>
-          <p className="font-semibold text-[#0B192C]">{item.title}</p>
-          <p className="text-sm mt-2 text-gray-700">{item.desc}</p>
+          <p 
+            style={{ color: "var(--color-journey-card-text)" }}
+            className="font-semibold"
+          >
+            {item.title}
+          </p>
+          <p 
+            style={{ color: "var(--color-journey-card-text)" }}
+            className="text-sm mt-2"
+          >
+            {item.desc}
+          </p>
         </div>
       </div>
     </div>
@@ -110,7 +129,13 @@ const OurJourney = ({ t }) => {
           data-aos-duration="1200"
         >
           <Link to="/service" className="inline-block">
-            <button className="bg-navy text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-warning transition duration-300 cursor-pointer">
+            <button 
+              style={{
+                backgroundColor: "var(--color-journey-button-bg)",
+                transition: "all 0.3s"
+              }}
+              className="text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-warning cursor-pointer"
+            >
               {t.journeyButton}
             </button>
           </Link>
