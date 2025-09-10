@@ -1,7 +1,7 @@
-import ContactBannerSection from "../../../components/Contact/ContactBannerSection";
-import LineSection from "../../../components/Contact/LineSection";
-import ContactSection from "../../../components/Contact/ContactSection";
-import SectionMap from "../../../components/Contact/SectionMap";
+import ContactBannerSection from "../../../components/staff/Contact/ContactBannerSection";
+import LineSection from "../../../components/staff/Contact/LineSection";
+import ContactSection from "../../../components/staff/Contact/ContactSection";
+import SectionMap from "../../../components/staff/Contact/SectionMap";
 export default function Contacts() {
   return (
     <main>

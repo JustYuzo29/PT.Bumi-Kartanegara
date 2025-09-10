@@ -1,8 +1,8 @@
 import React from "react";
-import BannerSection from "../../../components/Home/BannerSection";
-import ServiceSection from "../../../components/Home/ServiceSection";
-import AboutUsSection from "../../../components/Home/AboutUsSection";
-import OurJourneySection from "../../../components/Home/OurJourneySection";
+import BannerSection from "../../../components/staff/Home/BannerSection";
+import ServiceSection from "../../../components/staff/Home/ServiceSection";
+import AboutUsSection from "../../../components/staff/Home/AboutUsSection";
+import OurJourneySection from "../../../components/staff/Home/OurJourneySection";
 // ...import section lain kalau ada
 
 const Home = () => {

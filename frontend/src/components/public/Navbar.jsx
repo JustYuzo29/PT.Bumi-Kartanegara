@@ -1,0 +1,228 @@
+import React, { useState, useEffect, useContext } from "react";
+import { Bars3Icon } from "@heroicons/react/24/outline";
+import { Link, useLocation } from "react-router-dom";
+import { LanguageContext } from "../../locales/language.jsx";
+import { navbarTranslations } from "../../locales/navbar.js";
+import logo from "../../assets/navbar/logo.png";
+
+const Navbar = () => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  // ✅ Pakai Context untuk bahasa
+  const { language, setLanguage } = useContext(LanguageContext);
+
+  // ✅ Ambil menu berdasarkan bahasa
+  const menuItems = navbarTranslations[language].menu;
+
+  const [openDropdown, setOpenDropdown] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false);
+
+  // 🔥 State untuk animasi scroll
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const toggleDropdown = () => setOpenDropdown(!openDropdown);
+  const toggleMobileMenu = () => setShowMobileMenu(!showMobileMenu);
+
+  // ✅ Fungsi ubah bahasa
+  const handleLanguageChange = (lang) => {
+    setLanguage(lang);
+    setOpenDropdown(false);
+  };
+
+  const hasActiveMenu = menuItems.some((m) => currentPath === m.path);
+
+  // ✅ Animasi muncul pertama kali
+  useEffect(() => {
+    const timer = setTimeout(() => setShowNavbar(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // ✅ Deteksi scroll arah
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY && window.scrollY > 50) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  return (
+    <div
+      className={`fixed top-6 w-full flex justify-center z-50 transition-transform duration-1000 ${
+        isVisible ? "translate-y-0" : "-translate-y-28"
+      }`}
+    >
+      <div
+        style={{
+          background: "var(--color-background)",
+          color: "var(--color-text)",
+          boxShadow: "var(--shadow-elevated)",
+          borderRadius: "var(--radius-default)"
+        }}
+        className={`px-6 py-1.5 flex items-center justify-between gap-6 w-[90%] max-w-[900px] transition-all duration-700 ease-out transform ${
+          showNavbar ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
+        }`}
+      >
+        {/* Logo */}
+        <div className="flex items-center gap-2">
+          <img src={logo} alt="Logo" className="w-7 h-7 object-contain" />
+          <span 
+            style={{ color: "var(--color-text)" }}
+            className="text-[13px] font-semibold whitespace-nowrap"
+          >
+            PT. BUMI KARTANEGARA
+          </span>
+        </div>
+
+        {/* Menu Desktop */}
+        <div className="hidden md:flex items-center gap-3 text-[12px] font-semibold uppercase">
+          {menuItems.map((item) => {
+            const isActive = currentPath === item.path;
+            return (
+              <Link
+                key={item.name}
+                to={item.path}
+                style={{
+                  backgroundColor: isActive ? "var(--color-active)" : "transparent",
+                  color: isActive ? "#ffffff" : "var(--color-text)"
+                }}
+                className={`px-3 py-1.5 rounded-full transition-all duration-200 hover:bg-ocean hover:text-white`}
+              >
+                {item.name}
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* Mobile Toggle */}
+        <div className="md:hidden">
+          <button
+            onClick={toggleMobileMenu}
+            style={{ color: "var(--color-text)" }}
+            className={`focus:outline-none transition-transform duration-500 ${
+              showMobileMenu ? "rotate-90" : "rotate-0"
+            }`}
+          >
+            <Bars3Icon className="w-6 h-6" />
+          </button>
+        </div>
+
+        {/* Dropdown Bahasa (Desktop) */}
+        <div className="relative hidden md:block">
+          <button
+            onClick={toggleDropdown}
+            style={{
+              backgroundColor: "var(--color-active)",
+              color: "#ffffff"
+            }}
+            className="min-w-[110px] text-center text-[12px] lowercase px-3 py-1.5 rounded-full"
+          >
+            {language.toLowerCase()}
+          </button>
+
+          {openDropdown && (
+            <div 
+              style={{
+                backgroundColor: "var(--dropdown-bg)",
+                color: "var(--dropdown-text)"
+              }}
+              className="absolute right-0 mt-2 w-28 shadow-md rounded-md text-[12px] overflow-hidden z-50"
+            >
+              {["ENGLISH", "INDONESIA"].map((lang) => (
+                <button
+                  key={lang}
+                  onClick={() => handleLanguageChange(lang)}
+                  style={{
+                    color: "var(--dropdown-text)"
+                  }}
+                  className="block w-full text-left px-4 py-2 transition-all hover:bg-ocean hover:text-white"
+                >
+                  {lang.charAt(0) + lang.slice(1).toLowerCase()}
+                </button>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      {showMobileMenu && (
+        <div 
+          style={{
+            backgroundColor: "var(--color-background)",
+            color: "var(--color-text)"
+          }}
+          className="absolute top-[70px] w-[90%] max-w-[900px] mx-auto rounded-xl shadow-lg p-4 md:hidden z-40"
+        >
+          <div className="flex flex-col gap-2 text-[12px] font-semibold uppercase">
+            {menuItems.map((item) => {
+              const isActive = currentPath === item.path;
+              return (
+                <Link
+                  key={item.name}
+                  to={item.path}
+                  onClick={() => setShowMobileMenu(false)}
+                  style={{
+                    backgroundColor: isActive ? "var(--color-active)" : "transparent",
+                    color: isActive ? "#ffffff" : "var(--color-text)"
+                  }}
+                  className="px-3 py-2 rounded-lg transition-all duration-200 hover:bg-ocean hover:text-white"
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+
+            {/* Language Dropdown Mobile */}
+            <div className="pt-2 border-t border-gray-300 dark:border-gray-700">
+              <button
+                onClick={toggleDropdown}
+                style={{
+                  backgroundColor: "var(--color-active)",
+                  color: "#ffffff"
+                }}
+                className="w-full text-left px-3 py-2 rounded-lg text-[12px] lowercase"
+              >
+                {language.toLowerCase()}
+              </button>
+
+              {openDropdown && (
+                <div 
+                  style={{
+                    backgroundColor: "var(--dropdown-bg)",
+                    color: "var(--dropdown-text)"
+                  }}
+                  className="mt-2 w-full shadow-md rounded-md text-[12px] overflow-hidden"
+                >
+                  {["ENGLISH", "INDONESIA"].map((lang) => (
+                    <button
+                      key={lang}
+                      onClick={() => handleLanguageChange(lang)}
+                      style={{
+                        color: "var(--dropdown-text)"
+                      }}
+                      className="block w-full text-left px-4 py-2 transition-all hover:bg-ocean hover:text-white"
+                    >
+                      {lang.charAt(0) + lang.slice(1).toLowerCase()}
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Navbar;

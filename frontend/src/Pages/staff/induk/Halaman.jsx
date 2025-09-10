@@ -1,9 +1,9 @@
 import React from "react";
-import SectionHomeHalaman from "../../../components/Halaman/SectionHomeHalaman";
-import SectionAboutUsHalaman from "../../../components/Halaman/SectionAboutUsHalaman";
-import SectionMediaHalaman from "../../../components/Halaman/SectionMediaHalaman";
-import SectionServiceHalaman from "../../../components/Halaman/SectionServiceHalaman";
-import SectionContactHalaman from "../../../components/Halaman/SectionContactHalaman";
+import SectionHomeHalaman from "../../../components/staff/Halaman/SectionHomeHalaman";
+import SectionAboutUsHalaman from "../../../components/staff/Halaman/SectionAboutUsHalaman";
+import SectionMediaHalaman from "../../../components/staff/Halaman/SectionMediaHalaman";
+import SectionServiceHalaman from "../../../components/staff/Halaman/SectionServiceHalaman";
+import SectionContactHalaman from "../../../components/staff/Halaman/SectionContactHalaman";
 
 const Halaman = () => {
   return (

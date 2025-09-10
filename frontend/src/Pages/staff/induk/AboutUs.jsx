@@ -1,8 +1,8 @@
 // src/Pages/staff/induk/AboutUs.jsx
-import AboutUsSection from "../../../components/AboutUs/BannerSection";
-import BannerSection from "../../../components/AboutUs/AboutUsSection";
-import VisiMisiSection from "../../../components/AboutUs/VisiMisiSection";
-import DirectorCommissionerSection from "../../../components/AboutUs/DirectorCommissionerSection";
+import AboutUsSection from "../../../components/staff/AboutUs/BannerSection";
+import BannerSection from "../../../components/staff/AboutUs/AboutUsSection";
+import VisiMisiSection from "../../../components/staff/AboutUs/VisiMisiSection";
+import DirectorCommissionerSection from "../../../components/staff/AboutUs/DirectorCommissionerSection";
 
 export default function AboutUs() {
   return (

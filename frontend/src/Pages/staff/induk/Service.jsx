@@ -1,6 +1,6 @@
-import AlatBeratSection from "../../../components/Service/AlatBeratSection";
-import BannerSection from "../../../components/Service/BannerSection";
-import OurServicesSection from "../../../components/Service/OurServiceSection";
+import AlatBeratSection from "../../../components/staff/Service/AlatBeratSection";
+import BannerSection from "../../../components/staff/Service/BannerSection";
+import OurServicesSection from "../../../components/staff/Service/OurServiceSection";
 
 const ServicePage = () => (
   <div>

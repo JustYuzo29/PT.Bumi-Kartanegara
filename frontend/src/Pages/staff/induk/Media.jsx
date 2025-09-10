@@ -1,6 +1,6 @@
-// src/Pages/staff/induk/AboutUs.jsx
-import BannerSection from "../../../components/Media/BannerSection";
-import GallerySection from "../../../components/Media/GallerySection";
+// src/Pages/staff/induk/Media.jsx
+import BannerSection from "../../../components/staff/Media/BannerSection";
+import GallerySection from "../../../components/staff/Media/GallerySection";
 export default function Media() {
   return (
     <main>
