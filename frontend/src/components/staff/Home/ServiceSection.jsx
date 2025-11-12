@@ -8,7 +8,7 @@ import {
 import ServiceTitleCard from "./components/ServiceTitleCard";
 // Ganti nama import agar lebih jelas dan sesuai dengan fungsinya (menampilkan tabel)
 import ServiceTableCard from "./components/ServiceContentCard"; 
-import { serviceAPI, contentAPI } from "../../../services/api"; 
+import { serviceAPI, contentAPI } from "../../../lib/apiSelector"; 
 
 const componentMap = {
   "Title": ServiceTitleCard,

@@ -13,7 +13,7 @@ const Service = () => {
 
   return (
     <main
-      className="font-body text-[var(--color-text)] transition-colors duration-300"
+      className="font-body text-[var(--color-text)] transition-colors duration-300 w-full overflow-x-hidden"
       style={{ backgroundColor: "var(--color-pages)" }}
     >
       <Hero t={t} />

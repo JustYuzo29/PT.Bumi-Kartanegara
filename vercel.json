@@ -1,0 +1,12 @@
+{
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/dist",
+  "devCommand": "cd frontend && npm run dev",
+  "installCommand": "cd frontend && npm install",
+  "framework": "vite",
+  "env": {
+    "VITE_USE_MOCK_API": "true",
+    "VITE_API_URL": "/mock-api",
+    "VITE_DEV_MODE": "false"
+  }
+}

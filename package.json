@@ -5,7 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "cd frontend && npm run dev",
+    "dev:standalone": "cd frontend && set VITE_USE_MOCK_API=true&& npm run dev",
+    "dev:backend": "cd frontend && set VITE_USE_MOCK_API=false&& npm run dev",
     "build": "cd frontend && npm run build",
+    "build:standalone": "cd frontend && set VITE_USE_MOCK_API=true&& npm run build",
+    "build:backend": "cd frontend && npm run build",
     "preview": "cd frontend && npm run preview",
     "install-frontend": "cd frontend && npm install"
   },

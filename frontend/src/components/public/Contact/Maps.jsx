@@ -3,7 +3,7 @@ import React from "react";
 const Maps = ({ t }) => {
   return (
     <div
-      className="relative px-4 md:px-20 pt-40 pb-20"
+      className="relative px-4 md:px-20 pt-40 pb-20 w-full"
       style={{
         backgroundColor: "var(--color-background-contact)",
         color: "var(--color-text)",

@@ -19,7 +19,7 @@ const Tentang = ({ t }) => {
         backgroundColor: "var(--color-tentang-bg)",
         color: "var(--color-text)"
       }}
-      className="relative z-10 overflow-hidden min-h-screen flex items-center"
+      className="relative z-10 min-h-screen flex items-center w-full"
     >
       {/* Background kuning bawah */}
       <div 
@@ -57,7 +57,7 @@ const Tentang = ({ t }) => {
             <img
               src={AboutImage}
               alt="Foto PT Bumi Kartanegara"
-              className="rounded-[18px] shadow-lg w-full md:w-[70%] h-[520px] object-cover"
+              className="rounded-[18px] shadow-lg w-full md:w-[70%] h-[300px] md:h-[520px] object-cover"
               data-aos="fade-right"
             />
 
@@ -67,7 +67,7 @@ const Tentang = ({ t }) => {
                 backgroundColor: "var(--color-tentang-card-bg)",
                 color: "#ffffff"
               }}
-              className="px-6 py-8 w-full md:w-[350px] h-[520px] 
+              className="px-6 py-8 w-full md:w-[350px] h-auto md:h-[520px] 
               rounded-2xl shadow-lg overflow-hidden break-words text-wrap"
               data-aos="fade-left"
             >

@@ -12,18 +12,18 @@ const Partner = ({ t }) => {
 
   return (
     <section
-      className="relative w-full min-h-screen px-4 md:px-12 lg:px-20 py-20 overflow-hidden bg-cover bg-center"
+      className="relative w-full min-h-screen px-4 md:px-12 lg:px-20 py-20 bg-cover bg-center"
       style={{ backgroundImage: `url(${BgPartner})` }}
     >
       {/* Overlay gelap agar teks terbaca */}
       <div className="absolute inset-0 bg-black/50 z-0" />
 
-      <div className="relative z-10">
+      <div className="relative z-10 w-full">
         {/* Title */}
         <h2 className="text-white text-2xl md:text-3xl font-bold text-center mb-6">
           {t.partnerTitle}
         </h2>
-        <p className="text-white text-center max-w-2xl mx-auto mb-12 text-sm md:text-base">
+        <p className="text-white text-center max-w-2xl mx-auto mb-12 text-sm md:text-base px-4">
           {t.partnerDesc}
         </p>
 
@@ -36,7 +36,7 @@ const Partner = ({ t }) => {
             color: "var(--color-text)",
           }}
         >
-          <div className="w-full md:w-1/2 h-[230px]">
+          <div className="w-full md:w-1/2 h-[200px] md:h-[230px]">
             <img
               src={Img1}
               alt={t.partner1Name}

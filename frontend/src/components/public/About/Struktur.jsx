@@ -43,80 +43,80 @@ const Struktur = () => {
         </div>
 
         {/* Struktur utama */}
-        <div className="flex flex-col items-center relative space-y-14">
-          <div className="absolute top-[120px] h-[400px] w-[2px] bg-white/50 z-0" />
+        <div className="flex flex-col items-center relative space-y-10 md:space-y-14">
+          <div className="absolute top-[120px] h-[300px] md:h-[400px] w-[2px] bg-white/50 z-0 hidden md:block" />
 
           {/* Direktur Utama */}
           <div data-aos="zoom-in" className="relative z-10">
-            <div className="bg-white text-black rounded-xl p-4 shadow-md w-[150px] text-center">
+            <div className="bg-white text-black rounded-xl p-3 md:p-4 shadow-md w-[130px] md:w-[150px] text-center">
               <img
                 src={Struktur0}
                 alt={t.strukturNodes.direkturUtama.nama}
-                className="w-full h-[150px] object-cover rounded-md mb-2"
+                className="w-full h-[130px] md:h-[150px] object-cover rounded-md mb-2"
               />
-              <h3 className="font-semibold text-sm">
+              <h3 className="font-semibold text-xs md:text-sm">
                 {t.strukturNodes.direkturUtama.jabatan}
               </h3>
-              <p className="text-xs">{t.strukturNodes.direkturUtama.nama}</p>
+              <p className="text-[10px] md:text-xs">{t.strukturNodes.direkturUtama.nama}</p>
             </div>
           </div>
 
           {/* Garis horizontal */}
           <div className="flex justify-center items-center relative z-0">
-            <div className="w-[300px] h-[2px] bg-white/50" />
+            <div className="w-[200px] md:w-[300px] h-[2px] bg-white/50" />
           </div>
 
           {/* Komisaris & Operasional */}
-          <div className="flex justify-center items-start gap-10 md:gap-32 z-10">
+          <div className="flex justify-center items-start gap-6 md:gap-10 lg:gap-32 z-10 flex-wrap md:flex-nowrap">
             <div data-aos="fade-right">
-              <div className="bg-white text-black rounded-xl p-4 shadow-md w-[150px] text-center">
+              <div className="bg-white text-black rounded-xl p-3 md:p-4 shadow-md w-[130px] md:w-[150px] text-center">
                 <img
                   src={Struktur2}
                   alt={t.strukturNodes.direktur.nama}
-                  className="w-full h-[150px] object-cover rounded-md mb-2"
+                  className="w-full h-[130px] md:h-[150px] object-cover rounded-md mb-2"
                 />
-                <h3 className="font-semibold text-sm">
+                <h3 className="font-semibold text-xs md:text-sm">
                   {t.strukturNodes.direktur.jabatan}
                 </h3>
-                <p className="text-xs">{t.strukturNodes.direktur.nama}</p>
+                <p className="text-[10px] md:text-xs">{t.strukturNodes.direktur.nama}</p>
               </div>
             </div>
 
             <div data-aos="fade-left">
-              <div className="bg-white text-black rounded-xl p-4 shadow-md w-[150px] text-center">
+              <div className="bg-white text-black rounded-xl p-3 md:p-4 shadow-md w-[130px] md:w-[150px] text-center">
                 <img
                   src={Struktur1}
                   alt={t.strukturNodes.operasional.nama}
-                  className="w-full h-[150px] object-cover rounded-md mb-2"
+                  className="w-full h-[130px] md:h-[150px] object-cover rounded-md mb-2"
                 />
-                <h3 className="font-semibold text-sm">
+                <h3 className="font-semibold text-xs md:text-sm">
                   {t.strukturNodes.operasional.jabatan}
                 </h3>
-                <p className="text-xs">{t.strukturNodes.operasional.nama}</p>
+                <p className="text-[10px] md:text-xs">{t.strukturNodes.operasional.nama}</p>
               </div>
             </div>
           </div>
 
           {/* Garis tambahan */}
-          <div className="w-[500px] h-[2px] bg-white/50 mx-auto mt-10 z-0" />
+          <div className="w-[300px] md:w-[500px] h-[2px] bg-white/50 mx-auto mt-6 md:mt-10 z-0" />
 
           {/* Divisi */}
           <div
-            className="flex flex-wrap justify-center gap-6 max-w-4xl z-10"
+            className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-4xl z-10 px-4"
             data-aos="fade-up"
           >
             {t.strukturNodes.divisi.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white text-black rounded-xl p-4 shadow-md w-[130px] text-center"
+                className="bg-white text-black rounded-xl p-3 md:p-4 shadow-md w-[110px] md:w-[130px] text-center"
               >
                 <img
                   src={Struktur3}
                   alt={item.nama}
-                  className="w-full h-[120px] object-cover rounded-md mb-2"
+                  className="w-full h-[100px] md:h-[120px] object-cover rounded-md mb-2"
                 />
-                <h3 className="font-semibold text-sm">{item.bagian}</h3>
-                <p className="text-xs">{item.nama}</p>
+                <h3 className="font-semibold text-xs md:text-sm">{item.bagian}</h3>
+                <p className="text-[10px] md:text-xs">{item.nama}</p>
               </div>
             ))}
           </div>

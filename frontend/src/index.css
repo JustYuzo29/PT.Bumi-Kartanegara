@@ -45,10 +45,29 @@
  🧱 BASE LAYER
 =========================== */
 @layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   html {
     font-family: var(--font-body);
     background-color: var(--color-bg-light);
     color: var(--color-sidebar);
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  /* Prevent double scrollbar */
+  #root {
+    width: 100%;
   }
 
   .dark html {

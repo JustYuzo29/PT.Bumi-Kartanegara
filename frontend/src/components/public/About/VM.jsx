@@ -11,14 +11,14 @@ const VM = ({ t }) => {
   }, []);
 
   return (
-    <section className="relative w-full min-h-[130vh] px-4 md:px-12 lg:px-20 py-20 md:py-28 z-10 overflow-hidden">
+    <section className="relative w-full min-h-[130vh] px-4 md:px-12 lg:px-20 py-20 md:py-28 z-10">
       {/* Background Foto */}
       <div className="absolute inset-0 -z-10">
         <img src={Bg} alt="Background" className="w-full h-full object-cover" />
         <div className="absolute inset-0 bg-black/30"></div>
       </div>
 
-      <div className="flex flex-col justify-center gap-10 md:gap-16 max-w-7xl mx-auto h-full">
+      <div className="flex flex-col justify-center gap-10 md:gap-16 max-w-7xl mx-auto h-full w-full">
         {/* VISI */}
         <div
           style={{
@@ -32,7 +32,7 @@ const VM = ({ t }) => {
             <img
               src={Visi}
               alt="Foto Visi"
-              className="rounded-2xl object-cover w-full h-[300px]"
+              className="rounded-2xl object-cover w-full h-[250px] md:h-[300px]"
             />
           </div>
           <div 
@@ -57,7 +57,7 @@ const VM = ({ t }) => {
             <img
               src={Misi}
               alt="Foto Misi"
-              className="rounded-2xl object-cover w-full h-[300px]"
+              className="rounded-2xl object-cover w-full h-[250px] md:h-[300px]"
             />
           </div>
           <div 

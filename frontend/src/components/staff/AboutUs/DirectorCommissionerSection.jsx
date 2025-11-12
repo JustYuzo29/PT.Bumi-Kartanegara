@@ -3,7 +3,7 @@ import { PlusIcon, ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/so
 import DirectorTitleCard from "./components/DirectorTitleCard";
 import DirectorTextCard from "./components/DirectorTextCard";
 import DirectorProfileCard from "./components/DirectorProfileCard";
-import { teamMemberAPI } from "../../../services/api";
+import { teamMemberAPI } from "../../../lib/apiSelector";
 import { useDebounce, migrateLocalStorageData, getCurrentCompanyId } from "../../../utils/contentUtils";
 
 const componentMapDirector = {

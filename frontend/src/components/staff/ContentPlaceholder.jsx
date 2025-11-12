@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import MediaButton from "./Media/MediaButton";
-import { homeContentAPI, mediaAPI } from "../../../services/api";
+import { homeContentAPI } from "../../lib/apiSelector";
 
 // Komponen untuk bagian footer kartu yang berisi tombol aksi.
 const CardActionFooter = ({ onSave, onDelete, saving = false }) => (

@@ -8,7 +8,7 @@ import {
 import BannerCard from "./components/BannerCard";
 import TextInputCard from "./components/TextInputCard";
 import ButtonLinkCard from "./components/ButtonLinkCard";
-import { homeContentAPI } from "../../../services/api";
+import { homeContentAPI } from "../../../lib/apiSelector";
 
 const componentMap = {
   "Upload Banner": BannerCard,

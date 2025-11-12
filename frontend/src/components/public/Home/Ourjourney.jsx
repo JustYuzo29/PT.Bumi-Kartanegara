@@ -20,11 +20,11 @@ const JourneyCard = ({ item, index }) => {
       ref={ref}
       className={`transform transition duration-500 relative px-2 ${
         index === 1
-          ? "scale-[1.25] lg:scale-[1.3] z-30 -translate-y-2"
-          : "scale-95 z-10"
+          ? "scale-100 md:scale-[1.15] lg:scale-[1.25] z-30 md:-translate-y-2"
+          : "scale-95 md:scale-100 z-10"
       }`}
-      data-aos={item.aos} // ✅ animasi diambil dari translate.js
-      data-aos-anchor-placement="top-bottom" // ✅ agar AOS tetap mendeteksi meski ada transform/scale
+      data-aos={item.aos}
+      data-aos-anchor-placement="top-bottom"
     >
       <div 
         style={{
@@ -84,14 +84,14 @@ const OurJourney = ({ t }) => {
   return (
     <section
       id="our-journey"
-      className="relative min-h-screen flex flex-col justify-between text-white pt-36 pb-24 bg-cover bg-center scroll-mt-36"
+      className="relative min-h-screen flex flex-col justify-between text-white pt-36 pb-24 bg-cover bg-center scroll-mt-36 w-full"
       style={{ backgroundImage: `url(${BgJourney})` }}
     >
       <div className="absolute inset-0 bg-black/30 z-0 backdrop-blur-sm" />
       <div className="absolute top-[-50px] left-[10%] w-72 h-72 bg-[#B7D6F2]/20 rounded-full animate-pulse-slow blur-3xl z-0" />
       <div className="absolute bottom-[-40px] right-[10%] w-60 h-60 bg-[#82A9DF]/20 rounded-full animate-pulse-slow blur-2xl z-0" />
 
-      <div className="relative z-20">
+      <div className="relative z-20 w-full">
         {/* Title */}
         <div
           className="mb-12 px-4 md:px-0 max-w-6xl mx-auto"
@@ -103,7 +103,7 @@ const OurJourney = ({ t }) => {
         </div>
 
         {/* Cards */}
-        <div className="max-w-6xl mx-auto px-4 lg:px-6 grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-x-12 items-start">
+        <div className="max-w-6xl mx-auto px-4 lg:px-6 grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-x-6 lg:gap-x-12 items-start w-full">
           {t.journeyItems.map((item, i) => (
             <JourneyCard key={i} item={item} index={i} />
           ))}

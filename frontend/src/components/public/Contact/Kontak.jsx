@@ -114,12 +114,12 @@ const Kontak = ({ t }) => {
       </section>
 
       {/* Our Service */}
-      <section className="mt-16 px-4 text-center" data-aos="zoom-in">
+      <section className="mt-16 px-4 text-center pb-16" data-aos="zoom-in">
         <h2 className="text-lg font-bold font-heading mb-6 text-white" style={{ color: "var(--color-text)" }}>
           {t.ourServiceHeading}
         </h2>
         <div
-          className="w-[630px] px-6 py-4 rounded-default shadow-elevated mx-auto"
+          className="w-full max-w-[630px] px-6 py-4 rounded-default shadow-elevated mx-auto"
           style={{ backgroundColor: "var(--color-contact-service)", color: "var(--color-card-text)" }}
         >
           <p className="text-sm leading-relaxed px-4 line-clamp-3 break-words h-[96px] overflow-hidden">

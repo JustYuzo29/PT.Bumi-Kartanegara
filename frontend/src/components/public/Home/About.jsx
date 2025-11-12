@@ -21,7 +21,7 @@ const About = ({ t }) => {
         backgroundColor: "var(--color-background)",
         color: "var(--color-text)"
       }}
-      className="relative pt-20 pb-20 px-4"
+      className="relative pt-20 pb-20 px-4 w-full"
     >
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header Section */}

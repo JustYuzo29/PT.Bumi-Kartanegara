@@ -52,7 +52,7 @@ function PublicLayout() {
       <div className="min-h-screen">
         <ThemeToggle />
         <Navbar />
-        <main>
+        <main className="w-full">
           <Outlet />
         </main>
         <Footer />

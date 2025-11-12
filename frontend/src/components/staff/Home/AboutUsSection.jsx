@@ -3,7 +3,7 @@ import { PlusIcon, ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/so
 import AboutUsTitleCard from "./components/AboutUsTitleCard";
 import AboutUsPictureCard from "./components/AboutUsPictureCard";
 import AboutUsDescriptionCard from "./components/AboutUsDescriptionCard";
-import { aboutUsAPI } from "../../../services/api";
+import { aboutUsAPI } from "../../../lib/apiSelector";
 
 const componentMap = {
   "Title": AboutUsTitleCard,

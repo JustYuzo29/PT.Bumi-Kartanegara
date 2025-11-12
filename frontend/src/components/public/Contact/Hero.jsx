@@ -56,19 +56,21 @@ const Hero = ({ t }) => {
 
       <div className="absolute inset-0 bg-black/80 z-[1]" />
 
-      <div className="relative z-[2] flex flex-col items-center justify-start h-full pt-28 md:pt-36 text-white text-center px-4">
-        <div data-aos="fade-up" className="max-w-3xl">
-          <h1 className="text-3xl md:text-5xl font-bold mb-4">{t.heroTitle}</h1>
+      <div className="relative z-[2] flex flex-col items-center justify-center h-full pt-20 text-white text-center px-4 overflow-hidden">
+        <div data-aos="fade-up" className="max-w-3xl mb-6 md:mb-8">
+          <h1 className="text-2xl md:text-5xl font-bold mb-4">{t.heroTitle}</h1>
           <p className="text-sm md:text-base font-light">{t.heroSubtitle}</p>
         </div>
 
-        <img
-          src={isDark ? MapDark : MapLight}
-          alt="Peta Indonesia"
-          className="w-[90%] md:w-[60%] mt-30 object-contain pointer-events-none"
-          data-aos="zoom-in"
-          data-aos-delay="500"
-        />
+        <div className="w-full flex justify-center items-center overflow-hidden">
+          <img
+            src={isDark ? MapDark : MapLight}
+            alt="Peta Indonesia"
+            className="w-[95%] sm:w-[80%] md:w-[65%] lg:w-[55%] max-w-4xl h-auto object-contain pointer-events-none"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          />
+        </div>
       </div>
     </section>
   );
