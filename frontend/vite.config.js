@@ -6,6 +6,9 @@ export default defineConfig({
   plugins: [
     react(),
   ],
+  resolve: {
+    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+  },
   server: {
     host: true, // Expose to network
     port: 5173,
