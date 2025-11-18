@@ -14,26 +14,12 @@ const Tentang = ({ t }) => {
   }, []);
 
   return (
-    <section 
-      style={{
-        backgroundColor: "var(--color-tentang-bg)",
-        color: "var(--color-text)"
-      }}
-      className="relative z-10 min-h-screen flex items-center w-full"
-    >
+    <section className="relative z-10 bg-theme overflow-hidden min-h-screen flex items-center">
       {/* Background kuning bawah */}
-      <div 
-        style={{
-          backgroundColor: "var(--color-tentang-yellow-bg)"
-        }}
-        className="absolute bottom-0 left-0 w-full h-[450px] z-0 rounded-t-[40px]" 
-      />
+      <div className="absolute bottom-0 left-0 w-full h-[450px] bg-[var(--color-warning)] z-0 rounded-t-[40px]" />
 
       <div className="relative z-10 px-6 md:px-12 max-w-7xl mx-auto py-12 md:py-20 w-full">
-        <div 
-          style={{ color: "var(--color-text)" }}
-          className="space-y-6 text-center md:text-left"
-        >
+        <div className="space-y-6 text-theme text-center md:text-left">
           <h3
             className="font-semibold text-sm md:text-base tracking-wide"
             data-aos="fade-up"
@@ -57,44 +43,22 @@ const Tentang = ({ t }) => {
             <img
               src={AboutImage}
               alt="Foto PT Bumi Kartanegara"
-              className="rounded-[18px] shadow-lg w-full md:w-[70%] h-[300px] md:h-[520px] object-cover"
+              className="rounded-[18px] shadow-lg w-full md:w-[70%] h-[520px] object-cover"
               data-aos="fade-right"
             />
 
             {/* Card biru */}
             <div
-              style={{
-                backgroundColor: "var(--color-tentang-card-bg)",
-                color: "#ffffff"
-              }}
-              className="px-6 py-8 w-full md:w-[350px] h-auto md:h-[520px] 
+              className="bg-ocean text-white px-6 py-8 w-full md:w-[350px] h-[520px] 
               rounded-2xl shadow-lg overflow-hidden break-words text-wrap"
               data-aos="fade-left"
             >
-              <h3 
-                style={{ color: "#ffffff" }}
-                className="font-semibold text-sm md:text-base mb-2 leading-tight"
-              >
+              <h3 className="font-semibold text-sm md:text-base mb-2 leading-tight">
                 {t.tentangTitle}
               </h3>
-              <p 
-                style={{ color: "#ffffff" }}
-                className="text-sm leading-relaxed"
-              >
-                {t.tentangDesc1}
-              </p>
-              <p 
-                style={{ color: "#ffffff" }}
-                className="text-sm leading-relaxed mt-2"
-              >
-                {t.tentangDesc2}
-              </p>
-              <p 
-                style={{ color: "#ffffff" }}
-                className="text-sm leading-relaxed mt-2"
-              >
-                {t.tentangDesc3}
-              </p>
+              <p className="text-sm leading-relaxed">{t.tentangDesc1}</p>
+              <p className="text-sm leading-relaxed mt-2">{t.tentangDesc2}</p>
+              <p className="text-sm leading-relaxed mt-2">{t.tentangDesc3}</p>
             </div>
           </div>
         </div>

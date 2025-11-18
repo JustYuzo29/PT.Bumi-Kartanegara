@@ -18,7 +18,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main className="font-body text-carbon bg-white dark:bg-[var(--color-background)]">
+    <main className="font-body bg-theme text-theme">
       <Hero t={t} />
       <Service t={t} />
       <AboutUs t={t} />

@@ -12,31 +12,27 @@ const Partner = ({ t }) => {
 
   return (
     <section
-      className="relative w-full min-h-screen px-4 md:px-12 lg:px-20 py-20 bg-cover bg-center"
+      className="relative w-full min-h-screen px-4 md:px-12 lg:px-20 py-20 overflow-hidden bg-cover bg-center"
       style={{ backgroundImage: `url(${BgPartner})` }}
     >
       {/* Overlay gelap agar teks terbaca */}
       <div className="absolute inset-0 bg-black/50 z-0" />
 
-      <div className="relative z-10 w-full">
+      <div className="relative z-10">
         {/* Title */}
         <h2 className="text-white text-2xl md:text-3xl font-bold text-center mb-6">
           {t.partnerTitle}
         </h2>
-        <p className="text-white text-center max-w-2xl mx-auto mb-12 text-sm md:text-base px-4">
+        <p className="text-white text-center max-w-2xl mx-auto mb-12 text-sm md:text-base">
           {t.partnerDesc}
         </p>
 
         {/* Card 1 */}
         <div
           data-aos="fade-up"
-          className="flex flex-col md:flex-row items-center rounded-3xl overflow-hidden shadow-lg mb-8 max-w-6xl mx-auto"
-          style={{
-            backgroundColor: "var(--color-partner-card)",
-            color: "var(--color-text)",
-          }}
+          className="flex flex-col md:flex-row items-center card-light backdrop-blur-lg rounded-3xl overflow-hidden shadow-lg mb-8 max-w-6xl mx-auto"
         >
-          <div className="w-full md:w-1/2 h-[200px] md:h-[230px]">
+          <div className="w-full md:w-1/2 h-[230px]">
             <img
               src={Img1}
               alt={t.partner1Name}
@@ -56,7 +52,7 @@ const Partner = ({ t }) => {
         {/* Card 2 - Coming Soon */}
         <div
           data-aos="fade-up"
-          className="flex flex-col md:flex-row items-center bg-white/30 backdrop-blur-md rounded-3xl overflow-hidden shadow-inner border-2 border-dashed border-white max-w-6xl mx-auto"
+          className="flex flex-col md:flex-row items-center card-partner backdrop-blur-md rounded-3xl overflow-hidden shadow-inner border-2 border-dashed border-white max-w-6xl mx-auto"
         >
           <div className="relative w-full md:w-1/2 h-[230px]">
             <img

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { LanguageContext } from "../../locales/language.jsx";
-import { footerTranslations } from "../../locales/footer.js";
+import { LanguageContext } from "../../locales/language";
+import { footerTranslations } from "../../locales/footer";
 
 export default function Footer() {
   const { language } = useContext(LanguageContext);
@@ -9,11 +9,7 @@ export default function Footer() {
 
   return (
     <footer
-      className="py-10 transition-colors duration-300"
-      style={{
-        backgroundColor: "var(--color-footer)",
-        color: "#ffffff", // selalu putih
-      }}
+      className="py-10 transition-colors duration-300 bg-footer text-white"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Kolom Kiri - Informasi Perusahaan */}
@@ -48,7 +44,7 @@ export default function Footer() {
       </div>
 
       {/* Copyright */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 border-t mt-8 pt-4 border:#ffff">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 border-t mt-8 pt-4 border-[var(--dropdown-hover)]">
         <p className="text-sm text-white">
           {t.copyright.replace("{year}", new Date().getFullYear())}
         </p>

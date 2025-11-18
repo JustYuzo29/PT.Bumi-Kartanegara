@@ -1,4 +1,4 @@
 import Hero from "./Hero";
-import GalleryArrowShape from "./Gallery"; 
+import Gallery from "./Gallery"; 
 
-export { Hero, GalleryArrowShape as Gallery };
+export { Hero, Gallery };

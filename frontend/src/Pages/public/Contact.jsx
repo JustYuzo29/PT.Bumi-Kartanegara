@@ -12,7 +12,7 @@ const Contact = () => {
   }, []);
 
   return (
-    <main className="font-body text-carbon bg-white dark:bg-[var(--color-background)]">
+    <main className="font-body bg-theme text-theme">
       <Hero t={t} />
       <Kontak t={t} />
       <Maps t={t} />

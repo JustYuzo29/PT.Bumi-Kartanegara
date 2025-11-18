@@ -10,7 +10,6 @@ import LoginPage from "./components/auth/LoginPage";
 // Public Components
 import Navbar from "./components/public/Navbar";
 import Footer from "./components/public/Footer";
-import ThemeToggle from "./components/public/ThemeToggle";
 
 // Public Pages
 import Home from "./Pages/public/Home";
@@ -50,7 +49,6 @@ function PublicLayout() {
   return (
     <LanguageProvider>
       <div className="min-h-screen">
-        <ThemeToggle />
         <Navbar />
         <main className="w-full">
           <Outlet />

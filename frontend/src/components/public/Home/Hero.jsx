@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import HeroImage from "../../../assets/company/Hero.png";
 
 const Hero = ({ t }) => (
-  <section className="relative w-full h-screen pt-20 overflow-hidden">
+  <section className="relative w-full h-screen pt-20">
     <img
       src={HeroImage}
       alt="hero background"
@@ -20,13 +20,7 @@ const Hero = ({ t }) => (
         </h1>
         <p className="text-base md:text-lg mb-6">{t.heroSubtitle}</p>
         <Link to="/about">
-          <button 
-            style={{
-              backgroundColor: "var(--color-ocean)",
-              transition: "all 0.3s"
-            }}
-            className="px-6 py-3 hover:bg-warning rounded-full text-white font-semibold cursor-pointer"
-          >
+          <button className="px-6 py-3 bg-navy hover:bg-warning rounded-full text-white font-semibold transition-all duration-300 cursor-pointer">
             {t.heroButton} →
           </button>
         </Link>

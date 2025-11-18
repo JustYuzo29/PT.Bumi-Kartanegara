@@ -12,14 +12,14 @@ const Hero = ({ t }) => {
 
   return (
     <section
-      className="relative w-full h-screen bg-cover bg-center overflow-hidden"
-      style={{ backgroundImage: `url(${HeroAbout})`, backgroundColor: "var(--color-about-bg)" }}
+      className="relative w-full h-screen bg-cover bg-center overflow-hidden rounded-b-[200px]"
+      style={{ backgroundImage: `url(${HeroAbout})` }}
     >
       {/* Overlay hitam transparan */}
       <div className="absolute inset-0 bg-black/70 z-10" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-40">
-        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 items-start">
+        <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-24 items-start">
           {/* Kolom Kiri */}
           <div
             data-aos="fade-right"
@@ -31,7 +31,7 @@ const Hero = ({ t }) => {
             <p className="text-base md:text-lg max-w-md">
               {t.heroAboutDescLeft}
             </p>
-            <div className="mt-6 md:mt-21 w-full">
+            <div className="mt-21">
               <img
                 src={Hero2}
                 alt="hero2"
@@ -45,7 +45,7 @@ const Hero = ({ t }) => {
             data-aos="fade-left"
             className="flex flex-col justify-start gap-8 text-white"
           >
-            <div className="self-start w-full">
+            <div className="self-start">
               <img
                 src={Hero1}
                 alt="hero1"

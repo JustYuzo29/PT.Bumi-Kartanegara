@@ -20,19 +20,13 @@ const JourneyCard = ({ item, index }) => {
       ref={ref}
       className={`transform transition duration-500 relative px-2 ${
         index === 1
-          ? "scale-100 md:scale-[1.15] lg:scale-[1.25] z-30 md:-translate-y-2"
-          : "scale-95 md:scale-100 z-10"
+          ? "scale-[1.25] lg:scale-[1.3] z-30 -translate-y-2"
+          : "scale-95 z-10"
       }`}
-      data-aos={item.aos}
-      data-aos-anchor-placement="top-bottom"
+      data-aos={item.aos} // ✅ animasi diambil dari translate.js
+      data-aos-anchor-placement="top-bottom" // ✅ agar AOS tetap mendeteksi meski ada transform/scale
     >
-      <div 
-        style={{
-          backgroundColor: "var(--color-journey-card-bg)",
-          color: "var(--color-journey-card-text)"
-        }}
-        className="rounded-[2rem] overflow-hidden shadow-xl relative group hover:shadow-2xl"
-      >
+      <div className="rounded-[2rem] overflow-hidden shadow-xl bg-journey-card relative group hover:shadow-2xl">
         <div className="w-full h-52 md:h-60 relative overflow-hidden">
           <img
             src={imageMap[item.img]}
@@ -42,10 +36,7 @@ const JourneyCard = ({ item, index }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60 group-hover:opacity-30 transition"></div>
         </div>
         <div className="p-6 text-center relative z-10">
-          <h3 
-            style={{ color: "var(--color-journey-card-text)" }}
-            className="text-3xl font-bold"
-          >
+          <h3 className="text-3xl font-bold text-journey-card">
             {inView ? (
               <CountUp
                 key={inView}
@@ -57,18 +48,8 @@ const JourneyCard = ({ item, index }) => {
               "0"
             )}
           </h3>
-          <p 
-            style={{ color: "var(--color-journey-card-text)" }}
-            className="font-semibold"
-          >
-            {item.title}
-          </p>
-          <p 
-            style={{ color: "var(--color-journey-card-text)" }}
-            className="text-sm mt-2"
-          >
-            {item.desc}
-          </p>
+          <p className="font-semibold text-journey-card">{item.title}</p>
+          <p className="text-sm mt-2 text-journey-card">{item.desc}</p>
         </div>
       </div>
     </div>
@@ -84,14 +65,14 @@ const OurJourney = ({ t }) => {
   return (
     <section
       id="our-journey"
-      className="relative min-h-screen flex flex-col justify-between text-white pt-36 pb-24 bg-cover bg-center scroll-mt-36 w-full"
+      className="relative min-h-screen flex flex-col justify-between text-white pt-36 pb-24 bg-cover bg-center scroll-mt-36"
       style={{ backgroundImage: `url(${BgJourney})` }}
     >
       <div className="absolute inset-0 bg-black/30 z-0 backdrop-blur-sm" />
       <div className="absolute top-[-50px] left-[10%] w-72 h-72 bg-[#B7D6F2]/20 rounded-full animate-pulse-slow blur-3xl z-0" />
       <div className="absolute bottom-[-40px] right-[10%] w-60 h-60 bg-[#82A9DF]/20 rounded-full animate-pulse-slow blur-2xl z-0" />
 
-      <div className="relative z-20 w-full">
+      <div className="relative z-20">
         {/* Title */}
         <div
           className="mb-12 px-4 md:px-0 max-w-6xl mx-auto"
@@ -103,7 +84,7 @@ const OurJourney = ({ t }) => {
         </div>
 
         {/* Cards */}
-        <div className="max-w-6xl mx-auto px-4 lg:px-6 grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-x-6 lg:gap-x-12 items-start w-full">
+        <div className="max-w-6xl mx-auto px-4 lg:px-6 grid grid-cols-1 md:grid-cols-3 gap-y-10 md:gap-x-12 items-start">
           {t.journeyItems.map((item, i) => (
             <JourneyCard key={i} item={item} index={i} />
           ))}
@@ -129,13 +110,7 @@ const OurJourney = ({ t }) => {
           data-aos-duration="1200"
         >
           <Link to="/service" className="inline-block">
-            <button 
-              style={{
-                backgroundColor: "var(--color-journey-button-bg)",
-                transition: "all 0.3s"
-              }}
-              className="text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-warning cursor-pointer"
-            >
+            <button className="bg-navy text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-warning transition duration-300 cursor-pointer">
               {t.journeyButton}
             </button>
           </Link>

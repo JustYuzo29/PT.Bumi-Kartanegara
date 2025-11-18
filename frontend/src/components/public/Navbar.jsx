@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { Link, useLocation } from "react-router-dom";
+import { FiSun, FiMoon } from "react-icons/fi";
 import { LanguageContext } from "../../locales/language.jsx";
 import { navbarTranslations } from "../../locales/navbar.js";
+import useDarkMode from "../../hooks/useDarkMode";
 import logo from "../../assets/navbar/logo.png";
 
 const Navbar = () => {
@@ -11,6 +13,9 @@ const Navbar = () => {
 
   // ✅ Pakai Context untuk bahasa
   const { language, setLanguage } = useContext(LanguageContext);
+  
+  // ✅ Dark mode hook
+  const [theme, toggleTheme] = useDarkMode();
 
   // ✅ Ambil menu berdasarkan bahasa
   const menuItems = navbarTranslations[language].menu;
@@ -62,23 +67,14 @@ const Navbar = () => {
       }`}
     >
       <div
-        style={{
-          background: "var(--color-background)",
-          color: "var(--color-text)",
-          boxShadow: "var(--shadow-elevated)",
-          borderRadius: "var(--radius-default)"
-        }}
-        className={`px-6 py-1.5 flex items-center justify-between gap-6 w-[90%] max-w-[900px] transition-all duration-700 ease-out transform ${
+        className={`shadow-lg rounded-full px-6 py-1.5 flex items-center justify-between gap-6 w-[90%] max-w-[900px] bg-white dark:bg-[#0a0a23] transition-all duration-700 ease-out transform ${
           showNavbar ? "translate-y-0 opacity-100" : "-translate-y-10 opacity-0"
         }`}
       >
         {/* Logo */}
         <div className="flex items-center gap-2">
           <img src={logo} alt="Logo" className="w-7 h-7 object-contain" />
-          <span 
-            style={{ color: "var(--color-text)" }}
-            className="text-[13px] font-semibold whitespace-nowrap"
-          >
+          <span className="text-[13px] font-semibold whitespace-nowrap text-gray-800 dark:text-white">
             PT. BUMI KARTANEGARA
           </span>
         </div>
@@ -91,11 +87,15 @@ const Navbar = () => {
               <Link
                 key={item.name}
                 to={item.path}
-                style={{
-                  backgroundColor: isActive ? "var(--color-active)" : "transparent",
-                  color: isActive ? "#ffffff" : "var(--color-text)"
-                }}
-                className={`px-3 py-1.5 rounded-full transition-all duration-200 hover:bg-ocean hover:text-white`}
+                className={`px-3 py-1.5 rounded-full transition-all duration-200 ${
+                  isActive
+                    ? "bg-[#1E3E62] text-white"
+                    : `text-gray-800 dark:text-white ${
+                        !hasActiveMenu
+                          ? "hover:bg-[#1E3E62] hover:text-white"
+                          : ""
+                      }`
+                }`}
               >
                 {item.name}
               </Link>
@@ -107,8 +107,7 @@ const Navbar = () => {
         <div className="md:hidden">
           <button
             onClick={toggleMobileMenu}
-            style={{ color: "var(--color-text)" }}
-            className={`focus:outline-none transition-transform duration-500 ${
+            className={`text-gray-800 dark:text-white focus:outline-none transition-transform duration-500 ${
               showMobileMenu ? "rotate-90" : "rotate-0"
             }`}
           >
@@ -120,31 +119,18 @@ const Navbar = () => {
         <div className="relative hidden md:block">
           <button
             onClick={toggleDropdown}
-            style={{
-              backgroundColor: "var(--color-active)",
-              color: "#ffffff"
-            }}
-            className="min-w-[110px] text-center text-[12px] lowercase px-3 py-1.5 rounded-full"
+            className="min-w-[110px] text-center text-[12px] lowercase px-3 py-1.5 rounded-full bg-[#1E3E62] text-white"
           >
             {language.toLowerCase()}
           </button>
 
           {openDropdown && (
-            <div 
-              style={{
-                backgroundColor: "var(--dropdown-bg)",
-                color: "var(--dropdown-text)"
-              }}
-              className="absolute right-0 mt-2 w-28 shadow-md rounded-md text-[12px] overflow-hidden z-50"
-            >
+            <div className="absolute right-0 mt-2 w-28 shadow-md rounded-md text-[12px] overflow-hidden z-50 bg-white dark:bg-[#00022C]">
               {["ENGLISH", "INDONESIA"].map((lang) => (
                 <button
                   key={lang}
                   onClick={() => handleLanguageChange(lang)}
-                  style={{
-                    color: "var(--dropdown-text)"
-                  }}
-                  className="block w-full text-left px-4 py-2 transition-all hover:bg-ocean hover:text-white"
+                  className="block w-full text-left px-4 py-2 transition-all text-gray-800 dark:text-white hover:bg-[#1E3E62] hover:text-white"
                 >
                   {lang.charAt(0) + lang.slice(1).toLowerCase()}
                 </button>
@@ -152,17 +138,24 @@ const Navbar = () => {
             </div>
           )}
         </div>
+
+        {/* Theme Toggle (Desktop) */}
+        <button
+          onClick={toggleTheme}
+          className="hidden md:block p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200"
+          aria-label="Toggle dark mode"
+        >
+          {theme === "dark" ? (
+            <FiSun className="w-5 h-5 text-yellow-400" />
+          ) : (
+            <FiMoon className="w-5 h-5 text-gray-700" />
+          )}
+        </button>
       </div>
 
       {/* Mobile Menu Dropdown */}
       {showMobileMenu && (
-        <div 
-          style={{
-            backgroundColor: "var(--color-background)",
-            color: "var(--color-text)"
-          }}
-          className="absolute top-[70px] w-[90%] max-w-[900px] mx-auto rounded-xl shadow-lg p-4 md:hidden z-40"
-        >
+        <div className="absolute top-[70px] w-[90%] max-w-[900px] mx-auto bg-white dark:bg-[#0a0a23] rounded-xl shadow-lg p-4 md:hidden z-40">
           <div className="flex flex-col gap-2 text-[12px] font-semibold uppercase">
             {menuItems.map((item) => {
               const isActive = currentPath === item.path;
@@ -171,11 +164,11 @@ const Navbar = () => {
                   key={item.name}
                   to={item.path}
                   onClick={() => setShowMobileMenu(false)}
-                  style={{
-                    backgroundColor: isActive ? "var(--color-active)" : "transparent",
-                    color: isActive ? "#ffffff" : "var(--color-text)"
-                  }}
-                  className="px-3 py-2 rounded-lg transition-all duration-200 hover:bg-ocean hover:text-white"
+                  className={`px-3 py-2 rounded-lg transition-all duration-200 ${
+                    isActive
+                      ? "bg-[#1E3E62] text-white"
+                      : "text-gray-800 dark:text-white hover:bg-[#1E3E62] hover:text-white"
+                  }`}
                 >
                   {item.name}
                 </Link>
@@ -186,37 +179,39 @@ const Navbar = () => {
             <div className="pt-2 border-t border-gray-300 dark:border-gray-700">
               <button
                 onClick={toggleDropdown}
-                style={{
-                  backgroundColor: "var(--color-active)",
-                  color: "#ffffff"
-                }}
-                className="w-full text-left px-3 py-2 rounded-lg text-[12px] lowercase"
+                className="w-full text-left px-3 py-2 rounded-lg bg-[#1E3E62] text-white text-[12px] lowercase"
               >
                 {language.toLowerCase()}
               </button>
 
               {openDropdown && (
-                <div 
-                  style={{
-                    backgroundColor: "var(--dropdown-bg)",
-                    color: "var(--dropdown-text)"
-                  }}
-                  className="mt-2 w-full shadow-md rounded-md text-[12px] overflow-hidden"
-                >
+                <div className="mt-2 w-full shadow-md rounded-md text-[12px] overflow-hidden bg-white dark:bg-[#00022C]">
                   {["ENGLISH", "INDONESIA"].map((lang) => (
                     <button
                       key={lang}
                       onClick={() => handleLanguageChange(lang)}
-                      style={{
-                        color: "var(--dropdown-text)"
-                      }}
-                      className="block w-full text-left px-4 py-2 transition-all hover:bg-ocean hover:text-white"
+                      className="block w-full text-left px-4 py-2 transition-all text-gray-800 dark:text-white hover:bg-[#1E3E62] hover:text-white"
                     >
                       {lang.charAt(0) + lang.slice(1).toLowerCase()}
                     </button>
                   ))}
                 </div>
               )}
+            </div>
+
+            {/* Theme Toggle Mobile */}
+            <div className="pt-2 border-t border-gray-300 dark:border-gray-700">
+              <button
+                onClick={toggleTheme}
+                className="w-full flex items-center justify-between px-3 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-white text-[12px]"
+              >
+                <span>Theme</span>
+                {theme === "dark" ? (
+                  <FiSun className="w-5 h-5 text-yellow-400" />
+                ) : (
+                  <FiMoon className="w-5 h-5 text-gray-700" />
+                )}
+              </button>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -6,26 +6,9 @@ import Alat1 from "../../../assets/company/Bg-Journey.png";
 import Alat2 from "../../../assets/company/Oj2.png";
 
 const Tools = ({ t }) => {
-  const [isLightMode, setIsLightMode] = useState(
-    window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: light)").matches
-  );
-
   useEffect(() => {
     AOS.init({ duration: 800, once: false });
-
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
-    const handleThemeChange = (e) => setIsLightMode(e.matches);
-    mediaQuery.addEventListener("change", handleThemeChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleThemeChange);
-    };
   }, []);
-
-  const cardBackground = isLightMode
-    ? "var(--color-card-ser)" // light mode
-    : "var(--color-card-bg)"; // dark mode
 
   return (
     <section
@@ -47,7 +30,7 @@ const Tools = ({ t }) => {
         <div
           className="rounded-xl shadow-md p-4 md:p-6 flex flex-col md:flex-row items-start gap-6 transition-colors duration-300"
           style={{
-            backgroundColor: cardBackground,
+            backgroundColor: "var(--color-card-ser)",
             color: "var(--color-card-text)",
           }}
           data-aos="fade-right"
@@ -71,7 +54,7 @@ const Tools = ({ t }) => {
         <div
           className="rounded-xl shadow-md p-4 md:p-6 flex flex-col md:flex-row-reverse items-start gap-6 transition-colors duration-300"
           style={{
-            backgroundColor: cardBackground,
+            backgroundColor: "var(--color-card-ser)",
             color: "var(--color-card-text)",
           }}
           data-aos="fade-left"

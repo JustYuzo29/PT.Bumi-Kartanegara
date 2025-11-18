@@ -57,15 +57,15 @@ const OurService = ({ t }) => {
           {t.ourServiceTitle}
         </h2>
         <p className="text-sm md:text-base mb-2">{t.ourServiceSubtitle}</p>
-        <p className="text-sm max-w-3xl mx-auto px-4">{t.ourServiceDescription}</p>
+        <p className="text-sm max-w-3xl mx-auto">{t.ourServiceDescription}</p>
       </div>
 
       {/* CARD SECTION */}
-      <div className="flex flex-wrap justify-center gap-6 mt-40 w-full max-w-7xl">
+      <div className="flex flex-wrap justify-center gap-6 mt-40">
         {services.map((item, i) => (
           <div
             key={i}
-            className="w-full sm:w-[360px] rounded-xl shadow-md overflow-hidden flex flex-col transition-colors duration-300"
+            className="w-[360px] rounded-xl shadow-md overflow-hidden flex flex-col transition-colors duration-300"
             style={{
               backgroundColor: "var(--color-card-bg)",
             }}

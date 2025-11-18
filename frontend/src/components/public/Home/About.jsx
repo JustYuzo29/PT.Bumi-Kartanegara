@@ -16,13 +16,7 @@ const About = ({ t }) => {
   }, []);
 
   return (
-    <section 
-      style={{
-        backgroundColor: "var(--color-background)",
-        color: "var(--color-text)"
-      }}
-      className="relative pt-20 pb-20 px-4 w-full"
-    >
+    <section className="relative bg-about pt-20 pb-20 px-4">
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header Section */}
         <div
@@ -30,24 +24,15 @@ const About = ({ t }) => {
           data-aos="fade-up"
         >
           <div className="lg:w-1/4 mb-6 lg:mb-0">
-            <p 
-              style={{ color: "var(--color-text)" }}
-              className="text-base font-semibold uppercase tracking-wider"
-            >
+            <p className="text-base font-semibold uppercase tracking-wider text-theme">
               {t.aboutLabel}
             </p>
           </div>
           <div className="lg:w-3/4">
-            <h2 
-              style={{ color: "var(--color-text)" }}
-              className="text-3xl lg:text-4xl font-bold font-heading mb-4 leading-tight"
-            >
+            <h2 className="text-3xl lg:text-4xl font-bold font-heading mb-4 leading-tight text-theme">
               {t.aboutTitle}
             </h2>
-            <p 
-              style={{ color: "var(--color-text)" }}
-              className="text-s font-semibold tracking-wide"
-            >
+            <p className="text-s font-semibold tracking-wide text-theme">
               {t.aboutDesc1}
             </p>
           </div>
@@ -72,10 +57,7 @@ const About = ({ t }) => {
             className="space-y-4 pt-6 lg:pt-0 px-4 lg:px-0 lg:pl-12 max-w-xl break-words z-10"
             data-aos="fade-left"
           >
-            <p 
-              style={{ color: "var(--color-text)" }}
-              className="text-base leading-relaxed"
-            >
+            <p className="text-base leading-relaxed text-theme">
               {t.aboutDesc2}
             </p>
           </div>
@@ -88,10 +70,7 @@ const About = ({ t }) => {
             className="space-y-4 pt-6 lg:pt-0 px-4 lg:px-0 lg:pr-12 max-w-xl break-words z-10 lg:order-1 order-2"
             data-aos="fade-right"
           >
-            <p 
-              style={{ color: "var(--color-text)" }}
-              className="text-base leading-relaxed"
-            >
+            <p className="text-base leading-relaxed text-theme">
               {t.aboutDesc3}
             </p>
           </div>

@@ -23,11 +23,11 @@ const GalleryArrowShape = ({ t }) => {
   const bottomRow = images.slice(3, 6);
 
   const renderRow = (imgs, isTop) => (
-    <div className="flex justify-center gap-0 flex-wrap md:flex-nowrap w-full">
+    <div className="flex justify-center gap-0">
       {imgs.map((img, i) => (
         <div
           key={i}
-          className="w-32 h-24 sm:w-40 sm:h-28 md:w-99 md:h-70 overflow-hidden relative shadow-lg cursor-pointer flex-shrink-0"
+          className="w-99 h-70 overflow-hidden relative shadow-lg cursor-pointer"
           style={{
             clipPath: isTop ? arrowClipTop : arrowClipBottom,
             WebkitClipPath: isTop ? arrowClipTop : arrowClipBottom,
@@ -47,21 +47,21 @@ const GalleryArrowShape = ({ t }) => {
 
   return (
     <section
-      className="py-12 bg-[var(--color-pages)] text-[var(--color-text)] flex justify-center px-4 md:px-0 relative min-h-[500px] mt-20 md:mt-32 transition-colors duration-300 w-full"
+      className="py-12 bg-theme text-theme flex justify-center px-0 relative min-h-[500px] mt-32 transition-colors duration-300"
       data-aos="fade-up"
       data-aos-duration="1000"
     >
       {/* Teks di kanan atas */}
-      <div className="absolute top-0 right-4 md:right-10 max-w-xs md:max-w-sm text-right z-10 mb-20 md:mb-40">
+      <div className="absolute top-0 right-10 max-w-sm text-right z-10 mb-40">
         <h2
-          className="text-2xl md:text-4xl font-bold mb-2 md:mb-4 text-[var(--color-text)]"
+          className="text-4xl font-bold mb-4"
           data-aos="fade-down"
           data-aos-delay="100"
         >
           {t.galleryTitle}
         </h2>
         <p
-          className="text-xs md:text-sm leading-relaxed text-[var(--color-text)] mt-2 md:mt-4"
+          className="text-sm leading-relaxed mt-4"
           data-aos="fade-down"
           data-aos-delay="200"
         >
@@ -70,7 +70,7 @@ const GalleryArrowShape = ({ t }) => {
       </div>
 
       {/* Galeri */}
-      <div className="flex flex-col justify-center gap-3 md:gap-6 mb-12 z-0 mt-24 md:mt-40 w-full max-w-full">
+      <div className="flex flex-col justify-center gap-6 mb-12 z-0 mt-40">
         {renderRow(topRow, true)}
         {renderRow(bottomRow, false)}
       </div>
