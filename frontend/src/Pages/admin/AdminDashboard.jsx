@@ -10,17 +10,19 @@ const Site = () => {
   const [keyMetrics, setKeyMetrics] = useState([]);
 
   useEffect(() => {
-    // Fetch updates
-    fetch("http://localhost:8000/api/updates/")
-      .then((res) => res.json())
-      .then((data) => setUpdates(data))
-      .catch(() => setUpdates([]));
-
-    // Fetch metrics
-    fetch("http://localhost:8000/api/metrics/")
-      .then((res) => res.json())
-      .then((data) => setKeyMetrics(data))
-      .catch(() => setKeyMetrics([]));
+    // Mock data - tidak menggunakan backend
+    const mockUpdates = [
+      { id: 1, text: "Website update v2.0 released", date: "2025-11-15" },
+      { id: 2, text: "New dashboard features added", date: "2025-11-10" },
+      { id: 3, text: "Performance improvements", date: "2025-11-05" },
+    ];
+    const mockMetrics = [
+      { label: "Total Users", value: 1250 },
+      { label: "Active Projects", value: 42 },
+      { label: "Total Revenue", value: "Rp 500M" },
+    ];
+    setUpdates(mockUpdates);
+    setKeyMetrics(mockMetrics);
   }, []);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,21 +36,13 @@ const Site = () => {
   };
 
   const handleSaveEdit = () => {
-    // Update ke backend
-    const updateId = updates[editingIndex]?.id;
-    fetch(`http://localhost:8000/api/updates/${updateId}/`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text: editedText }),
-    })
-      .then(() => {
-        const updated = [...updates];
-        updated[editingIndex].text = editedText;
-        setUpdates(updated);
-        setIsModalOpen(false);
-        setEditingIndex(null);
-        setEditedText("");
-      });
+    // Mock update - hanya update state lokal
+    const updated = [...updates];
+    updated[editingIndex].text = editedText;
+    setUpdates(updated);
+    setIsModalOpen(false);
+    setEditingIndex(null);
+    setEditedText("");
   };
 
   return (

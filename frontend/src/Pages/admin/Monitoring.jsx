@@ -41,10 +41,19 @@ const Monitoring = () => {
 
   const [visitorData, setVisitorData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:8000/api/visitor-stats/?start=${formatDate(startDate)}&end=${formatDate(endDate)}`)
-      .then((res) => res.json())
-      .then((data) => setVisitorData(data))
-      .catch(() => setVisitorData([]));
+    // Mock visitor data - generate data berdasarkan range tanggal
+    const days = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+    const mockData = Array.from({ length: days }, (_, i) => {
+      const date = new Date(startDate);
+      date.setDate(date.getDate() + i);
+      return {
+        date: formatDate(date),
+        visitors: Math.floor(Math.random() * 200) + 100,
+        page_views: Math.floor(Math.random() * 500) + 300,
+        bounce_rate: (Math.random() * 0.4 + 0.3), // 30-70%
+      };
+    });
+    setVisitorData(mockData);
   }, [startDate, endDate]);
 
   const visitorsChartData = {
@@ -76,38 +85,40 @@ const Monitoring = () => {
 
   const [trafficSourceData, setTrafficSourceData] = useState({ labels: [], datasets: [] });
   useEffect(() => {
-    fetch(`http://localhost:8000/api/traffic-source/?start=${formatDate(startDate)}&end=${formatDate(endDate)}`)
-      .then((res) => res.json())
-      .then((data) => {
-        // data: [{source, count}]
-        const labels = data.map((d) => d.source);
-        const counts = data.map((d) => d.count);
-        setTrafficSourceData({
-          labels,
-          datasets: [
-            {
-              label: "Sumber Lalu Lintas",
-              data: counts,
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.6)",
-                "rgba(54, 162, 235, 0.6)",
-                "rgba(255, 206, 86, 0.6)",
-                "rgba(75, 192, 192, 0.6)",
-                "rgba(153, 102, 255, 0.6)",
-              ],
-              borderColor: [
-                "rgba(255, 99, 132, 1)",
-                "rgba(54, 162, 235, 1)",
-                "rgba(255, 206, 86, 1)",
-                "rgba(75, 192, 192, 1)",
-                "rgba(153, 102, 255, 1)",
-              ],
-              borderWidth: 1,
-            },
+    // Mock traffic source data
+    const mockTrafficData = [
+      { source: "Direct", count: 450 },
+      { source: "Search Engine", count: 780 },
+      { source: "Social Media", count: 320 },
+      { source: "Referral", count: 150 },
+      { source: "Email", count: 90 },
+    ];
+    const labels = mockTrafficData.map((d) => d.source);
+    const counts = mockTrafficData.map((d) => d.count);
+    setTrafficSourceData({
+      labels,
+      datasets: [
+        {
+          label: "Sumber Lalu Lintas",
+          data: counts,
+          backgroundColor: [
+            "rgba(255, 99, 132, 0.6)",
+            "rgba(54, 162, 235, 0.6)",
+            "rgba(255, 206, 86, 0.6)",
+            "rgba(75, 192, 192, 0.6)",
+            "rgba(153, 102, 255, 0.6)",
           ],
-        });
-      })
-      .catch(() => setTrafficSourceData({ labels: [], datasets: [] }));
+          borderColor: [
+            "rgba(255, 99, 132, 1)",
+            "rgba(54, 162, 235, 1)",
+            "rgba(255, 206, 86, 1)",
+            "rgba(75, 192, 192, 1)",
+            "rgba(153, 102, 255, 1)",
+          ],
+          borderWidth: 1,
+        },
+      ],
+    });
   }, [startDate, endDate]);
 
   const trafficSourceOptions = {
@@ -133,15 +144,21 @@ const Monitoring = () => {
   const [staffData, setStaffData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/blog-monitoring/")
-      .then((res) => res.json())
-      .then((data) => setBlogData(data))
-      .catch(() => setBlogData([]));
+    // Mock blog monitoring data
+    const mockBlogData = [
+      { id: 1, title: "Latest News Update", author: "Admin", date: "2025-11-15", views: 245 },
+      { id: 2, title: "Company Announcement", author: "Staff 1", date: "2025-11-10", views: 189 },
+      { id: 3, title: "Product Launch", author: "Admin", date: "2025-11-05", views: 567 },
+    ];
+    setBlogData(mockBlogData);
 
-    fetch("http://localhost:8000/api/staff-monitoring/")
-      .then((res) => res.json())
-      .then((data) => setStaffData(data))
-      .catch(() => setStaffData([]));
+    // Mock staff monitoring data
+    const mockStaffData = [
+      { id: 1, name: "Admin User", role: "Administrator", lastActive: "2 minutes ago", status: "Online" },
+      { id: 2, name: "Staff One", role: "Staff", lastActive: "15 minutes ago", status: "Online" },
+      { id: 3, name: "Staff Two", role: "Staff", lastActive: "1 hour ago", status: "Offline" },
+    ];
+    setStaffData(mockStaffData);
   }, []);
 
   return (

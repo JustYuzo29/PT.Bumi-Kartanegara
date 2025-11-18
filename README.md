@@ -1,12 +1,8 @@
-# 🚀 PT. Bumi Kartanegara - Frontend Standalone# Staff Management System
+# 🚀 PT. Bumi Kartanegara - Frontend Application
 
+Frontend web application untuk PT. Bumi Kartanegara yang berjalan **standalone** dengan Mock API.
 
-
-Frontend web application untuk PT. Bumi Kartanegara yang bisa berjalan **standalone** (tanpa backend) atau dengan backend Django.A full-stack web application built with React (frontend) and Django (backend) for managing staff and company information for PT. BUMI KARTANEGARA.
-
-
-
-## ✨ Fitur## Features
+## ✨ Fitur
 
 
 
@@ -24,177 +20,69 @@ Frontend web application untuk PT. Bumi Kartanegara yang bisa berjalan **standal
 
 
 
-### Halaman Tersedia## Tech Stack
+### Halaman Tersedia
 
-
-
-- **Home** - Landing page dengan hero, services, dan about preview### Frontend
-
-- **About Us** - Profil perusahaan, visi misi, struktur organisasi- React + Vite
-
-- **Services** - Layanan yang ditawarkan- TailwindCSS
-
-- **Media** - Gallery foto dan video- JavaScript/JSX
-
+- **Home** - Landing page dengan hero, services, dan about preview
+- **About Us** - Profil perusahaan, visi misi, struktur organisasi
+- **Services** - Layanan yang ditawarkan
+- **Media** - Gallery foto dan video
 - **Contact** - Informasi kontak dan form
+- **Staff Dashboard** - Panel untuk staff mengelola konten
+- **Admin Dashboard** - Panel untuk admin
 
-- **Staff Dashboard** - Panel untuk staff mengelola konten### Backend
+## 🛠️ Tech Stack
 
-- **Admin Dashboard** - Panel untuk admin- Django 5.2+
-
-- Django REST Framework
-
-## 🛠️ Tech Stack- MySQL Database
-
-- CORS support
-
-### Frontend
-
-- ⚛️ **React 19** - UI Library## Database Setup
-
+- ⚛️ **React 19** - UI Library
 - ⚡ **Vite 7** - Build tool & dev server
-
-- 🎨 **TailwindCSS 4** - Utility-first CSS frameworkThis application uses MySQL as the primary database. The database schema is provided in `bumi_kartanegara.sql`.
-
+- 🎨 **TailwindCSS 4** - Utility-first CSS framework
 - 🧭 **React Router 7** - Client-side routing
-
-- 📊 **Chart.js** - Data visualization### MySQL Configuration
-
+- 📊 **Chart.js** - Data visualization
 - 🎭 **Material UI** - Component library
+- 📱 **React Icons** - Icon library
+- 🔄 **Axios** - HTTP client (dengan mock adapter)
 
-- 📱 **React Icons** - Icon library1. Install MySQL server on your system
+## 🚀 Quick Start
 
-2. Create a database named `bumi_kartanegara`
+```bash
+# 1. Masuk ke folder frontend
+cd frontend
 
-### Backend (Optional)3. Import the schema:
+# 2. Install dependencies
+npm install
 
-- 🐍 **Django 5.2** - Python web framework   ```bash
-
-- 🔌 **Django REST Framework** - API framework   mysql -u root -p bumi_kartanegara < bumi_kartanegara.sql
-
-- 💾 **MySQL** - Database (jika menggunakan backend)   ```
-
-
-
-## 🚀 Quick Start4. Configure environment variables by copying `.env.example` to `.env`:
-
-   ```bash
-
-### Mode Standalone (Tanpa Backend)   cp .env.example .env
-
-   ```
-
-Frontend bisa berjalan sendiri dengan mock data, cocok untuk demo atau deployment di Vercel.
-
-5. Update the `.env` file with your MySQL credentials:
-
-```bash   ```
-
-# Install dependencies   DB_NAME=bumi_kartanegara
-
-npm install-frontend   DB_USER=your_mysql_user
-
-   DB_PASSWORD=your_mysql_password
-
-# Run development server (standalone mode)   DB_HOST=localhost
-
-npm run dev:standalone   DB_PORT=3306
-
-   ```
-
-# Build for production
-
-npm run build:standalone## Installation
-
-
-
-# Preview production build### Backend Setup
-
-npm run preview
-
-```1. Navigate to the backend directory:
-
-   ```bash
-
-Frontend akan berjalan di **http://localhost:5173/**   cd backend
-
-   ```
-
-### Mode Dengan Backend
-
-2. Install Python dependencies:
-
-Jika ingin menggunakan backend Django untuk data persistent:   ```bash
-
-   pip install -r ../requirements.txt
-
-```bash   ```
-
-# 1. Install frontend dependencies
-
-npm install-frontend3. Run Django migrations:
-
-   ```bash
-
-# 2. Run frontend (akan connect ke backend)   python manage.py migrate
-
-npm run dev:backend   ```
-
+# 3. Jalankan development server
+npm run dev
 ```
 
-4. Create a superuser (optional):
+Frontend akan berjalan di **http://localhost:5173/**
 
-Backend harus running di port 8000. Lihat folder `backend/` untuk setup Django.   ```bash
+## 📁 Struktur Project
 
-   python manage.py createsuperuser
+```
+frontend/
+├── src/
+│   ├── components/    # React components
+│   ├── Pages/         # Page components
+│   ├── mocks/         # Mock data & API
+│   ├── lib/           # Utilities & API
+│   ├── locales/       # Translations (ID/EN)
+│   ├── routes/        # Route configurations
+│   ├── services/      # API services
+│   └── assets/        # Images & static files
+├── .env               # Development config
+├── .env.production    # Production config
+├── package.json
+└── vite.config.js
 
-## 📁 Struktur Project   ```
+backend/ (TIDAK DIGUNAKAN)
+└── ...
+```
 
+## React + Vite
 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-```5. Start the Django development server:
-
-staff/   ```bash
-
-├── frontend/               # Frontend React application   python manage.py runserver
-
-│   ├── src/   ```
-
-│   │   ├── components/    # React components
-
-│   │   ├── Pages/         # Page components### Frontend Setup
-
-│   │   ├── mocks/         # Mock data & API (untuk standalone)
-
-│   │   ├── lib/           # Utilities & API1. Install Node.js dependencies:
-
-│   │   ├── locales/       # Translations (ID/EN)   ```bash
-
-│   │   └── assets/        # Images & static files   npm install
-
-│   ├── .env               # Development config   ```
-
-│   ├── .env.production    # Production config (standalone)
-
-│   └── package.json2. Start the development server:
-
-│   ```bash
-
-├── backend/               # Django backend (optional)   npm run dev
-
-│   ├── backend/          # Django settings   ```
-
-│   ├── core/             # Main app
-
-│   └── manage.py## React + Vite
-
-│
-
-├── .venv/                # Python virtual environmentThis template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-│
-
-└── Documentation files...Currently, two official plugins are available:
+Currently, two official plugins are available:
 
 ```
 

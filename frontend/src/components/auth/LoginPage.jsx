@@ -20,10 +20,20 @@ export default function LoginPage() {
     setErrorMsg("");
 
     try {
-      const res = await axios.post("http://localhost:8000/api/login/", {
-        username,
-        password,
-      });
+      // Mock login - simulasi authentication
+      // Username: admin/staff, Password: password
+      const mockAuth = (username === 'admin' || username === 'staff') && password === 'password';
+      
+      if (!mockAuth) {
+        throw new Error('Invalid credentials');
+      }
+      
+      const res = {
+        data: {
+          access: 'mock-token-' + Date.now(),
+          tipe: username === 'admin' ? 'Admin' : 'Staff'
+        }
+      };
 
       // Menyimpan data autentikasi di localStorage
       localStorage.setItem("access_token", res.data.access);

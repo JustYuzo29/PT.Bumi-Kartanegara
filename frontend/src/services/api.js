@@ -1,5 +1,8 @@
 // API base configuration
-const API_BASE_URL = 'http://127.0.0.1:8000/api';
+// ⚠️ IMPORTANT: Aplikasi ini TIDAK menggunakan backend
+// Semua data menggunakan Mock API (simulasi)
+// Backend Django tidak diperlukan dan tidak digunakan
+const API_BASE_URL = '/mock-api';
 
 // Generic API service
 class ApiService {

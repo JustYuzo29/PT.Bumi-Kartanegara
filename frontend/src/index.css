@@ -252,7 +252,10 @@
 
 
 /* 🌚 DARK MODE (manual override via .dark class) */
-.dark :root, .dark:root {
+.dark,
+.dark :root,
+.dark:root,
+html.dark {
   --color-text: #ffffff;
   --color-background: var(--color-navy);
   --dropdown-bg: var(--color-midnight);
@@ -262,7 +265,10 @@
 
 
 /* Override background & color jika .dark di <html> agar realtime */
-.dark html, .dark body {
+.dark html,
+.dark body,
+html.dark,
+html.dark body {
   background-color: var(--color-background) !important;
   color: var(--color-text) !important;
 }
@@ -424,7 +430,9 @@ html {
 }
 
 /* 🌞 LIGHT MODE */
-:root {
+:root,
+:root:not(.dark):not([data-theme="dark"]),
+html:not(.dark):not([data-theme="dark"]) {
   --color-text: #213547;
   --color-background: #ffffff;
   --color-footer: var(--color-ocean);
@@ -453,8 +461,6 @@ html {
   --color-contact-service: var(--color-ocean);
   --color-background-contact: #ffffff;
   --color-button-maps: #0B192C;
-
-
 
   /* Tambahan untuk komponen seperti dropdown */
   --dropdown-bg: #ffffff;
@@ -546,8 +552,9 @@ html {
 
 html,
 body {
-  background-color: var(--color-background);
-  color: var(--color-text);
+  background-color: var(--color-background) !important;
+  color: var(--color-text) !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 @keyframes pulse {

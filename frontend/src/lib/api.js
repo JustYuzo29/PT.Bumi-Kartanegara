@@ -5,7 +5,9 @@ import { mockApi } from "../mocks/mockAxios.js";
 const USE_MOCK_API = import.meta.env.VITE_USE_MOCK_API === "true";
 
 // Base URL for API
-const BASE_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000/api";
+// ⚠️ IMPORTANT: Default menggunakan Mock API (standalone mode)
+// Aplikasi TIDAK terhubung ke backend Django
+const BASE_URL = import.meta.env.VITE_API_URL || "/mock-api";
 
 // Create axios instance or use mock
 const api = USE_MOCK_API

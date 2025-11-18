@@ -14,11 +14,27 @@ export default function ThemeToggle() {
 
   // ✅ Terapkan tema ke <html>
   useEffect(() => {
+    const root = document.documentElement;
+    
     if (theme === "system") {
-      document.documentElement.removeAttribute("data-theme");
+      // Hapus data-theme dan class dark, biarkan CSS media query yang handle
+      root.removeAttribute("data-theme");
+      const systemTheme = getSystemTheme();
+      if (systemTheme === "dark") {
+        root.classList.add("dark");
+      } else {
+        root.classList.remove("dark");
+      }
+    } else if (theme === "dark") {
+      // Dark mode: set data-theme dan class dark
+      root.setAttribute("data-theme", "dark");
+      root.classList.add("dark");
     } else {
-      document.documentElement.setAttribute("data-theme", theme);
+      // Light mode: hapus data-theme dan class dark
+      root.removeAttribute("data-theme");
+      root.classList.remove("dark");
     }
+    
     localStorage.setItem("theme", theme);
   }, [theme]);
 
@@ -27,7 +43,18 @@ export default function ThemeToggle() {
     const media = window.matchMedia("(prefers-color-scheme: dark)");
 
     const handleSystemChange = () => {
-      setResolvedTheme(getSystemTheme());
+      const newSystemTheme = getSystemTheme();
+      setResolvedTheme(newSystemTheme);
+      
+      // Update class dark sesuai system preference
+      if (theme === "system") {
+        const root = document.documentElement;
+        if (newSystemTheme === "dark") {
+          root.classList.add("dark");
+        } else {
+          root.classList.remove("dark");
+        }
+      }
     };
 
     if (theme === "system") {
