@@ -1,5 +1,26 @@
 @import 'tailwindcss';
 
+/* 🎨 Global Overflow Fix */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 /* 🎨 Tema + Global Styling */
 :root {
   /* Warna tambahan */

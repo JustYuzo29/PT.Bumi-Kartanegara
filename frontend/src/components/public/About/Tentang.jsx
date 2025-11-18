@@ -38,7 +38,7 @@ const Tentang = ({ t }) => {
 
         {/* Grid gambar dan card */}
         <div className="w-full flex justify-center">
-          <div className="relative flex flex-col md:flex-row items-start gap-4 md:gap-4 mt-8 md:mt-16 w-full max-w-[90rem] px-0 md:px-8">
+          <div className="relative flex flex-col md:flex-row items-start gap-4 md:gap-4 mt-8 md:mt-16 w-full max-w-7xl px-0 md:px-8">
             {/* Gambar */}
             <img
               src={AboutImage}

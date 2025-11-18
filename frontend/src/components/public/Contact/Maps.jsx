@@ -36,7 +36,7 @@ const Maps = ({ t }) => {
           href="https://maps.app.goo.gl/4idKYAXmBVVNP1K87"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block bg-ocean text-white px-6 py-2 rounded-md transition duration-300 hover:bg-[var(--color-warning)]"
+          className="inline-block bg-warning text-carbon px-6 py-3 rounded-md font-semibold transition duration-300 hover:bg-[#e09310] shadow-lg"
         >
           {t.mapsButton}
         </a>

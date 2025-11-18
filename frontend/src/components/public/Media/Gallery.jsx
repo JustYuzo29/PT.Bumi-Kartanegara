@@ -23,11 +23,11 @@ const GalleryArrowShape = ({ t }) => {
   const bottomRow = images.slice(3, 6);
 
   const renderRow = (imgs, isTop) => (
-    <div className="flex justify-center gap-0">
+    <div className="flex justify-center gap-0 px-4 md:px-0">
       {imgs.map((img, i) => (
         <div
           key={i}
-          className="w-99 h-70 overflow-hidden relative shadow-lg cursor-pointer"
+          className="w-24 md:w-32 lg:w-40 xl:w-99 h-48 md:h-56 lg:h-64 xl:h-70 overflow-hidden relative shadow-lg cursor-pointer flex-shrink-0"
           style={{
             clipPath: isTop ? arrowClipTop : arrowClipBottom,
             WebkitClipPath: isTop ? arrowClipTop : arrowClipBottom,
@@ -47,21 +47,21 @@ const GalleryArrowShape = ({ t }) => {
 
   return (
     <section
-      className="py-12 bg-theme text-theme flex justify-center px-0 relative min-h-[500px] mt-32 transition-colors duration-300"
+      className="py-12 bg-theme text-theme flex justify-center px-4 md:px-0 relative min-h-[500px] mt-32 transition-colors duration-300 overflow-x-hidden"
       data-aos="fade-up"
       data-aos-duration="1000"
     >
       {/* Teks di kanan atas */}
-      <div className="absolute top-0 right-10 max-w-sm text-right z-10 mb-40">
+      <div className="absolute top-0 right-4 md:right-10 max-w-xs md:max-w-sm text-right z-10 mb-40">
         <h2
-          className="text-4xl font-bold mb-4"
+          className="text-2xl md:text-4xl font-bold mb-4"
           data-aos="fade-down"
           data-aos-delay="100"
         >
           {t.galleryTitle}
         </h2>
         <p
-          className="text-sm leading-relaxed mt-4"
+          className="text-xs md:text-sm leading-relaxed mt-4"
           data-aos="fade-down"
           data-aos-delay="200"
         >
@@ -70,7 +70,7 @@ const GalleryArrowShape = ({ t }) => {
       </div>
 
       {/* Galeri */}
-      <div className="flex flex-col justify-center gap-6 mb-12 z-0 mt-40">
+      <div className="flex flex-col justify-center gap-4 md:gap-6 mb-12 z-0 mt-32 md:mt-40 w-full max-w-7xl">
         {renderRow(topRow, true)}
         {renderRow(bottomRow, false)}
       </div>

@@ -29,13 +29,13 @@ const Kontak = ({ t }) => {
       </section>
 
       {/* Kontak Cards */}
-      <section className="flex flex-col md:flex-row items-center justify-center gap-10 mt-16 px-4">
+      <section className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 mt-16 px-4">
         {/* WhatsApp Card */}
         <a
           href="https://wa.me/6282226677207?text=Halo%20saya%20ingin%20bertanya"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-[300px] rounded-default overflow-hidden shadow-elevated transform transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+          className="w-full max-w-[300px] rounded-default overflow-hidden shadow-elevated transform transition duration-300 hover:-translate-y-2 hover:shadow-xl"
           data-aos="fade-up"
         >
           <div className="bg-ocean h-44 flex items-center justify-center">
@@ -58,7 +58,7 @@ const Kontak = ({ t }) => {
         {/* Gmail Card */}
         <a
           href="mailto:pt.bumikartanegaranew@gmail.com?subject=Pertanyaan%20dan%20Penawaran&body=Halo%20tim%20PT.%20Bumi%20Kartanegara%2C%20saya%20ingin%20bertanya%20tentang%20..."
-          className="w-[300px] rounded-default overflow-hidden shadow-elevated transform transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+          className="w-full max-w-[300px] rounded-default overflow-hidden shadow-elevated transform transition duration-300 hover:-translate-y-2 hover:shadow-xl"
           data-aos="fade-up"
         >
           <div className="bg-ocean h-44 flex items-center justify-center">
@@ -84,8 +84,8 @@ const Kontak = ({ t }) => {
         <h2 className="text-lg font-bold font-heading mb-6">
           {t.ourServiceHeading}
         </h2>
-        <div className="w-[630px] bg-ocean text-white px-6 py-4 rounded-default shadow-elevated mx-auto">
-          <p className="text-sm leading-relaxed px-4 line-clamp-3 break-words h-[96px] overflow-hidden">
+        <div className="w-full max-w-[630px] bg-ocean text-white px-4 md:px-6 py-4 rounded-default shadow-elevated mx-auto">
+          <p className="text-sm leading-relaxed px-2 md:px-4 line-clamp-3 break-words h-[96px] overflow-hidden">
             {t.ourServiceDesc}
           </p>
         </div>

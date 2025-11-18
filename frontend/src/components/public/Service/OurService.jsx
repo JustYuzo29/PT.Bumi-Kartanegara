@@ -61,11 +61,11 @@ const OurService = ({ t }) => {
       </div>
 
       {/* CARD SECTION */}
-      <div className="flex flex-wrap justify-center gap-6 mt-40">
+      <div className="flex flex-wrap justify-center gap-6 mt-40 px-4">
         {services.map((item, i) => (
           <div
             key={i}
-            className="w-[360px] rounded-xl shadow-md overflow-hidden flex flex-col transition-colors duration-300"
+            className="w-full max-w-[360px] rounded-xl shadow-md overflow-hidden flex flex-col transition-colors duration-300"
             style={{
               backgroundColor: "var(--color-card-bg)",
             }}
