@@ -38,7 +38,7 @@ const Kontak = ({ t }) => {
           className="w-full max-w-[300px] rounded-default overflow-hidden shadow-elevated transform transition duration-300 hover:-translate-y-2 hover:shadow-xl"
           data-aos="fade-up"
         >
-          <div className="bg-ocean h-44 flex items-center justify-center">
+          <div className="bg-navy h-44 flex items-center justify-center">
             <img src={Wa} alt="WhatsApp" className="h-16 w-16 object-contain" />
           </div>
 
@@ -61,7 +61,7 @@ const Kontak = ({ t }) => {
           className="w-full max-w-[300px] rounded-default overflow-hidden shadow-elevated transform transition duration-300 hover:-translate-y-2 hover:shadow-xl"
           data-aos="fade-up"
         >
-          <div className="bg-ocean h-44 flex items-center justify-center">
+          <div className="bg-navy h-44 flex items-center justify-center">
             <img src={Gmail} alt="Gmail" className="h-16 w-16 object-contain" />
           </div>
 
@@ -84,7 +84,7 @@ const Kontak = ({ t }) => {
         <h2 className="text-lg font-bold font-heading mb-6">
           {t.ourServiceHeading}
         </h2>
-        <div className="w-full max-w-[630px] bg-ocean text-white px-4 md:px-6 py-4 rounded-default shadow-elevated mx-auto">
+        <div className="w-full max-w-[630px] bg-navy text-white px-4 md:px-6 py-4 rounded-default shadow-elevated mx-auto">
           <p className="text-sm leading-relaxed px-2 md:px-4 line-clamp-3 break-words h-[96px] overflow-hidden">
             {t.ourServiceDesc}
           </p>
