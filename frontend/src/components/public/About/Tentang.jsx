@@ -14,9 +14,19 @@ const Tentang = ({ t }) => {
   }, []);
 
   return (
-    <section className="relative z-10 bg-theme overflow-hidden min-h-screen flex items-center py-16 md:py-0">
-      {/* Background kuning bawah */}
-      <div className="absolute bottom-0 left-0 w-full h-[350px] md:h-[450px] bg-[var(--color-warning)] z-0 rounded-t-[40px]" />
+    <section
+      className="relative z-10 overflow-hidden min-h-screen flex items-center py-16 md:py-0"
+      style={{
+        backgroundColor: "var(--color-about-top)",
+      }}
+    >
+      {/* Background bawah */}
+      <div
+        className="absolute bottom-0 left-0 w-full h-[350px] md:h-[450px] z-0 rounded-t-[40px]"
+        style={{
+          backgroundColor: "var(--color-about-bottom)",
+        }}
+      />
 
       <div className="relative z-10 px-4 md:px-12 max-w-7xl mx-auto py-8 md:py-20 w-full">
         <div className="space-y-4 md:space-y-6 text-theme text-center md:text-left">
@@ -27,6 +37,7 @@ const Tentang = ({ t }) => {
           >
             {t.tentangLabel}
           </h3>
+
           <h1
             className="text-xl md:text-4xl font-bold leading-snug"
             data-aos="fade-up"
@@ -36,7 +47,7 @@ const Tentang = ({ t }) => {
           </h1>
         </div>
 
-        {/* Grid gambar dan card */}
+        {/* Grid */}
         <div className="w-full flex justify-center">
           <div className="relative flex flex-col md:flex-row items-start gap-4 md:gap-4 mt-8 md:mt-16 w-full max-w-7xl px-0 md:px-8">
             {/* Gambar */}
@@ -47,18 +58,28 @@ const Tentang = ({ t }) => {
               data-aos="fade-right"
             />
 
-            {/* Card biru */}
+            {/* ⭐ Card teks */}
             <div
-              className="bg-ocean text-white px-4 md:px-6 py-6 md:py-8 w-full md:w-[350px] h-auto md:h-[520px] 
-              rounded-2xl shadow-lg overflow-hidden break-words text-wrap"
+              className="px-4 md:px-6 py-6 md:py-8 w-full md:w-[350px] h-auto md:h-[520px] 
+              rounded-2xl shadow-lg overflow-hidden break-words text-wrap text-white"
+              style={{
+                backgroundColor: "var(--color-card-bg)", // ⭐ Pakai variabel card
+              }}
               data-aos="fade-left"
             >
               <h3 className="font-semibold text-sm md:text-base mb-2 leading-tight">
                 {t.tentangTitle}
               </h3>
-              <p className="text-xs md:text-sm leading-relaxed">{t.tentangDesc1}</p>
-              <p className="text-xs md:text-sm leading-relaxed mt-2">{t.tentangDesc2}</p>
-              <p className="text-xs md:text-sm leading-relaxed mt-2">{t.tentangDesc3}</p>
+
+              <p className="text-xs md:text-sm leading-relaxed">
+                {t.tentangDesc1}
+              </p>
+              <p className="text-xs md:text-sm leading-relaxed mt-2">
+                {t.tentangDesc2}
+              </p>
+              <p className="text-xs md:text-sm leading-relaxed mt-2">
+                {t.tentangDesc3}
+              </p>
             </div>
           </div>
         </div>

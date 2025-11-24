@@ -16,7 +16,13 @@ const About = ({ t }) => {
   }, []);
 
   return (
-    <section className="relative bg-about pt-20 pb-20 px-4">
+    <section
+      className="
+        relative 
+        bg-about 
+        dark:bg-ocean
+        pt-20 pb-20 px-4"
+    >
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header Section */}
         <div

@@ -23,8 +23,8 @@ const JourneyCard = ({ item, index }) => {
           ? "scale-[1.25] lg:scale-[1.3] z-30 -translate-y-2"
           : "scale-95 z-10"
       }`}
-      data-aos={item.aos} // ✅ animasi diambil dari translate.js
-      data-aos-anchor-placement="top-bottom" // ✅ agar AOS tetap mendeteksi meski ada transform/scale
+      data-aos={item.aos}
+      data-aos-anchor-placement="top-bottom"
     >
       <div className="rounded-[2rem] overflow-hidden shadow-xl bg-journey-card relative group hover:shadow-2xl">
         <div className="w-full h-52 md:h-60 relative overflow-hidden">
@@ -35,6 +35,7 @@ const JourneyCard = ({ item, index }) => {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-60 group-hover:opacity-30 transition"></div>
         </div>
+
         <div className="p-6 text-center relative z-10">
           <h3 className="text-3xl font-bold text-journey-card">
             {inView ? (
@@ -59,16 +60,29 @@ const JourneyCard = ({ item, index }) => {
 const OurJourney = ({ t }) => {
   useEffect(() => {
     AOS.init({ duration: 1000, once: false });
-    AOS.refresh(); // ✅ memastikan AOS refresh ulang setelah render
+    AOS.refresh();
   }, []);
 
   return (
     <section
       id="our-journey"
-      className="relative min-h-screen flex flex-col justify-between text-white pt-36 pb-24 bg-cover bg-center scroll-mt-36"
+      className="
+        relative 
+        min-h-fit      /* ✔ mencegah white space akibat min-h-screen parent */
+        flex flex-col 
+        text-white 
+        pt-36 
+        pb-24 
+        bg-cover bg-center bg-no-repeat  /* ✔ cegah pengulangan / stretching */
+        scroll-mt-36
+        overflow-hidden                /* ✔ cegah gambar meluber */
+      "
       style={{ backgroundImage: `url(${BgJourney})` }}
     >
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/30 z-0 backdrop-blur-sm" />
+
+      {/* Decorative Blobs */}
       <div className="absolute top-[-50px] left-[10%] w-72 h-72 bg-[#B7D6F2]/20 rounded-full animate-pulse-slow blur-3xl z-0" />
       <div className="absolute bottom-[-40px] right-[10%] w-60 h-60 bg-[#82A9DF]/20 rounded-full animate-pulse-slow blur-2xl z-0" />
 
@@ -95,7 +109,6 @@ const OurJourney = ({ t }) => {
           className="max-w-3xl mx-auto text-center mt-16 mb-10 px-4 z-20 relative"
           data-aos="fade-up"
           data-aos-delay="200"
-          data-aos-duration="1000"
         >
           <p className="text-sm md:text-base leading-relaxed text-white">
             {t.journeyDesc}
@@ -107,10 +120,9 @@ const OurJourney = ({ t }) => {
           className="text-center mt-2 md:mt-10 z-20 relative max-w-6xl mx-auto px-4 md:px-0"
           data-aos="fade-up"
           data-aos-delay="400"
-          data-aos-duration="1200"
         >
           <Link to="/service" className="inline-block">
-            <button className="bg-navy text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-warning transition duration-300 cursor-pointer">
+            <button className="bg-navy text-white px-6 py-3 rounded-full font-semibold shadow hover:bg-warning transition duration-300">
               {t.journeyButton}
             </button>
           </Link>
