@@ -5,7 +5,6 @@ import { FiSun, FiMoon } from "react-icons/fi";
 import { LanguageContext } from "../../locales/language.jsx";
 import { navbarTranslations } from "../../locales/navbar.js";
 import useDarkMode from "../../hooks/useDarkMode";
-import logo from "../../assets/navbar/logo.png";
 
 const Navbar = () => {
   const location = useLocation();
@@ -73,7 +72,7 @@ const Navbar = () => {
       >
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <img src={logo} alt="Logo" className="w-7 h-7 object-contain" />
+          <img src="/logo-bk.png" alt="Logo" className="w-7 h-7 object-contain" />
           <span className="text-[13px] font-semibold whitespace-nowrap text-gray-800 dark:text-white">
             PT. BUMI KARTANEGARA
           </span>
