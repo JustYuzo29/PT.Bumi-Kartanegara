@@ -6,7 +6,7 @@ import MapOverlay from "../../../assets/company/Indonesia.png";
 const Hero = ({ t }) => {
   return (
     <section
-      className="relative w-full h-screen pt-20"
+      className="relative w-full min-h-screen pt-20"
       aria-label="Contact Hero Section"
     >
       {/* Background image */}
@@ -19,8 +19,8 @@ const Hero = ({ t }) => {
       <div className="absolute inset-0 bg-black/80 z-[1]" />
 
       {/* Konten teks dan peta */}
-      <div className="relative z-[2] flex flex-col items-center justify-start h-full pt-28 md:pt-36 text-white text-center px-4">
-        <div data-aos="fade-up" className="max-w-3xl">
+      <div className="relative z-[2] flex flex-col items-center justify-center min-h-screen py-20 text-white text-center px-4">
+        <div data-aos="fade-up" className="max-w-3xl mb-8">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">{t.heroTitle}</h1>
           <p className="text-sm md:text-base font-light">{t.heroSubtitle}</p>
         </div>
@@ -29,7 +29,7 @@ const Hero = ({ t }) => {
         <img
           src={MapOverlay}
           alt="Peta Indonesia"
-          className="w-[90%] md:w-[60%] mt-30 object-contain pointer-events-none"
+          className="w-full max-w-4xl object-contain pointer-events-none"
           data-aos="fade-up"
         />
       </div>

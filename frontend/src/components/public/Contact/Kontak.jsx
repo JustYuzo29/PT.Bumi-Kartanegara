@@ -4,7 +4,7 @@ import Gmail from "../../../assets/company/Gmail.png";
 
 const Kontak = ({ t }) => {
   return (
-    <section className="bg-theme font-body text-theme py-20">
+    <section className="bg-theme font-body text-theme">
       {/* Marquee Header */}
       <div className="w-full bg-ocean marquee py-3">
         <div className="marquee-content text-white font-bold text-base md:text-lg tracking-wider">
@@ -73,7 +73,7 @@ const Kontak = ({ t }) => {
       </div>
 
       {/* Our Service */}
-      <div className="mt-16 px-4 text-center" data-aos="fade-up">
+      <div className="mt-16 mb-20 px-4 text-center" data-aos="fade-up">
         <h2 className="text-lg font-bold font-heading mb-6">
           {t.ourServiceHeading}
         </h2>
