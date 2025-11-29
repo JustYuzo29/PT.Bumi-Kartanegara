@@ -12,7 +12,7 @@ const Service = () => {
   }, []);
 
   return (
-    <main className="font-body bg-theme text-theme transition-colors duration-300 w-full overflow-x-hidden">
+    <main className="font-body bg-theme text-theme transition-colors duration-300 w-full overflow-x-hidden hide-scrollbar">
       <Hero t={t} />
       <OurService t={t} />
       <Tools t={t} />

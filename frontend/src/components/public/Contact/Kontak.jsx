@@ -1,41 +1,34 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
 import Wa from "../../../assets/company/Whatsapp.png";
 import Gmail from "../../../assets/company/Gmail.png";
 
 const Kontak = ({ t }) => {
-  useEffect(() => {
-    AOS.init({ duration: 800, once: false });
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
-
   return (
-    <main className="min-h-screen bg-theme font-body text-theme overflow-hidden">
+    <section className="bg-theme font-body text-theme py-20">
       {/* Marquee Header */}
       <div className="w-full bg-ocean marquee py-3">
         <div className="marquee-content text-white font-bold text-base md:text-lg tracking-wider">
-          {(t.contactMarquee + " | ").repeat(100)}
+          {(t.contactMarquee + " | ").repeat(20)}
         </div>
       </div>
 
       {/* Section Title */}
-      <section className="text-center mt-20 md:mt-28 px-4" data-aos="fade-down">
+      <div className="text-center mt-20 md:mt-28 px-4" data-aos="fade-up">
         <h2 className="text-sm font-medium">{t.contactHeading}</h2>
         <h1 className="text-3xl md:text-4xl font-heading font-bold mt-1">
           {t.contactTitle}
         </h1>
         <p className="text-sm md:text-base mt-2">{t.contactIntro}</p>
-      </section>
+      </div>
 
       {/* Kontak Cards */}
-      <section className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 mt-16 px-4">
+      <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10 mt-16 px-4">
         {/* WhatsApp Card */}
         <a
           href="https://wa.me/6282226677207?text=Halo%20saya%20ingin%20bertanya"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full max-w-[300px] rounded-default overflow-hidden shadow-elevated transform transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+          className="w-full max-w-[300px] rounded-default overflow-hidden shadow-elevated hover:shadow-xl smooth-render"
           data-aos="fade-up"
         >
           <div className="bg-navy h-44 flex items-center justify-center">
@@ -58,7 +51,7 @@ const Kontak = ({ t }) => {
         {/* Gmail Card */}
         <a
           href="mailto:pt.bumikartanegaranew@gmail.com?subject=Pertanyaan%20dan%20Penawaran&body=Halo%20tim%20PT.%20Bumi%20Kartanegara%2C%20saya%20ingin%20bertanya%20tentang%20..."
-          className="w-full max-w-[300px] rounded-default overflow-hidden shadow-elevated transform transition duration-300 hover:-translate-y-2 hover:shadow-xl"
+          className="w-full max-w-[300px] rounded-default overflow-hidden shadow-elevated hover:shadow-xl smooth-render"
           data-aos="fade-up"
         >
           <div className="bg-navy h-44 flex items-center justify-center">
@@ -77,10 +70,10 @@ const Kontak = ({ t }) => {
             </div>
           </div>
         </a>
-      </section>
+      </div>
 
       {/* Our Service */}
-      <section className="mt-16 px-4 text-center" data-aos="zoom-in">
+      <div className="mt-16 px-4 text-center" data-aos="fade-up">
         <h2 className="text-lg font-bold font-heading mb-6">
           {t.ourServiceHeading}
         </h2>
@@ -89,8 +82,8 @@ const Kontak = ({ t }) => {
             {t.ourServiceDesc}
           </p>
         </div>
-      </section>
-    </main>
+      </div>
+    </section>
   );
 };
 

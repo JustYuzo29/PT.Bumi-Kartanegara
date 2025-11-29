@@ -1,18 +1,12 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
 
 import BgContact from "../../../assets/company/Contact.png";
 import MapOverlay from "../../../assets/company/Indonesia.png";
 
 const Hero = ({ t }) => {
-  useEffect(() => {
-    AOS.init({ once: false, duration: 1000 });
-  }, []);
-
   return (
     <section
-      className="relative w-full h-screen overflow-hidden"
+      className="relative w-full h-screen pt-20"
       aria-label="Contact Hero Section"
     >
       {/* Background image */}
@@ -36,8 +30,7 @@ const Hero = ({ t }) => {
           src={MapOverlay}
           alt="Peta Indonesia"
           className="w-[90%] md:w-[60%] mt-30 object-contain pointer-events-none"
-          data-aos="zoom-in"
-          data-aos-delay="500"
+          data-aos="fade-up"
         />
       </div>
     </section>

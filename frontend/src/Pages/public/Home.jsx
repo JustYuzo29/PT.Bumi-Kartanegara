@@ -18,7 +18,7 @@ const Home = () => {
   }, []);
 
   return (
-    <main className="font-body bg-theme text-theme">
+    <main className="font-body bg-theme text-theme hide-scrollbar">
       <Hero t={t} />
       <Service t={t} />
       <AboutUs t={t} />

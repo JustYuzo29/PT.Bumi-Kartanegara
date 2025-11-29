@@ -48,9 +48,9 @@ function RequireAuth({ allowedRole }) {
 function PublicLayout() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen overflow-x-hidden">
+      <div className="min-h-screen overflow-x-hidden hide-scrollbar">
         <Navbar />
-        <main className="w-full overflow-x-hidden">
+        <main className="w-full overflow-x-hidden hide-scrollbar">
           <Outlet />
         </main>
         <Footer />

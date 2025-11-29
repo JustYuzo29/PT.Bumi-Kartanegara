@@ -9,7 +9,7 @@ const About = () => {
   const t = aboutTranslations[language]; // Ambil translate sesuai bahasa
 
   return (
-    <main>
+    <main className="hide-scrollbar">
       {/* Kirim props t ke setiap komponen */}
       <Hero t={t} />
       <Tentang t={t} />

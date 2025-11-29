@@ -12,17 +12,40 @@ html {
 body {
   width: 100%;
   position: relative;
-
-  /* Tambahkan ini */
   overflow-x: hidden;
-  /* cegah scroll horizontal */
-  overflow-y: auto;
-  /* scroll vertikal normal */
+  overflow-y: scroll;
+  
+  /* Remove scrollbar completely */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  
+  /* Performance optimization */
+  -webkit-overflow-scrolling: touch;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: scroll-position;
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 #root {
   width: 100%;
   overflow-x: hidden;
+  overflow-y: scroll;
+  
+  /* Remove scrollbar completely */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+#root::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 /* 🎨 Tema + Global Styling */
@@ -63,6 +86,28 @@ body {
 
 /* 🧩 Utility Kustom */
 @layer utilities {
+  /* Remove scrollbar utility class */
+  .remove-scrollbar,
+  .hide-scrollbar {
+    overflow-y: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+  }
+  
+  .remove-scrollbar::-webkit-scrollbar,
+  .hide-scrollbar::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  
+  /* Performance optimization for animations */
+  .smooth-render {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+  
   .bg-navy {
     background-color: var(--color-navy);
   }
@@ -115,27 +160,45 @@ body {
     white-space: nowrap;
     overflow: hidden;
     position: relative;
+    will-change: auto;
   }
 
   .marquee-content {
     display: inline-block;
     padding-left: 100%;
     animation: marquee-scroll 100s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
   }
 
   @keyframes marquee-scroll {
     0% {
-      transform: translateX(0%);
+      transform: translateX(0%) translateZ(0);
     }
 
     100% {
-      transform: translateX(-100%);
+      transform: translateX(-100%) translateZ(0);
     }
   }
 }
 
 html {
   scroll-behavior: smooth;
+  overflow-y: scroll;
+  
+  /* Remove scrollbar completely */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  
+  /* Performance optimization for smooth scrolling */
+  -webkit-overflow-scrolling: touch;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 
 @layer base {
@@ -185,6 +248,37 @@ body {
   background-color: var(--color-background) !important;
   color: var(--color-text) !important;
   transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global scrollbar removal for all elements */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+/* Prevent layout shift and improve scroll performance */
+img,
+video {
+  will-change: auto;
+  transform: translateZ(0);
+}
+
+iframe {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+section {
+  contain: layout style paint;
+  content-visibility: auto;
 }
 
 /* 🌚 DARK MODE */

@@ -1,17 +1,9 @@
-import React, { useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
+import React from "react";
 import BgImage from "../../../assets/company/Bg-Journey.png";
 
 const Hero = ({ t }) => {
-  useEffect(() => {
-    AOS.init({ once: false });
-  }, []);
-
   return (
-    // FIX: Menggunakan h-dvh agar pas dengan layar (menghilangkan double scroll)
-    // FIX: Menambahkan utility untuk menyembunyikan scrollbar visual
-    <section className="relative w-full h-dvh overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+    <section className="relative w-full h-screen pt-20">
       {/* Background */}
       <div
         className="absolute inset-0 bg-cover bg-center"
@@ -31,8 +23,6 @@ const Hero = ({ t }) => {
           transform: "translateY(calc(-50% - 2.5rem))",
         }}
         data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="200"
       >
         {/* FIX: Typo text-4x1 diubah menjadi text-4xl */}
         <h1 className="text-4xl md:text-5xl font-bold mb-4 max-w-xl leading-tight min-h-[110px] md:min-h-[140px]">
