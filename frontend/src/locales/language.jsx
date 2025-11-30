@@ -3,17 +3,16 @@ import React, { createContext, useState, useEffect } from "react";
 const LanguageContext = createContext(); // ✅ Gunakan const biasa
 
 const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState("INDONESIA");
+  const [language, setLanguage] = useState(() => {
+    // Gunakan key baru 'preferredLanguage' agar reset untuk semua user
+    // Default ke INDONESIA untuk pengunjung pertama kali atau yang belum set
+    const savedLang = localStorage.getItem("preferredLanguage");
+    return savedLang || "INDONESIA";
+  });
 
+  // Simpan ke localStorage setiap kali bahasa berubah
   useEffect(() => {
-    const savedLang = localStorage.getItem("language");
-    if (savedLang) {
-      setLanguage(savedLang);
-    }
-  }, []);
-
-  useEffect(() => {
-    localStorage.setItem("language", language);
+    localStorage.setItem("preferredLanguage", language);
   }, [language]);
 
   return (
