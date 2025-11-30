@@ -1,14 +1,7 @@
 {
-  "buildCommand": "npm install && npm run build",
-  "outputDirectory": "dist",
-  "devCommand": "npm run dev",
-  "installCommand": "npm install",
-  "framework": "vite",
-  "cleanUrls": false,
-  "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
@@ -27,10 +20,6 @@
         {
           "key": "X-XSS-Protection",
           "value": "1; mode=block"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
         }
       ]
     },
@@ -43,11 +32,5 @@
         }
       ]
     }
-  ],
-  "regions": ["sin1"],
-  "env": {
-    "VITE_USE_MOCK_API": "true",
-    "VITE_API_URL": "/mock-api",
-    "VITE_DEV_MODE": "false"
-  }
+  ]
 }
