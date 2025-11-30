@@ -65,7 +65,7 @@ export const serviceTranslations = {
 
     serviceCard3Title: "Layanan Penunjang & Sewa Peralatan",
     serviceCard3Desc:
-      "Menawarkan aktivitas penyewaan alat transportasi darat dan berat, penyediaan sumber daya manusia, serta berbagai jasa penunjang lainnya untuk optimalisasi proyek Anda",
+      "Menawarkan aktivitas penyewaan alat transportasi darat dan berat, penyediaan sumber daya manusia, serta berbagai jasa penunjang lainnya untuk optimalisasi proyek Anda.",
 
     // ===== TOOLS SECTION =====
     toolsTitle: "Solusi Terlengkap untuk Kebutuhan Alat Berat Proyek Anda",

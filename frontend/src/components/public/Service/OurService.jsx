@@ -95,11 +95,11 @@ const OurService = ({ t }) => {
 
             {/* Isi Kartu */}
             <div
-              className="px-6 pt-16 pb-10 text-center rounded-b-xl grow min-h-[190px] flex flex-col justify-center transition-colors duration-300"
+              className="px-6 pt-16 pb-10 text-center rounded-b-xl grow flex flex-col justify-center transition-colors duration-300"
               style={{ color: "var(--color-card-text)" }}
             >
               <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-              <p className="text-sm">{item.description}</p>
+              <p className="text-sm leading-relaxed">{item.description}</p>
             </div>
           </div>
         ))}
