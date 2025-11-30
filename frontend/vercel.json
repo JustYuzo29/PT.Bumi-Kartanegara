@@ -50,11 +50,6 @@
     }
   ],
   "regions": ["sin1"],
-  "functions": {
-    "api/**/*.js": {
-      "maxDuration": 10
-    }
-  },
   "env": {
     "VITE_USE_MOCK_API": "true",
     "VITE_API_URL": "/mock-api",
