@@ -1,26 +1,5 @@
-# Dependencies
-node_modules
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-
 # Backend (not needed for frontend-only deployment)
 backend/
-*.py
-*.pyc
-__pycache__/
-*.pyo
-*.pyd
-.Python
-*.so
-*.egg
-*.egg-info
-dist-python/
-build-python/
-*.sqlite3
-*.db
 
 # Environment files
 .env
@@ -28,31 +7,21 @@ build-python/
 .env.development.local
 .env.test.local
 .env.production.local
-*.env
 
 # IDE
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
-.DS_Store
-
-# Testing
-coverage/
-*.log
-
-# Documentation
-*.md
-!README.md
 
 # Git
 .git/
-.gitignore
-.gitattributes
 
-# Other
-*.bak
-*.tmp
-*.temp
-.cache/
+# Documentation (only root level)
+/DEPLOYMENT.md
+/DEPLOYMENT_SUMMARY.md
+/FRONTEND_CLEAN_SUMMARY.md
+/MULTI_LANGUAGE_IMPLEMENTATION.md
+/QUICK_DEPLOY.md
+/README_FIXES.md
+/VERCEL_ERRORS.md
+/pre-deploy-check.ps1
+/pre-deploy-check.sh
