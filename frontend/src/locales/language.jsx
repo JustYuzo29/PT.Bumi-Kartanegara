@@ -3,16 +3,18 @@ import React, { createContext, useState, useEffect } from "react";
 const LanguageContext = createContext(); // ✅ Gunakan const biasa
 
 const LanguageProvider = ({ children }) => {
-  const [language, setLanguage] = useState("ENGLISH");
+  const [language, setLanguage] = useState("INDONESIA");
 
   useEffect(() => {
-    const userLang = navigator.language || navigator.userLanguage;
-    if (userLang.toLowerCase().startsWith("id")) {
-      setLanguage("INDONESIA");
-    } else {
-      setLanguage("ENGLISH");
+    const savedLang = localStorage.getItem("language");
+    if (savedLang) {
+      setLanguage(savedLang);
     }
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("language", language);
+  }, [language]);
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage }}>
