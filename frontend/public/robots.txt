@@ -1,0 +1,11 @@
+# robots.txt for bumikartanegara.com
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://bumikartanegara.com/sitemap.xml
+
+# Disallow admin areas
+Disallow: /admin/
+Disallow: /staff/
+Disallow: /login/
