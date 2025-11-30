@@ -124,8 +124,8 @@ const Navbar = () => {
           </button>
 
           {openDropdown && (
-            <div className="absolute right-0 mt-2 w-28 shadow-md rounded-md text-[12px] overflow-hidden z-50 bg-white dark:bg-[#00022C]">
-              {["ENGLISH", "INDONESIA"].map((lang) => (
+            <div className="absolute right-0 mt-2 w-40 shadow-md rounded-md text-[12px] overflow-hidden z-50 bg-white dark:bg-[#00022C] max-h-60 overflow-y-auto">
+              {["ENGLISH", "INDONESIA", "MANDARIN", "JAPANESE", "KOREAN", "SPANISH", "FRENCH", "GERMAN", "ARABIC", "PORTUGUESE", "RUSSIAN", "HINDI"].map((lang) => (
                 <button
                   key={lang}
                   onClick={() => handleLanguageChange(lang)}
@@ -184,8 +184,8 @@ const Navbar = () => {
               </button>
 
               {openDropdown && (
-                <div className="mt-2 w-full shadow-md rounded-md text-[12px] overflow-hidden bg-white dark:bg-[#00022C]">
-                  {["ENGLISH", "INDONESIA"].map((lang) => (
+                <div className="mt-2 w-full shadow-md rounded-md text-[12px] overflow-hidden bg-white dark:bg-[#00022C] max-h-60 overflow-y-auto">
+                  {["ENGLISH", "INDONESIA", "MANDARIN", "JAPANESE", "KOREAN", "SPANISH", "FRENCH", "GERMAN", "ARABIC", "PORTUGUESE", "RUSSIAN", "HINDI"].map((lang) => (
                     <button
                       key={lang}
                       onClick={() => handleLanguageChange(lang)}
