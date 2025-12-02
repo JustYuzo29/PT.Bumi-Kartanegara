@@ -5,10 +5,10 @@ import "aos/dist/aos.css";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 
-import BgJourney from "../../../assets/company/Bg-Journey.png";
-import Oj1 from "../../../assets/company/Oj1.jpg";
-import Oj2 from "../../../assets/company/Oj2.png";
-import Oj3 from "../../../assets/company/Oj3.png";
+import BgJourney from "../../../assets/company/Bg-Journey.webp";
+import Oj1 from "../../../assets/company/Oj1.webp";
+import Oj2 from "../../../assets/company/Oj2.webp";
+import Oj3 from "../../../assets/company/Oj3.webp";
 
 const imageMap = { Oj1, Oj2, Oj3 };
 

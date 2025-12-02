@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Bg from "../../../assets/company/Oj1.jpg";
-import Visi from "../../../assets/company/About1.jpg";
-import Misi from "../../../assets/company/Bg-Journey.png";
+import Bg from "../../../assets/company/Oj1.webp";
+import Visi from "../../../assets/company/About1.webp";
+import Misi from "../../../assets/company/Bg-Journey.webp";
 
 const VM = ({ t }) => {
   useEffect(() => {

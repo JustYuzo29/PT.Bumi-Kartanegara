@@ -1,11 +1,11 @@
 import React from "react";
 
-import Partner from "../../../assets/company/Partner.jpg";
-import About1 from "../../../assets/company/About1.jpg";
-import About2 from "../../../assets/company/About2.png";
-import Oj1 from "../../../assets/company/Oj1.jpg";
-import GalleryImg from "../../../assets/company/Gallery.png";
-import Oj3 from "../../../assets/company/Oj3.png";
+import Partner from "../../../assets/company/Partner.webp";
+import About1 from "../../../assets/company/About1.webp";
+import About2 from "../../../assets/company/About2.webp";
+import Oj1 from "../../../assets/company/Oj1.webp";
+import GalleryImg from "../../../assets/company/Gallery.webp";
+import Oj3 from "../../../assets/company/Oj3.webp";
 
 const images = [Partner, About1, About2, Oj1, GalleryImg, Oj3];
 

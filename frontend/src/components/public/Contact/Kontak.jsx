@@ -1,6 +1,6 @@
 import React from "react";
-import Wa from "../../../assets/company/Whatsapp.png";
-import Gmail from "../../../assets/company/Gmail.png";
+import Wa from "../../../assets/company/Whatsapp.webp";
+import Gmail from "../../../assets/company/Gmail.webp";
 
 const Kontak = ({ t }) => {
   return (

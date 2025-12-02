@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "aos/dist/aos.css";
 import AOS from "aos";
-import HeroImg from "../../../assets/company/About3.png";
+import HeroImg from "../../../assets/company/About3.webp";
 
 const Hero = ({ t }) => {
   useEffect(() => {

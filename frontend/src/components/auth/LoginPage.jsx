@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import businessTeamImage from "../../assets/company/Hero.png";
+import businessTeamImage from "../../assets/company/Hero.webp";
 import axios from "axios";
 
 export default function LoginPage() {

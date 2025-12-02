@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import HeroImage from "../../../assets/company/Hero.png";
+import HeroImage from "../../../assets/company/Hero.webp";
 
 const Hero = ({ t }) => (
   <section className="relative w-full h-screen pt-20">

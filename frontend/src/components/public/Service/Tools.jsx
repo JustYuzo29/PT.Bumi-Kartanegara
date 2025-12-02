@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import Alat1 from "../../../assets/company/Bg-Journey.png";
-import Alat2 from "../../../assets/company/Oj2.png";
+import Alat1 from "../../../assets/company/Bg-Journey.webp";
+import Alat2 from "../../../assets/company/Oj2.webp";
 
 const Tools = ({ t }) => {
   useEffect(() => {

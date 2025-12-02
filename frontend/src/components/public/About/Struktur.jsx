@@ -4,10 +4,10 @@ import "aos/dist/aos.css";
 import { LanguageContext } from "../../../locales/language";
 import { aboutTranslations } from "../../../locales/about";
 
-import Struktur0 from "../../../assets/company/Struktur0.jpg";
-import Struktur1 from "../../../assets/company/Struktur1.jpg";
-import Struktur2 from "../../../assets/company/Struktur2.jpg";
-import Struktur3 from "../../../assets/company/Struktur3.jpg";
+import Struktur0 from "../../../assets/company/Struktur0.webp";
+import Struktur1 from "../../../assets/company/Struktur1.webp";
+import Struktur2 from "../../../assets/company/Struktur2.webp";
+import Struktur3 from "../../../assets/company/Struktur3.webp";
 
 const Struktur = () => {
   const { language } = useContext(LanguageContext);

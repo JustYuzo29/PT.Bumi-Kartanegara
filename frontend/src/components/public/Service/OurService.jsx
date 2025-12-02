@@ -8,9 +8,9 @@ import {
   BuildingOffice2Icon,
 } from "@heroicons/react/24/solid";
 
-import Img1 from "../../../assets/company/HeroAbout.png";
-import Img2 from "../../../assets/company/Gallery.png";
-import Img3 from "../../../assets/company/Oj2.png";
+import Img1 from "../../../assets/company/HeroAbout.webp";
+import Img2 from "../../../assets/company/Gallery.webp";
+import Img3 from "../../../assets/company/Oj2.webp";
 
 const OurService = ({ t }) => {
   useEffect(() => {

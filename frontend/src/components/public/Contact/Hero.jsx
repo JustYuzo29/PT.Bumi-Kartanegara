@@ -1,7 +1,7 @@
 import React from "react";
 
-import BgContact from "../../../assets/company/Contact.png";
-import MapOverlay from "../../../assets/company/Indonesia.png";
+import BgContact from "../../../assets/company/Contact.webp";
+import MapOverlay from "../../../assets/company/Indonesia.webp";
 
 const Hero = ({ t }) => {
   return (

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import AboutImage from "../../../assets/company/About3.png";
+import AboutImage from "../../../assets/company/About3.webp";
 
 const Tentang = ({ t }) => {
   useEffect(() => {

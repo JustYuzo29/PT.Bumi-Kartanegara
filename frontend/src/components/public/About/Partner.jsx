@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import BgPartner from "../../../assets/company/Oj2.png";
-import Img1 from "../../../assets/company/Partner.jpg";
-import ImgComingSoon from "../../../assets/company/HeroAbout.png";
+import BgPartner from "../../../assets/company/Oj2.webp";
+import Img1 from "../../../assets/company/Partner.webp";
+import ImgComingSoon from "../../../assets/company/HeroAbout.webp";
 
 const Partner = ({ t }) => {
   useEffect(() => {

@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import HeroAbout from "../../../assets/company/HeroAbout.png";
-import Hero1 from "../../../assets/company/Oj1.jpg";
-import Hero2 from "../../../assets/company/About1.jpg";
+import HeroAbout from "../../../assets/company/HeroAbout.webp";
+import Hero1 from "../../../assets/company/Oj1.webp";
+import Hero2 from "../../../assets/company/About1.webp";
 
 const Hero = ({ t }) => {
   useEffect(() => {

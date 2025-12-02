@@ -2,8 +2,8 @@ import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import About1 from "../../../assets/company/About1.jpg";
-import About2 from "../../../assets/company/About2.png";
+import About1 from "../../../assets/company/About1.webp";
+import About2 from "../../../assets/company/About2.webp";
 
 const About = ({ t }) => {
   useEffect(() => {

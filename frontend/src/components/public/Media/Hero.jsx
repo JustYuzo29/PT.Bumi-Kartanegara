@@ -1,5 +1,5 @@
 import React from "react";
-import BgImage from "../../../assets/company/Bg-Journey.png";
+import BgImage from "../../../assets/company/Bg-Journey.webp";
 
 const Hero = ({ t }) => {
   return (
